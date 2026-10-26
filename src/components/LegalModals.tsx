@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Shield, Lock } from 'lucide-react';
 import { FIRM_DETAILS } from '../data/firmData';
 
@@ -8,13 +8,32 @@ interface LegalModalsProps {
 }
 
 export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (type) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [type, onClose]);
+
   if (!type) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div 
-        className="bg-white rounded-2xl max-w-2xl w-full shadow-elevated border border-[#E8E4DB] overflow-hidden relative"
+        className="bg-white rounded-2xl max-w-2xl w-full shadow-elevated border border-[#EAE5DB] overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
       >
         <div className="bg-navy-950 text-white p-6 sm:p-7 flex items-center justify-between border-b border-navy-850">
           <div className="flex items-center gap-3.5">
@@ -30,7 +49,7 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-navy-900 hover:bg-navy-850 text-charcoal-300 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg bg-navy-900 hover:bg-navy-850 text-charcoal-300 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -80,10 +99,10 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
           )}
         </div>
 
-        <div className="bg-[#FAF8F3] p-4 sm:p-5 border-t border-[#E8E4DB] text-right">
+        <div className="bg-[#FAF8F3] p-4 sm:p-5 border-t border-[#EAE5DB] text-right">
           <button
             onClick={onClose}
-            className="px-5 py-2 text-xs font-semibold rounded-md bg-navy-900 text-gold-300 hover:bg-navy-850 transition-colors uppercase tracking-wider"
+            className="px-5 py-2 text-xs font-semibold rounded-lg bg-navy-950 text-gold-300 hover:bg-navy-900 transition-colors uppercase tracking-wider cursor-pointer"
           >
             Acknowledge &amp; Close
           </button>

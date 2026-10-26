@@ -4,7 +4,9 @@ import {
   MessageSquare, 
   Building, 
   PhoneCall, 
-  Quote 
+  Quote,
+  Shield,
+  Scale
 } from 'lucide-react';
 import { FIRM_DETAILS } from '../data/firmData';
 
@@ -13,31 +15,35 @@ export const WhyUs: React.FC = () => {
     {
       numeral: "I",
       icon: Users2,
-      title: "Collaborative Synergy",
-      desc: "Our advocates pool multi-disciplinary perspectives across criminal trial advocacy, civil litigation, academic jurisprudence, and corporate advisory to build comprehensive strategies with zero blind spots."
+      title: "Prosecutorial & Defence Acumen",
+      subtitle: "Multi-Disciplinary Forensic Synergy",
+      desc: "Our trial counsel pool firsthand experience assisting Special Prosecutors for the NCB, ED, SFIO, and CBIC. We analyze cases with an insider's forensic understanding of prosecution strategy, evidentiary vulnerabilities, and statutory compliance."
     },
     {
       numeral: "II",
       icon: MessageSquare,
-      title: "Clarity Over Jargon",
-      desc: "We translate complex procedural rules and evidentiary standards into plain, actionable advice — ensuring clients remain empowered, informed, and in control of key tactical decisions."
+      title: "Direct Arguing Counsel",
+      subtitle: "Zero Bureaucratic Dilution",
+      desc: "We operate on a strict principle: the advocates who brief your matter are the exact advocates who argue before the bench. You receive direct access to courtroom trial counsel without junior associate filters."
     },
     {
       numeral: "III",
       icon: Building,
-      title: "Patiala House Epicenter",
-      desc: "Located directly inside Chamber 238 at Patiala House Courts, our advocates operate within immediate physical proximity to Delhi High Court, Supreme Court, and central enforcement tribunals."
+      title: "Epicenter at Patiala House",
+      subtitle: "Chamber 238, New Delhi",
+      desc: "Operating directly from Chamber 238 inside Patiala House Courts grants our advocates instantaneous physical access to special statutory courts, Delhi High Court, and the Supreme Court for emergency stay applications and bail listings."
     },
     {
       numeral: "IV",
-      icon: PhoneCall,
-      title: "Direct Access to Counsel",
-      desc: "Direct communication with arguing counsel and partners without bureaucratic intermediary layers — especially vital during urgent bail listings, injunctions, and stay petitions."
+      icon: Shield,
+      title: "Uncompromising Privilege",
+      subtitle: "Section 126, Indian Evidence Act",
+      desc: "Every interaction, consultation, and case document entrusted to Synergy Chambers is strictly safeguarded under statutory attorney-client privilege, maintaining absolute professional discretion."
     }
   ];
 
   return (
-    <section id="why-us" className="py-20 lg:py-28 bg-[#F5F2EB] text-navy-950 relative border-b border-[#E8E4DB]">
+    <section id="why-us" className="py-20 lg:py-28 bg-[#F5F2EB] text-navy-950 relative border-b border-[#EAE5DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -47,10 +53,10 @@ export const WhyUs: React.FC = () => {
             <span>The Chambers Distinction</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy-950 mb-6 leading-tight">
-            Why Synergy Chambers?
+            Four Pillars of Advocacy
           </h2>
           <p className="text-base sm:text-lg text-charcoal-600 leading-relaxed font-normal">
-            Great legal counsel starts with genuinely understanding what matters to you. We work as one cohesive unit to deliver well-rounded, practical solutions — not merely abstract opinions.
+            Great legal counsel starts with deep factual grasp, meticulous procedural strategy, and fearless courtroom advocacy. Our practice is anchored in four core principles.
           </p>
         </div>
 
@@ -61,32 +67,45 @@ export const WhyUs: React.FC = () => {
             return (
               <div 
                 key={idx}
-                className="bg-white rounded-2xl p-8 sm:p-9 border border-[#E8E4DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all group relative overflow-hidden"
+                className="bg-white rounded-2xl p-8 sm:p-9 border border-[#EAE5DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all group relative overflow-hidden flex flex-col justify-between"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700 group-hover:bg-navy-900 group-hover:text-gold-400 group-hover:border-navy-800 transition-colors">
-                    <Icon className="w-5 h-5" />
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700 group-hover:bg-navy-900 group-hover:text-gold-400 group-hover:border-navy-800 transition-colors">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="font-display text-2xl font-bold text-charcoal-300 group-hover:text-gold-600 transition-colors">
+                      {pillar.numeral}
+                    </span>
                   </div>
-                  <span className="font-display text-2xl font-bold text-charcoal-300 group-hover:text-gold-600/60 transition-colors">
-                    {pillar.numeral}
+                  
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-gold-700 block mb-1">
+                    {pillar.subtitle}
                   </span>
+                  <h3 className="font-serif text-2xl font-bold text-navy-950 mb-3 group-hover:text-gold-700 transition-colors">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-charcoal-600 text-sm leading-relaxed">
+                    {pillar.desc}
+                  </p>
                 </div>
-                
-                <h3 className="font-serif text-2xl font-bold text-navy-950 mb-3 group-hover:text-gold-700 transition-colors">
-                  {pillar.title}
-                </h3>
-                <p className="text-charcoal-600 text-sm leading-relaxed">
-                  {pillar.desc}
-                </p>
+
+                <div className="pt-6 mt-6 border-t border-[#F0ECE2] flex items-center justify-between text-xs text-charcoal-400">
+                  <span>Advocates &amp; Solicitors</span>
+                  <span className="text-gold-600 font-semibold group-hover:translate-x-1 transition-transform">Pillar {pillar.numeral} &rarr;</span>
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Editorial Philosophical Quote Banner */}
-        <div className="mt-16 bg-navy-950 rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden border border-navy-800">
-          <Quote className="absolute right-6 bottom-4 w-28 h-28 text-white/[0.04] pointer-events-none" />
+        {/* Judicial Parchment Plaque Banner */}
+        <div className="mt-16 bg-navy-950 rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden border border-navy-850 shadow-elevated">
+          <Quote className="absolute right-6 bottom-4 w-32 h-32 text-white/[0.03] pointer-events-none" />
           <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
+            <div className="w-8 h-8 rounded-full bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400 mx-auto">
+              <Scale className="w-4 h-4" />
+            </div>
             <p className="font-serif text-2xl sm:text-3xl italic text-charcoal-100 leading-relaxed font-normal">
               &ldquo;{FIRM_DETAILS.quote.text}&rdquo;
             </p>
@@ -94,8 +113,8 @@ export const WhyUs: React.FC = () => {
               <span className="font-display text-xs uppercase tracking-widest text-gold-400 font-semibold block">
                 — {FIRM_DETAILS.quote.author}
               </span>
-              <span className="text-xs text-charcoal-400">
-                Core philosophical touchstone of our courtroom practice
+              <span className="text-xs text-charcoal-400 mt-0.5 block">
+                The philosophical touchstone guiding our trial preparation and courtroom advocacy
               </span>
             </div>
           </div>

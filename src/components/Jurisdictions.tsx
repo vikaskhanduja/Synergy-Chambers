@@ -1,10 +1,10 @@
 import React from 'react';
-import { Landmark, MapPin, CheckCircle } from 'lucide-react';
+import { Landmark, MapPin, CheckCircle, Scale } from 'lucide-react';
 import { JURISDICTIONS } from '../data/firmData';
 
 export const Jurisdictions: React.FC = () => {
   return (
-    <section id="jurisdictions" className="py-20 lg:py-28 bg-[#F5F2EB] border-b border-[#E8E4DB]">
+    <section id="jurisdictions" className="py-20 lg:py-28 bg-[#F5F2EB] border-b border-[#EAE5DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -17,7 +17,7 @@ export const Jurisdictions: React.FC = () => {
             Judicial Jurisdictions
           </h2>
           <p className="text-base sm:text-lg text-charcoal-600 leading-relaxed font-normal">
-            From the Supreme Court of India and appellate High Courts to specialized economic tribunals and district sessions benches, Synergy Chambers maintains an active, multi-forum presence.
+            From the Supreme Court of India and High Courts to specialized economic tribunals and district sessions benches, Synergy Chambers maintains an active, multi-forum presence across North India.
           </p>
         </div>
 
@@ -26,11 +26,11 @@ export const Jurisdictions: React.FC = () => {
           {JURISDICTIONS.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#E8E4DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#EAE5DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-[#F0ECE2] mb-5">
-                  <div className="w-11 h-11 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center shadow-subtle">
+                  <div className="w-11 h-11 rounded-xl bg-navy-950 text-gold-400 flex items-center justify-center shadow-subtle">
                     <Landmark className="w-5 h-5" />
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2.5 py-1 rounded border border-gold-200">
@@ -61,7 +61,7 @@ export const Jurisdictions: React.FC = () => {
               </div>
 
               <div className="pt-6 mt-6 border-t border-[#F0ECE2] text-xs text-charcoal-500">
-                Full trial preparation, drafting, filing, and physical/virtual appearances.
+                Full courtroom trial management, filing, arguments, and virtual/hybrid appearances.
               </div>
             </div>
           ))}

@@ -3,7 +3,10 @@ import {
   Building2, 
   MapPin, 
   GraduationCap, 
-  ChevronRight
+  ChevronRight,
+  ArrowRight,
+  BookOpen,
+  Award
 } from 'lucide-react';
 import { CHANDIGARH_TEAM, HARYANA_TEAM } from '../data/firmData';
 
@@ -15,7 +18,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
   const [activeTab, setActiveTab] = useState<'chandigarh' | 'haryana'>('chandigarh');
 
   return (
-    <section id="regional-team" className="py-20 lg:py-28 bg-[#FBF9F5] border-b border-[#E8E4DB]">
+    <section id="regional-team" className="py-20 lg:py-28 bg-[#FBF9F5] border-b border-[#EAE5DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -29,17 +32,17 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
               Regional Legal Teams
             </h2>
             <p className="text-sm sm:text-base text-charcoal-600 mt-4 leading-relaxed font-normal">
-              Extending the firm&apos;s collaborative litigation practice across the Punjab &amp; Haryana High Court, regional administrative tribunals, and district sessions courts.
+              Extending the firm&apos;s collaborative trial and appellate practice across the Punjab &amp; Haryana High Court, regional tribunals, and district sessions courts.
             </p>
           </div>
 
           {/* Regional Selector Tabs */}
-          <div className="flex items-center bg-white p-1 rounded-xl border border-[#E8E4DB] shadow-subtle self-start md:self-auto">
+          <div className="flex items-center bg-white p-1 rounded-xl border border-[#EAE5DB] shadow-subtle self-start md:self-auto">
             <button
               onClick={() => setActiveTab('chandigarh')}
-              className={`px-5 py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
+              className={`px-5 py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'chandigarh'
-                  ? 'bg-navy-900 text-gold-300 shadow-subtle'
+                  ? 'bg-navy-950 text-gold-300 shadow-subtle'
                   : 'text-charcoal-600 hover:text-navy-950'
               }`}
             >
@@ -48,9 +51,9 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
             </button>
             <button
               onClick={() => setActiveTab('haryana')}
-              className={`px-5 py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
+              className={`px-5 py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'haryana'
-                  ? 'bg-navy-900 text-gold-300 shadow-subtle'
+                  ? 'bg-navy-950 text-gold-300 shadow-subtle'
                   : 'text-charcoal-600 hover:text-navy-950'
               }`}
             >
@@ -63,7 +66,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
         {/* Chandigarh Team Content */}
         {activeTab === 'chandigarh' && (
           <div id="team-chandigarh" className="space-y-8 animate-in fade-in duration-200">
-            <div className="bg-navy-950 text-white rounded-2xl p-6 sm:p-8 border border-navy-800 shadow-elevated">
+            <div className="bg-navy-950 text-white rounded-2xl p-6 sm:p-8 border border-navy-850 shadow-elevated">
               <div className="max-w-3xl space-y-2">
                 <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold block">
                   Regional Jurisdiction
@@ -72,7 +75,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                   Chandigarh High Court &amp; Central Administrative Tribunal
                 </h3>
                 <p className="text-charcoal-300 text-xs sm:text-sm leading-relaxed font-light">
-                  Synergy Chambers extends its practice to Chandigarh, offering dedicated legal representation across the region&apos;s courts and tribunals with local courtroom experience and academic legal research.
+                  Synergy Chambers maintains active litigation practice in Chandigarh, representing clients before the High Court of Punjab &amp; Haryana, Central Administrative Tribunal (CAT), Armed Forces Tribunal (AFT), and regional commercial tribunals.
                 </p>
               </div>
             </div>
@@ -81,7 +84,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
               {CHANDIGARH_TEAM.map((lawyer) => (
                 <div
                   key={lawyer.id}
-                  className="bg-white rounded-2xl p-8 border border-[#E8E4DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-2xl p-8 border border-[#EAE5DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
                 >
                   <div className="space-y-6">
                     <div>
@@ -98,44 +101,40 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                     </div>
 
                     {/* Qualifications */}
-                    <div className="space-y-1.5 pt-2 border-t border-[#F0ECE2]">
+                    <div className="space-y-1.5 bg-[#FAF8F3] p-4 rounded-xl border border-[#EAE5DB]">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-1">
-                        Qualifications &amp; Education
+                        Academic Standing
                       </span>
-                      {lawyer.qualifications.map((q, qIdx) => (
-                        <div key={qIdx} className="text-xs text-charcoal-700 flex items-start gap-2">
-                          <GraduationCap className="w-4 h-4 text-gold-600 shrink-0 mt-0.5" />
+                      {lawyer.qualifications.map((q, idx) => (
+                        <div key={idx} className="text-xs text-charcoal-800 flex items-center gap-2">
+                          <BookOpen className="w-3.5 h-3.5 text-gold-600 shrink-0" />
                           <span>{q}</span>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-charcoal-600 text-xs sm:text-sm leading-relaxed line-clamp-4 font-normal">
+                    {/* Bio */}
+                    <p className="text-charcoal-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
                       {lawyer.bio}
                     </p>
 
                     {/* Practice Focus tags */}
-                    <div className="pt-2">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-2">
-                        Key Practice Focus
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {lawyer.practiceFocus.slice(0, 3).map((f, fIdx) => (
-                          <span key={fIdx} className="text-[11px] bg-[#FAF8F3] text-charcoal-800 px-2.5 py-1 rounded-md border border-[#E8E4DB]">
-                            {f}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {lawyer.practiceFocus.slice(0, 3).map((focus, fIdx) => (
+                        <span key={fIdx} className="text-[11px] px-2.5 py-1 rounded bg-gold-50 text-gold-800 border border-gold-200">
+                          {focus}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
                   <div className="pt-6 mt-6 border-t border-[#F0ECE2]">
                     <button
                       onClick={() => onSelectLawyer(lawyer.id)}
-                      className="text-xs font-semibold text-navy-950 hover:text-gold-700 flex items-center gap-1.5 transition-colors"
+                      className="w-full py-2.5 px-4 rounded-xl bg-navy-950 hover:bg-gold-500 text-gold-300 hover:text-navy-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-subtle"
                     >
-                      <span>Read Complete Profile</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <span>Review Professional Docket</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -147,16 +146,16 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
         {/* Haryana Team Content */}
         {activeTab === 'haryana' && (
           <div id="team-haryana" className="space-y-8 animate-in fade-in duration-200">
-            <div className="bg-navy-950 text-white rounded-2xl p-6 sm:p-8 border border-navy-800 shadow-elevated">
+            <div className="bg-navy-950 text-white rounded-2xl p-6 sm:p-8 border border-navy-850 shadow-elevated">
               <div className="max-w-3xl space-y-2">
                 <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold block">
-                  District &amp; Sessions Practice
+                  District Network
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-white">
-                  Haryana District &amp; Sessions Courts Network
+                  Haryana District &amp; Sessions Courts Practice
                 </h3>
                 <p className="text-charcoal-300 text-xs sm:text-sm leading-relaxed font-light">
-                  Synergy Chambers extends its practice beyond Delhi with a dedicated team based in Haryana, bringing local courtroom experience and prompt, focused advocacy to district and sessions courts from Karnal to Rewari, Gurugram, and Panipat.
+                  Providing verified trial representation across Haryana&apos;s key districts including Karnal, Rewari, Gurugram, Faridabad, Panipat, and Rohtak in civil suits, land tenure disputes, bail proceedings, and regulatory consumer forums.
                 </p>
               </div>
             </div>
@@ -165,34 +164,34 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
               {HARYANA_TEAM.map((lawyer) => (
                 <div
                   key={lawyer.id}
-                  className="bg-white rounded-2xl p-6 border border-[#E8E4DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-2xl p-6 border border-[#EAE5DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2 py-0.5 rounded border border-gold-200 inline-block mb-1.5">
-                        Advocate
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2 py-0.5 rounded border border-gold-200 inline-block mb-2">
+                        District Advocate
                       </span>
                       <h4 className="font-serif text-xl font-bold text-navy-950 group-hover:text-gold-700 transition-colors">
                         {lawyer.name}
                       </h4>
-                      <p className="text-[11px] text-charcoal-500 mt-1 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-gold-600 shrink-0" />
+                      <p className="text-xs text-charcoal-500 mt-1 flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-gold-600 shrink-0" />
                         <span className="line-clamp-1">{lawyer.location}</span>
                       </p>
                     </div>
 
-                    <p className="text-charcoal-600 text-xs leading-relaxed line-clamp-3 font-normal">
+                    <p className="text-charcoal-600 text-xs leading-relaxed line-clamp-3">
                       {lawyer.bio}
                     </p>
 
-                    <div className="space-y-1.5 pt-2 border-t border-[#F0ECE2]">
+                    <div className="space-y-1 pt-2 border-t border-[#F0ECE2]">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-1">
-                        Practice Focus
+                        Core Focus
                       </span>
-                      {lawyer.practiceFocus.slice(0, 3).map((f, fIdx) => (
+                      {lawyer.practiceFocus.slice(0, 2).map((focus, fIdx) => (
                         <div key={fIdx} className="text-xs text-charcoal-700 flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-gold-500 shrink-0" />
-                          <span>{f}</span>
+                          <span className="w-1 h-1 rounded-full bg-gold-600" />
+                          <span className="line-clamp-1">{focus}</span>
                         </div>
                       ))}
                     </div>
@@ -201,9 +200,9 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                   <div className="pt-4 mt-4 border-t border-[#F0ECE2]">
                     <button
                       onClick={() => onSelectLawyer(lawyer.id)}
-                      className="text-xs font-semibold text-navy-950 hover:text-gold-700 flex items-center gap-1 transition-colors"
+                      className="w-full py-2 px-3 rounded-lg bg-gold-50 hover:bg-gold-500 hover:text-navy-950 text-gold-800 text-[11px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                     >
-                      <span>View Profile</span>
+                      <span>View Bio</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   </div>

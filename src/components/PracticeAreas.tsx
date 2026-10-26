@@ -10,9 +10,11 @@ import {
   Briefcase, 
   FileCheck,
   ArrowRight,
-  Search
+  Search,
+  X,
+  ChevronRight
 } from 'lucide-react';
-import { PRACTICE_AREAS } from '../data/firmData';
+import { PRACTICE_AREAS, PracticeArea } from '../data/firmData';
 
 interface PracticeAreasProps {
   onSelectPractice: (id: string) => void;
@@ -38,11 +40,11 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
   };
 
   const categories = [
-    { id: 'all', label: 'All Practice Areas' },
-    { id: 'litigation', label: 'Criminal & Trial Advocacy' },
-    { id: 'regulatory', label: 'White Collar & Regulatory' },
-    { id: 'civil-adr', label: 'Civil, ADR & Property' },
-    { id: 'corporate', label: 'Corporate & Employment' },
+    { id: 'all', label: 'All Practice Areas', count: 9 },
+    { id: 'criminal', label: 'Criminal & Trial Advocacy', count: 2 },
+    { id: 'regulatory', label: 'White-Collar & Regulatory', count: 2 },
+    { id: 'civil-adr', label: 'Civil, ADR & Property', count: 3 },
+    { id: 'corporate', label: 'Corporate & Employment', count: 2 },
   ];
 
   const filteredPractices = PRACTICE_AREAS.filter((practice) => {
@@ -51,27 +53,28 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
       practice.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       practice.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
       practice.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      practice.keyServices.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()));
+      practice.keyServices.some(s => s.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      practice.courtRepresentation.some(c => c.toLowerCase().includes(searchQuery.toLowerCase()));
 
     // Category filter
     if (selectedCategory === 'all') return matchesSearch;
-    if (selectedCategory === 'litigation') {
+    if (selectedCategory === 'criminal') {
       return matchesSearch && (practice.id === 'criminal-litigation' || practice.id === 'white-collar-crimes');
     }
     if (selectedCategory === 'regulatory') {
       return matchesSearch && (practice.id === 'white-collar-crimes' || practice.id === 'service-matters');
     }
     if (selectedCategory === 'civil-adr') {
-      return matchesSearch && (practice.id === 'civil-litigation' || practice.id === 'arbitration-adr' || practice.id === 'property-disputes' || practice.id === 'matrimonial');
+      return matchesSearch && (practice.id === 'civil-litigation' || practice.id === 'arbitration-adr' || practice.id === 'property-disputes');
     }
     if (selectedCategory === 'corporate') {
-      return matchesSearch && (practice.id === 'corporate-commercial' || practice.id === 'labour-employment' || practice.id === 'service-matters');
+      return matchesSearch && (practice.id === 'corporate-commercial' || practice.id === 'labour-employment' || practice.id === 'matrimonial');
     }
     return matchesSearch;
   });
 
   return (
-    <section id="practices" className="py-20 lg:py-28 bg-[#FBF9F5] text-navy-950 relative border-b border-[#E8E4DB]">
+    <section id="practices" className="py-20 lg:py-28 bg-[#FBF9F5] text-navy-950 relative border-b border-[#EAE5DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -81,112 +84,136 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
             <span>Comprehensive Legal Practice</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy-950 mb-6 leading-tight">
-            Practice Areas &amp; Legal Services
+            Practice Areas &amp; Court Representation
           </h2>
           <p className="text-base sm:text-lg text-charcoal-600 leading-relaxed font-normal">
-            Our advocates represent private individuals, corporate leaders, and institutional clients across verified legal domains in trial courts, High Courts, and appellate tribunals.
+            Our trial advocates and solicitors represent private clients, corporations, and statutory entities across verified legal fields in trial courts, High Courts, and appellate tribunals.
           </p>
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#E8E4DB]">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EAE5DB]">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
                   selectedCategory === cat.id
-                    ? 'bg-navy-900 text-gold-300 shadow-subtle'
-                    : 'bg-white text-charcoal-600 border border-[#E8E4DB] hover:border-gold-400 hover:text-navy-950'
+                    ? 'bg-navy-950 text-gold-300 shadow-subtle border border-gold-500/30'
+                    : 'bg-white text-charcoal-700 hover:text-navy-950 border border-[#EAE5DB] hover:border-gold-300'
                 }`}
               >
-                {cat.label}
+                <span>{cat.label}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                  selectedCategory === cat.id ? 'bg-gold-500/20 text-gold-300' : 'bg-charcoal-100 text-charcoal-600'
+                }`}>
+                  {cat.count}
+                </span>
               </button>
             ))}
           </div>
 
           {/* Search Box */}
-          <div className="relative min-w-[270px]">
+          <div className="relative w-full lg:w-72 shrink-0">
             <Search className="w-4 h-4 text-charcoal-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search practice or statute..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 text-xs bg-white border border-[#E8E4DB] rounded-lg focus:outline-none focus:ring-1 focus:ring-gold-500/40 focus:border-gold-500 text-navy-950 placeholder-charcoal-400 shadow-xs"
+              placeholder="Search by crime, statute, court..."
+              className="w-full pl-9 pr-8 py-2 rounded-xl bg-white border border-[#EAE5DB] focus:border-gold-500 focus:outline-none text-xs text-charcoal-800 placeholder:text-charcoal-400 shadow-subtle transition-all"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-navy-950"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Practice Areas Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Practice Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPractices.map((practice) => (
             <div
               key={practice.id}
-              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#E8E4DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
+              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#EAE5DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
-                {/* Icon & Title */}
-                <div className="flex items-start justify-between gap-4 mb-5">
-                  <div className="w-11 h-11 rounded-xl bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700 group-hover:bg-navy-900 group-hover:text-gold-400 group-hover:border-navy-800 transition-colors">
+                {/* Card Icon & Header */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700 group-hover:bg-navy-950 group-hover:text-gold-400 group-hover:border-navy-800 transition-colors">
                     {getIcon(practice.iconName)}
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2.5 py-1 rounded border border-gold-200">
-                    Chambers Core
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-charcoal-400 group-hover:text-gold-700 transition-colors">
+                    Chambers Brief
                   </span>
                 </div>
 
+                {/* Title */}
                 <h3 className="font-serif text-2xl font-bold text-navy-950 mb-1.5 group-hover:text-gold-700 transition-colors">
                   {practice.title}
                 </h3>
-                <p className="text-xs font-semibold text-gold-600 mb-3 tracking-wide">
+                <p className="text-xs font-semibold text-gold-600 mb-4">
                   {practice.subtitle}
                 </p>
 
+                {/* Short Description */}
                 <p className="text-charcoal-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
                   {practice.shortDesc}
                 </p>
 
-                {/* Key Bullet Services Preview */}
-                <div className="space-y-2 pt-3 border-t border-[#F0ECE2]">
+                {/* Appearance Forums Badges */}
+                <div className="space-y-1.5 pt-4 border-t border-[#F0ECE2]">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-2">
-                    Scope of Services
+                    Key Appearance Forums
                   </span>
-                  {practice.keyServices.slice(0, 3).map((service, sIdx) => (
-                    <div key={sIdx} className="text-xs text-charcoal-700 flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-1.5 shrink-0" />
-                      <span className="line-clamp-1">{service}</span>
-                    </div>
-                  ))}
+                  <div className="flex flex-wrap gap-1.5">
+                    {practice.courtRepresentation.slice(0, 3).map((court, cIdx) => (
+                      <span 
+                        key={cIdx}
+                        className="text-[11px] px-2.5 py-1 rounded bg-[#FAF8F3] text-charcoal-700 border border-[#EAE5DB]"
+                      >
+                        {court}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Action Link */}
-              <div className="pt-6 mt-6 border-t border-[#F0ECE2] flex items-center justify-between">
+              {/* Action Button */}
+              <div className="pt-6 mt-6 border-t border-[#F0ECE2]">
                 <button
                   onClick={() => onSelectPractice(practice.id)}
-                  className="text-xs font-semibold text-navy-950 hover:text-gold-700 flex items-center gap-1.5 transition-colors group/btn"
+                  className="w-full py-2.5 px-4 rounded-xl bg-gold-50 hover:bg-gold-500 hover:text-navy-950 text-gold-800 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer"
                 >
-                  <span>Explore Practice Details</span>
+                  <span>Review Scope &amp; Case Mandate</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
+
             </div>
           ))}
         </div>
 
+        {/* Empty state if search returned 0 */}
         {filteredPractices.length === 0 && (
-          <div className="text-center py-16 bg-white rounded-2xl border border-[#E8E4DB]">
+          <div className="text-center py-16 bg-white rounded-2xl border border-[#EAE5DB] p-8">
             <p className="text-charcoal-500 text-sm">
-              No practice areas match your search &ldquo;{searchQuery}&rdquo;.
+              No specific practice area matched &quot;{searchQuery}&quot;. Please contact our chambers directly for bespoke legal matters.
             </p>
             <button
-              onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
-              className="mt-3 text-xs font-semibold text-gold-600 hover:underline"
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedCategory('all');
+              }}
+              className="mt-4 px-5 py-2 rounded-lg bg-navy-950 text-gold-300 text-xs font-semibold"
             >
-              Reset filters
+              Reset Filters
             </button>
           </div>
         )}

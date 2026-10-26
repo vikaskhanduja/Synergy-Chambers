@@ -3,7 +3,9 @@ import {
   BookOpen, 
   Building, 
   CheckCircle2, 
-  ArrowRight
+  ArrowRight,
+  ShieldCheck,
+  Scale
 } from 'lucide-react';
 import { FOUNDERS } from '../data/firmData';
 
@@ -16,7 +18,7 @@ export const Founders: React.FC<FoundersProps> = ({
   onSelectLawyer
 }) => {
   return (
-    <section id="founders" className="py-20 lg:py-28 bg-[#F5F2EB] border-b border-[#E8E4DB]">
+    <section id="founders" className="py-20 lg:py-28 bg-[#F5F2EB] border-b border-[#EAE5DB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -29,7 +31,7 @@ export const Founders: React.FC<FoundersProps> = ({
             Founding Advocates
           </h2>
           <p className="text-base sm:text-lg text-charcoal-600 leading-relaxed font-normal">
-            Our co-founders direct Synergy Chambers from Patiala House Courts in New Delhi, bringing extensive courtroom experience prosecuting and defending high-stakes trials and appellate litigation.
+            Directing Synergy Chambers from Chamber 238 at Patiala House Courts in New Delhi, our founding partners bring extensive courtroom experience prosecuting and defending high-profile trials and appellate briefs.
           </p>
         </div>
 
@@ -38,15 +40,20 @@ export const Founders: React.FC<FoundersProps> = ({
           {FOUNDERS.map((founder) => (
             <div
               key={founder.id}
-              className="bg-white rounded-2xl border border-[#E8E4DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-2xl border border-[#EAE5DB] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Profile Card Header */}
               <div className="p-7 sm:p-8 space-y-6">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2.5 py-1 rounded border border-gold-200 inline-block mb-3">
-                    {founder.role}
-                  </span>
-                  <h3 className="font-serif text-2xl font-bold text-navy-950 group-hover:text-gold-700 transition-colors">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2.5 py-1 rounded border border-gold-200">
+                      {founder.role}
+                    </span>
+                    <span className="text-[11px] text-charcoal-400 font-medium">
+                      Patiala House
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 group-hover:text-gold-700 transition-colors">
                     {founder.name}
                   </h3>
                   <p className="text-xs text-charcoal-500 mt-1.5 flex items-center gap-1.5">
@@ -66,6 +73,12 @@ export const Founders: React.FC<FoundersProps> = ({
                       <span>{qual}</span>
                     </div>
                   ))}
+                  {founder.barAdmissions && (
+                    <div className="text-xs text-charcoal-700 flex items-start gap-2">
+                      <ShieldCheck className="w-3.5 h-3.5 text-gold-600 shrink-0 mt-0.5" />
+                      <span>{founder.barAdmissions.join(', ')}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Bio Excerpt */}
@@ -77,7 +90,7 @@ export const Founders: React.FC<FoundersProps> = ({
                 {founder.notableHighlights && (
                   <div className="space-y-1.5 pt-3 border-t border-[#F0ECE2]">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-2">
-                      Distinguished Highlights
+                      Distinguished Case Highlights
                     </span>
                     {founder.notableHighlights.slice(0, 2).map((h, hIdx) => (
                       <div key={hIdx} className="text-xs text-navy-950 font-medium flex items-start gap-2">
@@ -90,15 +103,16 @@ export const Founders: React.FC<FoundersProps> = ({
               </div>
 
               {/* Action Trigger */}
-              <div className="p-6 bg-[#FAF8F3] border-t border-[#E8E4DB] flex items-center justify-between">
+              <div className="p-6 bg-[#FAF8F3] border-t border-[#EAE5DB] flex items-center justify-between">
                 <button
                   onClick={() => onSelectLawyer(founder.id)}
-                  className="text-xs font-semibold text-navy-950 hover:text-gold-700 flex items-center gap-1.5 transition-colors group/btn"
+                  className="w-full py-2.5 px-4 rounded-xl bg-navy-950 hover:bg-gold-500 text-gold-300 hover:text-navy-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-subtle"
                 >
-                  <span>View Full Professional Bio</span>
+                  <span>Examine Full Advocate Brief</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
+
             </div>
           ))}
         </div>

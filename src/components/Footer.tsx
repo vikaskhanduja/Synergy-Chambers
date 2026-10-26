@@ -6,7 +6,8 @@ import {
   ShieldCheck, 
   ChevronRight, 
   ArrowUp,
-  Building 
+  Building,
+  Clock
 } from 'lucide-react';
 import { FIRM_DETAILS, PRACTICE_AREAS } from '../data/firmData';
 
@@ -35,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand & Address Column */}
           <div className="lg:col-span-4 space-y-5">
             <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-lg bg-navy-900 border border-gold-500/30 flex items-center justify-center text-gold-400">
+              <div className="w-10 h-10 rounded-xl bg-navy-900 border border-gold-500/30 flex items-center justify-center text-gold-400">
                 <Scale className="w-5 h-5" />
               </div>
               <div>
@@ -54,18 +55,18 @@ export const Footer: React.FC<FooterProps> = ({
 
             <div className="space-y-2.5 text-xs text-charcoal-400 pt-2">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
                 <span>{FIRM_DETAILS.establishedLocation}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-gold-500 shrink-0" />
+                <Mail className="w-4 h-4 text-gold-400 shrink-0" />
                 <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-gold-300 transition-colors">
                   {FIRM_DETAILS.email}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Building className="w-4 h-4 text-gold-500 shrink-0" />
-                <span>Regional Benches: Chandigarh • Haryana</span>
+                <Building className="w-4 h-4 text-gold-400 shrink-0" />
+                <span>Regional Benches: Chandigarh • Haryana District Courts</span>
               </div>
             </div>
           </div>
@@ -73,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Practice Areas Links */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
-              Practice Areas
+              Practice Domains
             </h4>
             <ul className="space-y-2 text-xs">
               {PRACTICE_AREAS.slice(0, 6).map((practice) => (
@@ -98,22 +99,27 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs">
               <li>
                 <a href="#about" className="hover:text-gold-300 transition-colors">
-                  Firm Overview
+                  The Firm &amp; History
+                </a>
+              </li>
+              <li>
+                <a href="#why-us" className="hover:text-gold-300 transition-colors">
+                  Four Pillars of Advocacy
                 </a>
               </li>
               <li>
                 <a href="#founders" className="hover:text-gold-300 transition-colors">
-                  Founders &amp; Leadership
+                  Founding Advocates
                 </a>
               </li>
               <li>
-                <a href="#team-chandigarh" className="hover:text-gold-300 transition-colors">
-                  Chandigarh Team
+                <a href="#regional-team" className="hover:text-gold-300 transition-colors">
+                  Chandigarh Chambers
                 </a>
               </li>
               <li>
-                <a href="#team-haryana" className="hover:text-gold-300 transition-colors">
-                  Haryana Practice
+                <a href="#regional-team" className="hover:text-gold-300 transition-colors">
+                  Haryana District Network
                 </a>
               </li>
               <li>
@@ -122,57 +128,69 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-gold-300 transition-colors">
-                  Why Synergy
+                <a href="#location" className="hover:text-gold-300 transition-colors">
+                  Patiala House Location
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Consultation & Bar Council Compliance */}
+          {/* Consultation & Office Hours */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
-              Legal Inquiries
+              Chamber Conferences
             </h4>
             <p className="text-xs text-charcoal-400 leading-relaxed font-light">
-              To schedule an in-person chamber conference at Chamber 238 Patiala House Courts or request urgent bail assistance:
+              Prior appointment recommended for preliminary case conferences and document vetting.
             </p>
+            <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-850 space-y-2">
+              <div className="flex items-center gap-2 text-xs text-gold-400 font-semibold">
+                <Clock className="w-3.5 h-3.5" />
+                <span>Working Hours:</span>
+              </div>
+              <p className="text-xs text-charcoal-300">
+                {FIRM_DETAILS.hours}
+              </p>
+            </div>
             <button
               onClick={onOpenConsultation}
-              className="w-full py-2.5 px-4 rounded bg-gold-500 hover:bg-gold-600 text-navy-950 font-semibold text-xs uppercase tracking-wider transition-all shadow-subtle"
+              className="w-full py-2.5 px-4 rounded-lg bg-gold-500 hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-wider transition-all shadow-subtle cursor-pointer"
             >
               Request Consultation
             </button>
-            <div className="pt-2 flex items-center gap-2 text-[11px] text-charcoal-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-gold-400" />
-              <span>Complies with Bar Council Rules</span>
-            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-charcoal-400">
+        {/* Statutory Compliance & Disclaimer */}
+        <div className="pt-8 pb-6 border-b border-navy-850 text-[11px] text-charcoal-400 leading-relaxed">
+          <p>
+            <strong className="text-charcoal-300">Bar Council of India Disclaimer:</strong> As per the rules of the Bar Council of India, advocates and law firms are prohibited from soliciting work or advertising. The contents of this website are intended solely for informational purposes and should not be construed as legal advice. Visiting this website or submitting an inquiry does not establish an advocate-client relationship.
+          </p>
+        </div>
+
+        {/* Bottom Bar: Copyright & Policies */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-charcoal-400">
           <div>
-            &copy; {new Date().getFullYear()} Synergy Chambers. Chamber No. 238, Patiala House Courts, New Delhi.
+            &copy; {new Date().getFullYear()} Synergy Chambers. Advocates &amp; Solicitors. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center space-x-6">
             <button 
               onClick={onOpenDisclaimer} 
-              className="hover:text-gold-300 transition-colors underline"
+              className="hover:text-gold-400 transition-colors cursor-pointer"
             >
-              Bar Council Disclaimer
+              BCI Disclaimer
             </button>
             <button 
               onClick={onOpenPrivacy} 
-              className="hover:text-gold-300 transition-colors underline"
+              className="hover:text-gold-400 transition-colors cursor-pointer"
             >
-              Privacy &amp; Data Policy
+              Confidentiality Policy
             </button>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-navy-900 hover:bg-navy-850 text-gold-400 hover:text-white transition-all border border-navy-800"
+              className="p-2 rounded-lg bg-navy-900 hover:bg-navy-850 text-gold-400 transition-colors flex items-center gap-1 cursor-pointer"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
