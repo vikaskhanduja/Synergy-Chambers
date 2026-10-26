@@ -13,34 +13,34 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
       <div 
-        className="bg-white rounded-2xl max-w-2xl w-full shadow-elevated border border-[#E8E4DB] overflow-hidden relative"
+        className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-gold-500/30 overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-navy-950 text-white p-6 sm:p-7 flex items-center justify-between border-b border-navy-850">
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-navy-900 border border-gold-500/30 text-gold-400 flex items-center justify-center">
+        <div className="bg-navy-900 text-white p-6 sm:p-7 flex items-center justify-between border-b border-navy-800">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-navy-800 text-gold-400 flex items-center justify-center">
               {type === 'disclaimer' ? <Shield className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
             </div>
             <div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                {type === 'disclaimer' ? 'Legal Disclaimer & Statutory Compliance' : 'Privacy & Client Data Policy'}
+              <h3 className="font-serif text-xl font-bold text-white">
+                {type === 'disclaimer' ? 'Legal Disclaimer & Bar Council Compliance' : 'Privacy & Client Data Policy'}
               </h3>
-              <p className="text-xs text-gold-400 font-medium">Synergy Chambers (Advocates &amp; Solicitors)</p>
+              <p className="text-xs text-gold-400">Synergy Chambers (Advocates &amp; Solicitors)</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-navy-900 hover:bg-navy-850 text-charcoal-300 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-charcoal-300 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-charcoal-700 leading-relaxed max-h-[65vh] overflow-y-auto font-normal">
+        <div className="p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-charcoal-700 leading-relaxed max-h-[65vh] overflow-y-auto">
           {type === 'disclaimer' ? (
             <>
               <p>
-                This website is intended solely for informational purposes and in strict conformity with Rule 36 of the Bar Council of India Rules.
+                This website is intended solely for informational purposes and in conformity with Rule 36 of the Bar Council of India Rules.
               </p>
               <h4 className="font-bold text-navy-950 uppercase tracking-wider text-xs pt-2">No Solicitation or Advertisement</h4>
               <p>
@@ -74,16 +74,16 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
               </p>
               <h4 className="font-bold text-navy-950 uppercase tracking-wider text-xs pt-2">Contact for Data Requests</h4>
               <p>
-                For questions regarding data retention or to request deletion of your inquiry records, please email <a href={`mailto:${FIRM_DETAILS.email}`} className="text-gold-700 font-semibold">{FIRM_DETAILS.email}</a>.
+                For questions regarding data retention or to request deletion of your inquiry records, please email <a href={`mailto:${FIRM_DETAILS.email}`} className="text-gold-600 font-semibold">{FIRM_DETAILS.email}</a>.
               </p>
             </>
           )}
         </div>
 
-        <div className="bg-[#FAF8F3] p-4 sm:p-5 border-t border-[#E8E4DB] text-right">
+        <div className="bg-charcoal-50 p-4 sm:p-5 border-t border-charcoal-200 text-right">
           <button
             onClick={onClose}
-            className="px-5 py-2 text-xs font-semibold rounded-md bg-navy-900 text-gold-300 hover:bg-navy-850 transition-colors uppercase tracking-wider"
+            className="px-5 py-2 text-xs font-semibold rounded bg-navy-900 text-white hover:bg-navy-800 transition-colors"
           >
             Acknowledge &amp; Close
           </button>

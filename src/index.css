@@ -6,50 +6,47 @@
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
-    color: #22262E;
-    background-color: #FBF9F5;
+    color: #1E2229;
+    background-color: #FDFBF7;
     overflow-x: hidden;
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
-
-  h1, h2, h3, h4, .font-serif {
-    letter-spacing: -0.015em;
   }
 }
 
-/* Custom refined scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F2EB;
+  background: #F4F6FA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DAC297;
+  background: #C5A880;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #AC8549;
+  background: #B59463;
 }
 
-/* Authentic legal seal & badge details */
-.crest-border {
-  border: 1px solid rgba(172, 133, 73, 0.28);
+/* Gold shimmer subtle effect */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #DFBF77 0%, #C5A880 50%, #947447 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.chambers-card {
-  background: #FFFFFF;
-  border: 1px solid #EBE6DC;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+.navy-gradient-bg {
+  background: linear-gradient(145deg, #070D19 0%, #0A1428 50%, #112244 100%);
 }
 
-.chambers-card:hover {
-  border-color: #DAC297;
-  box-shadow: 0 12px 28px -8px rgba(16, 23, 34, 0.07), 0 0 0 1px rgba(172, 133, 73, 0.18);
+.card-gold-border {
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-gold-border:hover {
+  border-color: rgba(197, 168, 128, 0.6);
+  box-shadow: 0 12px 30px -10px rgba(10, 20, 40, 0.08), 0 0 15px rgba(197, 168, 128, 0.1);
 }
