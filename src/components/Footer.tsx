@@ -3,7 +3,6 @@ import {
   Scale, 
   MapPin, 
   Mail, 
-  Phone, 
   ShieldCheck, 
   ChevronRight, 
   ArrowUp,
@@ -27,23 +26,23 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-navy-950 text-charcoal-300 pt-16 pb-12 border-t border-navy-800">
+    <footer className="bg-navy-950 text-charcoal-300 pt-16 pb-12 border-t border-navy-850">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-navy-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-navy-850">
           
           {/* Brand & Address Column */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-navy-900 border border-gold-500/40 flex items-center justify-center text-gold-400">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-lg bg-navy-900 border border-gold-500/30 flex items-center justify-center text-gold-400">
                 <Scale className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-serif text-lg font-bold text-white block">
+                <span className="font-display text-base font-bold tracking-wider text-white block">
                   SYNERGY CHAMBERS
                 </span>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-gold-400 font-semibold block">
+                <span className="text-[10px] tracking-[0.24em] uppercase text-gold-400 font-semibold block mt-0.5">
                   Advocates &amp; Solicitors
                 </span>
               </div>
@@ -60,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-gold-400 transition-colors">
+                <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-gold-300 transition-colors">
                   {FIRM_DETAILS.email}
                 </a>
               </div>
@@ -81,9 +80,9 @@ export const Footer: React.FC<FooterProps> = ({
                 <li key={practice.id}>
                   <a 
                     href="#practices" 
-                    className="hover:text-gold-400 transition-colors flex items-center gap-1.5"
+                    className="hover:text-gold-300 transition-colors flex items-center gap-1.5"
                   >
-                    <ChevronRight className="w-3 h-3 text-gold-600" />
+                    <ChevronRight className="w-3 h-3 text-gold-500" />
                     <span>{practice.title}</span>
                   </a>
                 </li>
@@ -98,32 +97,32 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-gold-400 transition-colors">
+                <a href="#about" className="hover:text-gold-300 transition-colors">
                   Firm Overview
                 </a>
               </li>
               <li>
-                <a href="#founders" className="hover:text-gold-400 transition-colors">
+                <a href="#founders" className="hover:text-gold-300 transition-colors">
                   Founders &amp; Leadership
                 </a>
               </li>
               <li>
-                <a href="#team-chandigarh" className="hover:text-gold-400 transition-colors">
+                <a href="#team-chandigarh" className="hover:text-gold-300 transition-colors">
                   Chandigarh Team
                 </a>
               </li>
               <li>
-                <a href="#team-haryana" className="hover:text-gold-400 transition-colors">
+                <a href="#team-haryana" className="hover:text-gold-300 transition-colors">
                   Haryana Practice
                 </a>
               </li>
               <li>
-                <a href="#jurisdictions" className="hover:text-gold-400 transition-colors">
+                <a href="#jurisdictions" className="hover:text-gold-300 transition-colors">
                   Judicial Jurisdictions
                 </a>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-gold-400 transition-colors">
+                <a href="#why-us" className="hover:text-gold-300 transition-colors">
                   Why Synergy
                 </a>
               </li>
@@ -135,17 +134,17 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
               Legal Inquiries
             </h4>
-            <p className="text-xs text-charcoal-400 leading-relaxed">
-              To schedule an in-person conference at Chamber 238 Patiala House Courts or request urgent bail assistance:
+            <p className="text-xs text-charcoal-400 leading-relaxed font-light">
+              To schedule an in-person chamber conference at Chamber 238 Patiala House Courts or request urgent bail assistance:
             </p>
             <button
               onClick={onOpenConsultation}
-              className="w-full py-2.5 px-4 rounded bg-gold-500 hover:bg-gold-600 text-navy-950 font-semibold text-xs uppercase tracking-wider transition-all"
+              className="w-full py-2.5 px-4 rounded bg-gold-500 hover:bg-gold-600 text-navy-950 font-semibold text-xs uppercase tracking-wider transition-all shadow-subtle"
             >
               Request Consultation
             </button>
             <div className="pt-2 flex items-center gap-2 text-[11px] text-charcoal-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-gold-500" />
+              <ShieldCheck className="w-3.5 h-3.5 text-gold-400" />
               <span>Complies with Bar Council Rules</span>
             </div>
           </div>
@@ -155,19 +154,19 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-charcoal-400">
           <div>
-            &copy; {new Date().getFullYear()} Synergy Chambers. All Rights Reserved. Chamber No. 238, Patiala House Courts, New Delhi.
+            &copy; {new Date().getFullYear()} Synergy Chambers. Chamber No. 238, Patiala House Courts, New Delhi.
           </div>
 
           <div className="flex items-center gap-6">
             <button 
               onClick={onOpenDisclaimer} 
-              className="hover:text-gold-400 transition-colors underline"
+              className="hover:text-gold-300 transition-colors underline"
             >
               Bar Council Disclaimer
             </button>
             <button 
               onClick={onOpenPrivacy} 
-              className="hover:text-gold-400 transition-colors underline"
+              className="hover:text-gold-300 transition-colors underline"
             >
               Privacy &amp; Data Policy
             </button>
