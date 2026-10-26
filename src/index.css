@@ -1,52 +1,340 @@
+/* ==========================================================================
+   SYNERGY CHAMBERS - REFINED EDITORIAL DESIGN SYSTEM
+   Bespoke Legal Typography, Warm Heritage Palette & Restrained Aesthetics
+   ========================================================================== */
+
+/* 1. Google Fonts: Cormorant Garamond, Cinzel & Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   2. Base & Typography Hierarchy
+   ========================================================================== */
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
-    color: #1E2229;
-    background-color: #FDFBF7;
+    color: #22262E !important;
+    background-color: #FBF9F5 !important;
     overflow-x: hidden;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    line-height: 1.6;
+  }
+
+  /* Stately classical serif for courtroom headings */
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    letter-spacing: -0.015em;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+
+  /* Classical Roman display font for brand names & badges */
+  nav a .font-serif,
+  header .font-serif,
+  footer .font-serif,
+  .brand-title {
+    font-family: "Cinzel", "Cormorant Garamond", Georgia, serif !important;
+    letter-spacing: 0.05em;
+  }
+
+  /* Humanist, comfortable sans-serif for reading body & interfaces */
+  p, span, a, button, input, textarea, select, li, label, .font-sans {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  }
+
+  /* Text selection highlight */
+  ::selection {
+    background-color: #AC8549 !important;
+    color: #FFFFFF !important;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* ==========================================================================
+   3. Refined Heritage Colour Palette Overrides
+   ========================================================================== */
+
+/* --- Primary Deep Chancery Oxford Ink --- */
+.bg-navy-950 {
+  background-color: #0A1017 !important;
 }
-::-webkit-scrollbar-track {
-  background: #F4F6FA;
+.bg-navy-900 {
+  background-color: #101722 !important;
 }
-::-webkit-scrollbar-thumb {
-  background: #C5A880;
-  border-radius: 4px;
+.bg-navy-850 {
+  background-color: #151F2E !important;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #B59463;
+.bg-navy-800 {
+  background-color: #1C293D !important;
+}
+.bg-navy-700 {
+  background-color: #2B3D57 !important;
 }
 
-/* Gold shimmer subtle effect */
+.text-navy-950 {
+  color: #0A1017 !important;
+}
+.text-navy-900 {
+  color: #101722 !important;
+}
+.text-navy-850 {
+  color: #151F2E !important;
+}
+.text-navy-800 {
+  color: #1C293D !important;
+}
+
+.border-navy-900 {
+  border-color: #101722 !important;
+}
+.border-navy-850 {
+  border-color: #151F2E !important;
+}
+.border-navy-800 {
+  border-color: #1C293D !important;
+}
+.border-navy-700 {
+  border-color: #2B3D57 !important;
+}
+
+/* --- Warm Antique Bronze & Parchment Gold (Non-Glaring) --- */
+.bg-gold-600 {
+  background-color: #947038 !important;
+}
+.bg-gold-500 {
+  background-color: #AC8549 !important;
+}
+.bg-gold-400 {
+  background-color: #C4A269 !important;
+}
+.bg-gold-300 {
+  background-color: #DAC297 !important;
+}
+.bg-gold-50 {
+  background-color: #FAF6EF !important;
+}
+
+.text-gold-700 {
+  color: #745424 !important;
+}
+.text-gold-600 {
+  color: #8B6831 !important;
+}
+.text-gold-500 {
+  color: #AC8549 !important;
+}
+.text-gold-400 {
+  color: #C4A269 !important;
+}
+.text-gold-300 {
+  color: #DAC297 !important;
+}
+
+.border-gold-500,
+.border-gold-500\/30,
+.border-gold-500\/40,
+.border-gold-500\/20 {
+  border-color: rgba(172, 133, 73, 0.28) !important;
+}
+
+.border-gold-400,
+.border-gold-400\/50 {
+  border-color: rgba(196, 162, 105, 0.35) !important;
+}
+
+.border-gold-200 {
+  border-color: #E8DAC2 !important;
+}
+
+/* --- Warm Archival Linen & Stone Surfaces --- */
+[class*="bg-[#FDFBF7]"],
+[class*="bg-[#F8F9FA]"] {
+  background-color: #FBF9F5 !important;
+}
+
+#why-us,
+#regional-team,
+#jurisdictions,
+#contact {
+  background-color: #F5F2EB !important;
+}
+
+/* Clean, natural hairline borders */
+.border-charcoal-100,
+.border-charcoal-200,
+.border-charcoal-300 {
+  border-color: #E8E4DB !important;
+}
+
+/* Body reading text colors */
+.text-charcoal-900 {
+  color: #15181E !important;
+}
+.text-charcoal-800 {
+  color: #22262E !important;
+}
+.text-charcoal-700 {
+  color: #353B47 !important;
+}
+.text-charcoal-600 {
+  color: #4E5564 !important;
+}
+.text-charcoal-500 {
+  color: #687182 !important;
+}
+.text-charcoal-400 {
+  color: #8E97A6 !important;
+}
+.text-charcoal-300 {
+  color: #C2CAD5 !important;
+}
+.text-charcoal-200 {
+  color: #E0E5EC !important;
+}
+
+/* ==========================================================================
+   4. Elimination of Generic AI Tropes (Excessive Gradients & Neon Glow)
+   ========================================================================== */
+
+/* Replace rainbow text gradients with authentic dignified warm bronze */
+.bg-clip-text,
+[class*="bg-clip-text"],
 .gold-gradient-text {
-  background: linear-gradient(135deg, #DFBF77 0%, #C5A880 50%, #947447 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #C4A269 !important;
+  color: #C4A269 !important;
+}
+
+/* Remove synthetic background neon blur orbs */
+.blur-3xl {
+  display: none !important;
+}
+
+.blur-sm {
+  filter: none !important;
+  background: transparent !important;
+}
+
+/* Subdue fake digital grid overlays in hero */
+[class*="bg-[size:4rem_4rem]"] {
+  opacity: 0.012 !important;
 }
 
 .navy-gradient-bg {
-  background: linear-gradient(145deg, #070D19 0%, #0A1428 50%, #112244 100%);
+  background: #0A1017 !important;
 }
 
+/* ==========================================================================
+   5. Polished Card Craftsmanship & Subtle Elevation
+   ========================================================================== */
+
+/* Subdued natural shadows */
+.shadow-subtle {
+  box-shadow: 0 1px 3px rgba(16, 23, 34, 0.04), 0 8px 20px -8px rgba(16, 23, 34, 0.04) !important;
+}
+
+.shadow-premium,
+.shadow-2xl {
+  box-shadow: 0 12px 32px -8px rgba(16, 23, 34, 0.08), 0 0 0 1px rgba(172, 133, 73, 0.18) !important;
+}
+
+.shadow-elevated {
+  box-shadow: 0 18px 40px -10px rgba(16, 23, 34, 0.12), 0 0 0 1px rgba(16, 23, 34, 0.06) !important;
+}
+
+/* Smooth card border transitions */
 .card-gold-border {
-  border: 1px solid rgba(197, 168, 128, 0.2);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(172, 133, 73, 0.22) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .card-gold-border:hover {
-  border-color: rgba(197, 168, 128, 0.6);
-  box-shadow: 0 12px 30px -10px rgba(10, 20, 40, 0.08), 0 0 15px rgba(197, 168, 128, 0.1);
+  border-color: rgba(172, 133, 73, 0.55) !important;
+  box-shadow: 0 12px 28px -6px rgba(16, 23, 34, 0.07), 0 0 0 1px rgba(172, 133, 73, 0.2) !important;
+}
+
+/* ==========================================================================
+   6. Executive Form Controls & Buttons
+   ========================================================================== */
+
+/* Primary CTA Buttons */
+button.bg-gold-500,
+a.bg-gold-500 {
+  background-color: #AC8549 !important;
+  color: #0A1017 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease !important;
+}
+
+button.bg-gold-500:hover,
+a.bg-gold-500:hover {
+  background-color: #947038 !important;
+  box-shadow: 0 6px 18px -4px rgba(172, 133, 73, 0.35) !important;
+}
+
+/* Secondary Dark Buttons */
+a.bg-navy-900,
+button.bg-navy-900 {
+  background-color: #101722 !important;
+  border-color: #1C293D !important;
+  transition: all 0.2s ease !important;
+}
+
+a.bg-navy-900:hover,
+button.bg-navy-900:hover {
+  background-color: #151F2E !important;
+  border-color: rgba(172, 133, 73, 0.4) !important;
+  color: #FFFFFF !important;
+}
+
+/* Intake Form Inputs & Textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  background-color: #FAF8F3 !important;
+  border: 1px solid #E8E4DB !important;
+  color: #101722 !important;
+  border-radius: 8px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #AC8549 !important;
+  box-shadow: 0 0 0 3px rgba(172, 133, 73, 0.15) !important;
+  outline: none !important;
+}
+
+/* ==========================================================================
+   7. Custom Refined Scrollbar
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F2EB;
+}
+::-webkit-scrollbar-thumb {
+  background: #DAC297;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #AC8549;
 }
