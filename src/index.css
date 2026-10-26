@@ -12,8 +12,8 @@
   }
   
   body {
-    color: #1A202C;
-    background-color: #FBF9F5;
+    color: #1F2E28;
+    background-color: #FAFBF8;
     overflow-x: hidden;
     font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
@@ -23,51 +23,51 @@
   }
 }
 
-/* Custom refined scrollbar */
+/* Custom refined scrollbar in Imperial Forest & Warm Gold */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F2EB;
+  background: #F2F5F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DAC297;
+  background: #DEC293;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #AC8549;
+  background: #B89253;
 }
 
 /* Authentic legal seal, double-hairlines & parchment accents */
 .crest-border {
-  border: 1px solid rgba(172, 133, 73, 0.32);
+  border: 1px solid rgba(184, 146, 83, 0.35);
 }
 
 .crest-double-border {
-  border: 1px solid rgba(172, 133, 73, 0.4);
-  outline: 1px solid rgba(172, 133, 73, 0.2);
+  border: 1px solid rgba(184, 146, 83, 0.45);
+  outline: 1px solid rgba(184, 146, 83, 0.2);
   outline-offset: 3px;
 }
 
 .chambers-card {
   background: #FFFFFF;
-  border: 1px solid #EAE5DB;
+  border: 1px solid #E1E8E4;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .chambers-card:hover {
-  border-color: #C4A269;
-  box-shadow: 0 16px 36px -10px rgba(16, 23, 34, 0.08), 0 0 0 1px rgba(172, 133, 73, 0.25);
+  border-color: #CCA86E;
+  box-shadow: 0 16px 36px -10px rgba(6, 22, 18, 0.08), 0 0 0 1px rgba(184, 146, 83, 0.28);
   transform: translateY(-2px);
 }
 
 /* Legal docket paper watermark line */
 .docket-pattern {
-  background-image: radial-gradient(rgba(172, 133, 73, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(184, 146, 83, 0.14) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* Subtle gold glow for interactive buttons */
 .btn-gold-glow:hover {
-  box-shadow: 0 4px 20px -2px rgba(172, 133, 73, 0.35);
+  box-shadow: 0 4px 20px -2px rgba(184, 146, 83, 0.35);
 }

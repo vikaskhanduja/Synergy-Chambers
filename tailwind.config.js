@@ -8,48 +8,48 @@ export default {
     extend: {
       colors: {
         navy: {
-          950: '#0A1017', // Deep chancery ink
-          900: '#101722', // Oxford ink
-          850: '#151F2E', // Midnight slate
-          800: '#1C293D', // Chambers slate
-          750: '#23334A',
-          700: '#2B3D57',
-          600: '#3D557A',
-          500: '#526E99',
-          200: '#D5DFEC',
-          100: '#E8EDF5',
-          50: '#F2F5F9',
+          950: '#061612', // Deepest Courtroom Forest Ink
+          900: '#0B221B', // Prestige Pine Ink
+          850: '#102E25', // Midnight Chambers Emerald
+          800: '#173D32', // Courtroom Slate
+          750: '#1E4D40',
+          700: '#275F4F',
+          600: '#347C68',
+          500: '#489F87',
+          200: '#CFE6DE',
+          100: '#E5F2ED',
+          50: '#F2F8F5',
         },
         gold: {
-          50: '#FAF6EF', // Soft warm linen
-          100: '#F5EDDF', // Light parchment
-          200: '#EBDCC5', // Warm antique border
-          300: '#DAC297', // Soft antique bronze
-          400: '#C4A269', // Champagne bronze
-          500: '#AC8549', // Primary muted antique bronze
-          600: '#947038', // Deep aged bronze
-          700: '#7B5B2A', // Rich saddle bronze
-          800: '#60451E', // Dark bronze
-          900: '#453012', // Deep umber
+          50: '#FCF9F3', // Softest Champagne Linen
+          100: '#F7EFE1', // Light Pale Gilt
+          200: '#ECDCBF', // Warm Antique Accent
+          300: '#DEC293', // Soft Champagne Gold
+          400: '#CCA86E', // Luminous Regal Gold
+          500: '#B89253', // Primary Warm Imperial Gold
+          600: '#9E7A3D', // Deep Aged Gold
+          700: '#82622C', // Rich Saddle Gold
+          800: '#654B1E', // Dark Antique Umber
+          900: '#483412', // Deep Bronze
         },
         charcoal: {
-          950: '#111317',
-          900: '#181B20',
-          800: '#22262E', // Primary warm body text
-          700: '#353B47', // Secondary dark text
-          600: '#4E5564', // Reading gray
-          500: '#687182', // Muted label
-          400: '#8E97A6', // Subtle caption
-          300: '#BDC4CF',
-          200: '#E8E4DB', // Hairline borders
-          100: '#EDEFEA',
-          50: '#F5F4F0',
+          950: '#0E1613',
+          900: '#16211D',
+          800: '#1F2E28', // Primary deep readable text
+          700: '#31443D', // Secondary dark text
+          600: '#495D56', // Reading slate
+          500: '#647A73', // Muted label
+          400: '#879E97', // Subtle caption
+          300: '#B4C5BF',
+          200: '#E1E8E4', // Soft hairline borders
+          100: '#ECF2EE',
+          50: '#F4F8F5',
         },
         paper: {
-          50: '#FDFCF9',
-          100: '#FBF9F5',
-          200: '#F5F2EB',
-          300: '#EBE6DC',
+          50: '#FFFFFF',
+          100: '#FAFBF8', // Pure Archival Ivory Canvas
+          200: '#F2F5F0', // Soft Muted Alabaster
+          300: '#E4EAE1', // Subtle Courtroom Stone
         }
       },
       fontFamily: {
@@ -58,10 +58,10 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'subtle': '0 1px 3px rgba(16, 23, 34, 0.04), 0 10px 24px -10px rgba(16, 23, 34, 0.04)',
-        'card': '0 4px 20px -4px rgba(16, 23, 34, 0.05), 0 0 0 1px rgba(28, 41, 61, 0.06)',
-        'premium': '0 12px 32px -6px rgba(16, 23, 34, 0.07), 0 0 0 1px rgba(172, 133, 73, 0.22)',
-        'elevated': '0 20px 44px -12px rgba(16, 23, 34, 0.12), 0 0 0 1px rgba(16, 23, 34, 0.08)',
+        'subtle': '0 1px 3px rgba(7, 25, 20, 0.04), 0 10px 24px -10px rgba(7, 25, 20, 0.04)',
+        'card': '0 4px 20px -4px rgba(7, 25, 20, 0.06), 0 0 0 1px rgba(23, 61, 50, 0.08)',
+        'premium': '0 12px 32px -6px rgba(7, 25, 20, 0.09), 0 0 0 1px rgba(184, 146, 83, 0.28)',
+        'elevated': '0 20px 48px -12px rgba(6, 22, 18, 0.16), 0 0 0 1px rgba(6, 22, 18, 0.1)',
       }
     },
   },

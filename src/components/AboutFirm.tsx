@@ -11,7 +11,7 @@ import { FIRM_DETAILS } from '../data/firmData';
 
 export const AboutFirm: React.FC = () => {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-[#FBF9F5] border-b border-[#EAE5DB]">
+    <section id="about" className="py-20 lg:py-28 bg-[#FAFBF8] border-b border-[#E1E8E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -43,7 +43,7 @@ export const AboutFirm: React.FC = () => {
 
             {/* Credibility highlights */}
             <div className="pt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-[#EAE5DB] shadow-subtle hover:border-gold-400 transition-colors">
+              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-[#E1E8E4] shadow-subtle hover:border-gold-400 transition-colors">
                 <Landmark className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-navy-950">Chambers at Patiala House</h4>
@@ -51,7 +51,7 @@ export const AboutFirm: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-[#EAE5DB] shadow-subtle hover:border-gold-400 transition-colors">
+              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-[#E1E8E4] shadow-subtle hover:border-gold-400 transition-colors">
                 <Scale className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-navy-950">Trial &amp; Appellate Heritage</h4>

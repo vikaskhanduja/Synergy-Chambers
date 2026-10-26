@@ -33,12 +33,12 @@ export const BarCouncilDisclaimer: React.FC = () => {
   return (
     <div className="fixed inset-0 z-50 bg-navy-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
       <div 
-        className="bg-white rounded-2xl max-w-xl w-full shadow-elevated border border-[#EAE5DB] overflow-hidden text-navy-950 p-6 sm:p-8 space-y-5"
+        className="bg-white rounded-2xl max-w-xl w-full shadow-elevated border border-[#E1E8E4] overflow-hidden text-navy-950 p-6 sm:p-8 space-y-5"
         role="dialog"
         aria-labelledby="disclaimer-title"
         aria-modal="true"
       >
-        <div className="flex items-center gap-3 pb-4 border-b border-[#F0ECE2]">
+        <div className="flex items-center gap-3 pb-4 border-b border-[#E7EDE7]">
           <div className="w-10 h-10 rounded-xl bg-navy-950 text-gold-400 flex items-center justify-center shrink-0">
             <Shield className="w-5 h-5" />
           </div>
@@ -75,7 +75,7 @@ export const BarCouncilDisclaimer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="pt-4 border-t border-[#F0ECE2] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="pt-4 border-t border-[#E7EDE7] flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-[11px] text-charcoal-400 text-center sm:text-left">
             Rule 36, Bar Council of India Rules
           </span>

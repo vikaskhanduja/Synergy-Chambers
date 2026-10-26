@@ -90,7 +90,7 @@ export const ConsultationSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-[#F5F2EB] text-navy-950 relative border-b border-[#EAE5DB]">
+    <section id="contact" className="py-20 lg:py-28 bg-[#F2F5F0] text-navy-950 relative border-b border-[#E1E8E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -111,8 +111,8 @@ export const ConsultationSection: React.FC = () => {
           
           {/* Left Column: Direct Contact & Chamber Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl p-7 sm:p-8 border border-[#EAE5DB] shadow-subtle space-y-6">
-              <div className="flex items-center gap-3.5 pb-5 border-b border-[#F0ECE2]">
+            <div className="bg-white rounded-2xl p-7 sm:p-8 border border-[#E1E8E4] shadow-subtle space-y-6">
+              <div className="flex items-center gap-3.5 pb-5 border-b border-[#E7EDE7]">
                 <div className="w-11 h-11 rounded-xl bg-navy-950 text-gold-400 flex items-center justify-center">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -161,7 +161,7 @@ export const ConsultationSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="text-[11px] text-charcoal-500 pt-2 border-t border-[#F0ECE2]">
+              <div className="text-[11px] text-charcoal-500 pt-2 border-t border-[#E7EDE7]">
                 * Submitting an inquiry does not automatically constitute a formal vakalatnama or lawyer-client relationship until mutually accepted.
               </div>
             </div>
@@ -169,7 +169,7 @@ export const ConsultationSection: React.FC = () => {
 
           {/* Right Column: Confidential Intake Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl p-7 sm:p-9 border border-[#EAE5DB] shadow-card">
+            <div className="bg-white rounded-2xl p-7 sm:p-9 border border-[#E1E8E4] shadow-card">
               {isSubmitted ? (
                 <div className="py-10 text-center space-y-5 animate-in fade-in duration-300">
                   <div className="w-16 h-16 rounded-full bg-gold-50 border border-gold-300 flex items-center justify-center text-gold-600 mx-auto">
@@ -184,7 +184,7 @@ export const ConsultationSection: React.FC = () => {
                     </h3>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] max-w-md mx-auto space-y-2 text-xs">
+                  <div className="p-5 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] max-w-md mx-auto space-y-2 text-xs">
                     <div className="text-charcoal-500">Your Confidential File Reference:</div>
                     <div className="font-mono text-xl font-bold text-navy-950 tracking-wider">
                       {referenceNumber}
@@ -204,7 +204,7 @@ export const ConsultationSection: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="flex items-center justify-between pb-3 border-b border-[#F0ECE2]">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#E7EDE7]">
                     <span className="text-xs font-bold uppercase tracking-wider text-navy-950">
                       Confidential Case Docket Intake
                     </span>
@@ -238,8 +238,8 @@ export const ConsultationSection: React.FC = () => {
                           if (errors.firstName) setErrors({ ...errors, firstName: '' });
                         }}
                         placeholder="e.g. Rajesh"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border text-xs text-charcoal-900 focus:outline-none transition-all ${
-                          errors.firstName ? 'border-red-400 focus:border-red-500' : 'border-[#EAE5DB] focus:border-gold-500'
+                        className={`w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border text-xs text-charcoal-900 focus:outline-none transition-all ${
+                          errors.firstName ? 'border-red-400 focus:border-red-500' : 'border-[#E1E8E4] focus:border-gold-500'
                         }`}
                       />
                       {errors.firstName && (
@@ -262,8 +262,8 @@ export const ConsultationSection: React.FC = () => {
                           if (errors.lastName) setErrors({ ...errors, lastName: '' });
                         }}
                         placeholder="e.g. Verma"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border text-xs text-charcoal-900 focus:outline-none transition-all ${
-                          errors.lastName ? 'border-red-400 focus:border-red-500' : 'border-[#EAE5DB] focus:border-gold-500'
+                        className={`w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border text-xs text-charcoal-900 focus:outline-none transition-all ${
+                          errors.lastName ? 'border-red-400 focus:border-red-500' : 'border-[#E1E8E4] focus:border-gold-500'
                         }`}
                       />
                       {errors.lastName && (
@@ -289,8 +289,8 @@ export const ConsultationSection: React.FC = () => {
                           if (errors.email) setErrors({ ...errors, email: '' });
                         }}
                         placeholder="rajesh@domain.com"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border text-xs text-charcoal-900 focus:outline-none transition-all ${
-                          errors.email ? 'border-red-400 focus:border-red-500' : 'border-[#EAE5DB] focus:border-gold-500'
+                        className={`w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border text-xs text-charcoal-900 focus:outline-none transition-all ${
+                          errors.email ? 'border-red-400 focus:border-red-500' : 'border-[#E1E8E4] focus:border-gold-500'
                         }`}
                       />
                       {errors.email && (
@@ -313,8 +313,8 @@ export const ConsultationSection: React.FC = () => {
                           if (errors.phone) setErrors({ ...errors, phone: '' });
                         }}
                         placeholder="+91 98110 00000"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border text-xs text-charcoal-900 focus:outline-none transition-all ${
-                          errors.phone ? 'border-red-400 focus:border-red-500' : 'border-[#EAE5DB] focus:border-gold-500'
+                        className={`w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border text-xs text-charcoal-900 focus:outline-none transition-all ${
+                          errors.phone ? 'border-red-400 focus:border-red-500' : 'border-[#E1E8E4] focus:border-gold-500'
                         }`}
                       />
                       {errors.phone && (
@@ -335,7 +335,7 @@ export const ConsultationSection: React.FC = () => {
                       <select
                         value={formData.practiceArea}
                         onChange={(e) => setFormData({ ...formData, practiceArea: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] text-xs text-charcoal-900 focus:border-gold-500 focus:outline-none transition-all"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] text-xs text-charcoal-900 focus:border-gold-500 focus:outline-none transition-all"
                       >
                         {PRACTICE_AREAS.map((practice) => (
                           <option key={practice.id} value={practice.id}>
@@ -352,7 +352,7 @@ export const ConsultationSection: React.FC = () => {
                       <select
                         value={formData.jurisdiction}
                         onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] text-xs text-charcoal-900 focus:border-gold-500 focus:outline-none transition-all"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] text-xs text-charcoal-900 focus:border-gold-500 focus:outline-none transition-all"
                       >
                         <option value="delhi">Delhi (Supreme Court / High Court / Patiala House / District Courts)</option>
                         <option value="chandigarh">Chandigarh (High Court &amp; Central Administrative Tribunal)</option>
@@ -363,7 +363,7 @@ export const ConsultationSection: React.FC = () => {
                   </div>
 
                   {/* Urgent Listing Notice Flag */}
-                  <div className="p-3.5 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] flex items-center gap-3">
+                  <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] flex items-center gap-3">
                     <input
                       type="checkbox"
                       id="isUrgent"
@@ -389,8 +389,8 @@ export const ConsultationSection: React.FC = () => {
                         if (errors.message) setErrors({ ...errors, message: '' });
                       }}
                       placeholder="Please outline the key facts, parties involved, current stage of the dispute, or upcoming hearing dates..."
-                      className={`w-full px-4 py-2.5 rounded-xl bg-[#FAF8F3] border text-xs text-charcoal-900 focus:outline-none transition-all ${
-                        errors.message ? 'border-red-400 focus:border-red-500' : 'border-[#EAE5DB] focus:border-gold-500'
+                      className={`w-full px-4 py-2.5 rounded-xl bg-[#F7F9F5] border text-xs text-charcoal-900 focus:outline-none transition-all ${
+                        errors.message ? 'border-red-400 focus:border-red-500' : 'border-[#E1E8E4] focus:border-gold-500'
                       }`}
                     />
                     <div className="flex justify-between items-center mt-1">

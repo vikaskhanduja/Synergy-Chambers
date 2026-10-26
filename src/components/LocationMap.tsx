@@ -4,9 +4,9 @@ import { FIRM_DETAILS } from '../data/firmData';
 
 export const LocationMap: React.FC = () => {
   return (
-    <section id="location" className="py-20 lg:py-24 bg-[#FBF9F5] border-b border-[#EAE5DB]">
+    <section id="location" className="py-20 lg:py-24 bg-[#FAFBF8] border-b border-[#E1E8E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="bg-white rounded-2xl border border-[#EAE5DB] overflow-hidden shadow-card grid grid-cols-1 lg:grid-cols-12">
+        <div className="bg-white rounded-2xl border border-[#E1E8E4] overflow-hidden shadow-card grid grid-cols-1 lg:grid-cols-12">
           
           {/* Information Column */}
           <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6">
@@ -24,7 +24,7 @@ export const LocationMap: React.FC = () => {
             </div>
 
             <div className="space-y-4 text-xs text-charcoal-700">
-              <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] space-y-1">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] space-y-1">
                 <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-navy-950 text-[11px]">
                   <Building2 className="w-3.5 h-3.5 text-gold-600" />
                   <span>Chamber Address:</span>
@@ -32,7 +32,7 @@ export const LocationMap: React.FC = () => {
                 <span className="text-charcoal-800 font-medium block">{FIRM_DETAILS.establishedLocation}</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] space-y-1">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] space-y-1">
                 <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-navy-950 text-[11px]">
                   <Navigation className="w-3.5 h-3.5 text-gold-600" />
                   <span>Transit &amp; Nearest Metro:</span>
@@ -41,7 +41,7 @@ export const LocationMap: React.FC = () => {
                 <span className="text-charcoal-500 mt-1 block">Mandi House Metro Station (Blue &amp; Violet Lines) • Khan Market Metro</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#EAE5DB] space-y-1">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] space-y-1">
                 <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-navy-950 text-[11px]">
                   <Clock className="w-3.5 h-3.5 text-gold-600" />
                   <span>Chambers Hours:</span>
@@ -64,7 +64,7 @@ export const LocationMap: React.FC = () => {
           </div>
 
           {/* Interactive Map Embed */}
-          <div className="lg:col-span-7 h-[380px] lg:h-auto min-h-[350px] bg-[#EDEFEA] relative">
+          <div className="lg:col-span-7 h-[380px] lg:h-auto min-h-[350px] bg-[#E5EAE1] relative">
             <iframe
               title="Synergy Chambers - Patiala House Courts Location"
               src="https://maps.google.com/maps?q=Patiala%20House%20Courts,%20New%20Delhi&t=&z=15&ie=UTF8&iwloc=&output=embed"
