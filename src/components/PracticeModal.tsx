@@ -81,7 +81,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {practice.keyServices.map((service, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] text-xs text-charcoal-800">
+                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-paper-200 border border-charcoal-200 text-xs text-charcoal-800">
                   <CheckCircle2 className="w-4 h-4 text-gold-600 shrink-0 mt-0.5" />
                   <span>{service}</span>
                 </div>
@@ -99,7 +99,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
               {practice.courtRepresentation.map((court, idx) => (
                 <span 
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg bg-[#F7F9F5] text-charcoal-800 text-xs font-medium border border-[#E1E8E4]"
+                  className="px-3 py-1.5 rounded-lg bg-paper-200 text-charcoal-800 text-xs font-medium border border-charcoal-200"
                 >
                   {court}
                 </span>
@@ -109,7 +109,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="bg-[#F7F9F5] p-5 sm:p-6 border-t border-[#E1E8E4] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-paper-200 p-5 sm:p-6 border-t border-charcoal-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-charcoal-500 text-center sm:text-left">
             Have a matter regarding {practice.title}? Connect with our chambers.
           </div>

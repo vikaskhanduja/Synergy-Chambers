@@ -30,7 +30,7 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-2xl max-w-2xl w-full shadow-elevated border border-[#E1E8E4] overflow-hidden relative"
+        className="bg-white rounded-2xl max-w-2xl w-full shadow-elevated border border-charcoal-200 overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -99,7 +99,7 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
           )}
         </div>
 
-        <div className="bg-[#F7F9F5] p-4 sm:p-5 border-t border-[#E1E8E4] text-right">
+        <div className="bg-paper-200 p-4 sm:p-5 border-t border-charcoal-200 text-right">
           <button
             onClick={onClose}
             className="px-5 py-2 text-xs font-semibold rounded-lg bg-navy-950 text-gold-300 hover:bg-navy-900 transition-colors uppercase tracking-wider cursor-pointer"

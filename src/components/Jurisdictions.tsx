@@ -4,7 +4,7 @@ import { JURISDICTIONS } from '../data/firmData';
 
 export const Jurisdictions: React.FC = () => {
   return (
-    <section id="jurisdictions" className="py-20 lg:py-28 bg-[#F2F5F0] border-b border-[#E1E8E4]">
+    <section id="jurisdictions" className="py-20 lg:py-28 bg-paper-200 border-b border-charcoal-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -26,10 +26,10 @@ export const Jurisdictions: React.FC = () => {
           {JURISDICTIONS.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#E1E8E4] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl p-7 sm:p-8 border border-charcoal-200 shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-[#E7EDE7] mb-5">
+                <div className="flex items-center justify-between pb-4 border-b border-charcoal-200 mb-5">
                   <div className="w-11 h-11 rounded-xl bg-navy-950 text-gold-400 flex items-center justify-center shadow-subtle">
                     <Landmark className="w-5 h-5" />
                   </div>
@@ -47,7 +47,7 @@ export const Jurisdictions: React.FC = () => {
                 </p>
 
                 {/* Courts list */}
-                <div className="space-y-2.5 pt-2 border-t border-[#E7EDE7]">
+                <div className="space-y-2.5 pt-2 border-t border-charcoal-200">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-3">
                     Regular Appearance Forums
                   </span>

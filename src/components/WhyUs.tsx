@@ -43,7 +43,7 @@ export const WhyUs: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 lg:py-28 bg-[#F2F5F0] text-navy-950 relative border-b border-[#E1E8E4]">
+    <section id="why-us" className="py-20 lg:py-28 bg-paper-200 text-navy-950 relative border-b border-charcoal-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -67,7 +67,7 @@ export const WhyUs: React.FC = () => {
             return (
               <div 
                 key={idx}
-                className="bg-white rounded-2xl p-8 sm:p-9 border border-[#E1E8E4] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all group relative overflow-hidden flex flex-col justify-between"
+                className="bg-white rounded-2xl p-8 sm:p-9 border border-charcoal-200 shadow-subtle hover:border-gold-400 hover:shadow-card transition-all group relative overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -90,7 +90,7 @@ export const WhyUs: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#E7EDE7] flex items-center justify-between text-xs text-charcoal-400">
+                <div className="pt-6 mt-6 border-t border-charcoal-200 flex items-center justify-between text-xs text-charcoal-400">
                   <span>Advocates &amp; Solicitors</span>
                   <span className="text-gold-600 font-semibold group-hover:translate-x-1 transition-transform">Pillar {pillar.numeral} &rarr;</span>
                 </div>

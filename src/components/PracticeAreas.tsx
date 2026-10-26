@@ -74,7 +74,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
   });
 
   return (
-    <section id="practices" className="py-20 lg:py-28 bg-[#FAFBF8] text-navy-950 relative border-b border-[#E1E8E4]">
+    <section id="practices" className="py-20 lg:py-28 bg-white text-navy-950 relative border-b border-charcoal-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -92,7 +92,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#E1E8E4]">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-10 pb-6 border-b border-charcoal-200">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2">
             {categories.map((cat) => (
@@ -102,7 +102,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
                   selectedCategory === cat.id
                     ? 'bg-navy-950 text-gold-300 shadow-subtle border border-gold-500/30'
-                    : 'bg-white text-charcoal-700 hover:text-navy-950 border border-[#E1E8E4] hover:border-gold-300'
+                    : 'bg-paper-100 text-charcoal-700 hover:text-navy-950 border border-charcoal-200 hover:border-gold-300'
                 }`}
               >
                 <span>{cat.label}</span>
@@ -123,7 +123,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by crime, statute, court..."
-              className="w-full pl-9 pr-8 py-2 rounded-xl bg-white border border-[#E1E8E4] focus:border-gold-500 focus:outline-none text-xs text-charcoal-800 placeholder:text-charcoal-400 shadow-subtle transition-all"
+              className="w-full pl-9 pr-8 py-2 rounded-xl bg-paper-100 border border-charcoal-200 focus:border-gold-500 focus:outline-none text-xs text-charcoal-800 placeholder:text-charcoal-400 shadow-subtle transition-all"
             />
             {searchQuery && (
               <button
@@ -141,7 +141,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
           {filteredPractices.map((practice) => (
             <div
               key={practice.id}
-              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#E1E8E4] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group relative overflow-hidden"
+              className="bg-white rounded-2xl p-7 sm:p-8 border border-charcoal-200 shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
                 {/* Card Icon & Header */}
@@ -168,7 +168,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
                 </p>
 
                 {/* Appearance Forums Badges */}
-                <div className="space-y-1.5 pt-4 border-t border-[#E7EDE7]">
+                <div className="space-y-1.5 pt-4 border-t border-charcoal-200">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-2">
                     Key Appearance Forums
                   </span>
@@ -176,7 +176,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
                     {practice.courtRepresentation.slice(0, 3).map((court, cIdx) => (
                       <span 
                         key={cIdx}
-                        className="text-[11px] px-2.5 py-1 rounded bg-[#F7F9F5] text-charcoal-700 border border-[#E1E8E4]"
+                        className="text-[11px] px-2.5 py-1 rounded bg-paper-200 text-charcoal-700 border border-charcoal-200"
                       >
                         {court}
                       </span>
@@ -186,7 +186,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onSelectPractice }
               </div>
 
               {/* Action Button */}
-              <div className="pt-6 mt-6 border-t border-[#E7EDE7]">
+              <div className="pt-6 mt-6 border-t border-charcoal-200">
                 <button
                   onClick={() => onSelectPractice(practice.id)}
                   className="w-full py-2.5 px-4 rounded-xl bg-gold-50 hover:bg-gold-500 hover:text-navy-950 text-gold-800 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer"

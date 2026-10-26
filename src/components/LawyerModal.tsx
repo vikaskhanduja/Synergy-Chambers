@@ -80,7 +80,7 @@ export const LawyerModal: React.FC<LawyerModalProps> = ({
               <BookOpen className="w-4 h-4 text-gold-600" />
               <span>Academic Credentials &amp; Admissions</span>
             </h4>
-            <div className="space-y-2 bg-[#F7F9F5] p-4 rounded-xl border border-[#E1E8E4]">
+            <div className="space-y-2 bg-paper-200 p-4 rounded-xl border border-charcoal-200">
               {lawyer.qualifications.map((q, idx) => (
                 <div key={idx} className="text-xs text-charcoal-800 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold-600 shrink-0" />
@@ -115,7 +115,7 @@ export const LawyerModal: React.FC<LawyerModalProps> = ({
               </h4>
               <div className="space-y-2">
                 {lawyer.notableHighlights.map((highlight, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] text-xs text-charcoal-800 flex items-start gap-2.5">
+                  <div key={idx} className="p-3 rounded-xl bg-paper-200 border border-charcoal-200 text-xs text-charcoal-800 flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
                     <span>{highlight}</span>
                   </div>
@@ -145,7 +145,7 @@ export const LawyerModal: React.FC<LawyerModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="bg-[#F7F9F5] p-5 sm:p-6 border-t border-[#E1E8E4] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-paper-200 p-5 sm:p-6 border-t border-charcoal-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-charcoal-500 text-center sm:text-left">
             Request conference with {lawyer.name}.
           </div>

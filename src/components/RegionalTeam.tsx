@@ -18,7 +18,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
   const [activeTab, setActiveTab] = useState<'chandigarh' | 'haryana'>('chandigarh');
 
   return (
-    <section id="regional-team" className="py-20 lg:py-28 bg-[#FAFBF8] border-b border-[#E1E8E4]">
+    <section id="regional-team" className="py-20 lg:py-28 bg-white border-b border-charcoal-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -37,7 +37,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
           </div>
 
           {/* Regional Selector Tabs */}
-          <div className="flex items-center bg-white p-1 rounded-xl border border-[#E1E8E4] shadow-subtle self-start md:self-auto">
+          <div className="flex items-center bg-paper-100 p-1 rounded-xl border border-charcoal-200 shadow-subtle self-start md:self-auto">
             <button
               onClick={() => setActiveTab('chandigarh')}
               className={`px-5 py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
@@ -84,7 +84,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
               {CHANDIGARH_TEAM.map((lawyer) => (
                 <div
                   key={lawyer.id}
-                  className="bg-white rounded-2xl p-8 border border-[#E1E8E4] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-2xl p-8 border border-charcoal-200 shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
                 >
                   <div className="space-y-6">
                     <div>
@@ -101,7 +101,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                     </div>
 
                     {/* Qualifications */}
-                    <div className="space-y-1.5 bg-[#F7F9F5] p-4 rounded-xl border border-[#E1E8E4]">
+                    <div className="space-y-1.5 bg-paper-200 p-4 rounded-xl border border-charcoal-200">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-1">
                         Academic Standing
                       </span>
@@ -128,7 +128,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-[#E7EDE7]">
+                  <div className="pt-6 mt-6 border-t border-charcoal-200">
                     <button
                       onClick={() => onSelectLawyer(lawyer.id)}
                       className="w-full py-2.5 px-4 rounded-xl bg-navy-950 hover:bg-gold-500 text-gold-300 hover:text-navy-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-subtle"
@@ -164,7 +164,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
               {HARYANA_TEAM.map((lawyer) => (
                 <div
                   key={lawyer.id}
-                  className="bg-white rounded-2xl p-6 border border-[#E1E8E4] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-2xl p-6 border border-charcoal-200 shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
                     <div>
@@ -184,7 +184,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                       {lawyer.bio}
                     </p>
 
-                    <div className="space-y-1 pt-2 border-t border-[#E7EDE7]">
+                    <div className="space-y-1 pt-2 border-t border-charcoal-200">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-1">
                         Core Focus
                       </span>
@@ -197,7 +197,7 @@ export const RegionalTeam: React.FC<RegionalTeamProps> = ({ onSelectLawyer }) =>
                     </div>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-[#E7EDE7]">
+                  <div className="pt-4 mt-4 border-t border-charcoal-200">
                     <button
                       onClick={() => onSelectLawyer(lawyer.id)}
                       className="w-full py-2 px-3 rounded-lg bg-gold-50 hover:bg-gold-500 hover:text-navy-950 text-gold-800 text-[11px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer"

@@ -18,7 +18,7 @@ export const Founders: React.FC<FoundersProps> = ({
   onSelectLawyer
 }) => {
   return (
-    <section id="founders" className="py-20 lg:py-28 bg-[#F2F5F0] border-b border-[#E1E8E4]">
+    <section id="founders" className="py-20 lg:py-28 bg-paper-200 border-b border-charcoal-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -40,7 +40,7 @@ export const Founders: React.FC<FoundersProps> = ({
           {FOUNDERS.map((founder) => (
             <div
               key={founder.id}
-              className="bg-white rounded-2xl border border-[#E1E8E4] shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-2xl border border-charcoal-200 shadow-subtle hover:border-gold-400 hover:shadow-card transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Profile Card Header */}
               <div className="p-7 sm:p-8 space-y-6">
@@ -63,7 +63,7 @@ export const Founders: React.FC<FoundersProps> = ({
                 </div>
 
                 {/* Academic & Bar Credentials */}
-                <div className="space-y-2 pt-2 border-t border-[#E7EDE7]">
+                <div className="space-y-2 pt-2 border-t border-charcoal-200">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-1">
                     Credentials &amp; Bar Admissions
                   </span>
@@ -88,7 +88,7 @@ export const Founders: React.FC<FoundersProps> = ({
 
                 {/* Key Practice Highlights */}
                 {founder.notableHighlights && (
-                  <div className="space-y-1.5 pt-3 border-t border-[#E7EDE7]">
+                  <div className="space-y-1.5 pt-3 border-t border-charcoal-200">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-charcoal-400 block mb-2">
                       Distinguished Case Highlights
                     </span>
@@ -103,7 +103,7 @@ export const Founders: React.FC<FoundersProps> = ({
               </div>
 
               {/* Action Trigger */}
-              <div className="p-6 bg-[#F7F9F5] border-t border-[#E1E8E4] flex items-center justify-between">
+              <div className="p-6 bg-paper-200 border-t border-charcoal-200 flex items-center justify-between">
                 <button
                   onClick={() => onSelectLawyer(founder.id)}
                   className="w-full py-2.5 px-4 rounded-xl bg-navy-950 hover:bg-gold-500 text-gold-300 hover:text-navy-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-subtle"

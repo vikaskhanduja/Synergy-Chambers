@@ -90,7 +90,7 @@ export const ConsultationSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-[#F2F5F0] text-navy-950 relative border-b border-[#E1E8E4]">
+    <section id="contact" className="py-20 lg:py-28 bg-paper-200 text-navy-950 relative border-b border-charcoal-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -111,8 +111,8 @@ export const ConsultationSection: React.FC = () => {
           
           {/* Left Column: Direct Contact & Chamber Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl p-7 sm:p-8 border border-[#E1E8E4] shadow-subtle space-y-6">
-              <div className="flex items-center gap-3.5 pb-5 border-b border-[#E7EDE7]">
+            <div className="bg-white rounded-2xl p-7 sm:p-8 border border-charcoal-200 shadow-subtle space-y-6">
+              <div className="flex items-center gap-3.5 pb-5 border-b border-charcoal-200">
                 <div className="w-11 h-11 rounded-xl bg-navy-950 text-gold-400 flex items-center justify-center">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -161,7 +161,7 @@ export const ConsultationSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="text-[11px] text-charcoal-500 pt-2 border-t border-[#E7EDE7]">
+              <div className="text-[11px] text-charcoal-500 pt-2 border-t border-charcoal-200">
                 * Submitting an inquiry does not automatically constitute a formal vakalatnama or lawyer-client relationship until mutually accepted.
               </div>
             </div>
@@ -169,7 +169,7 @@ export const ConsultationSection: React.FC = () => {
 
           {/* Right Column: Confidential Intake Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl p-7 sm:p-9 border border-[#E1E8E4] shadow-card">
+            <div className="bg-white rounded-2xl p-7 sm:p-9 border border-charcoal-200 shadow-card">
               {isSubmitted ? (
                 <div className="py-10 text-center space-y-5 animate-in fade-in duration-300">
                   <div className="w-16 h-16 rounded-full bg-gold-50 border border-gold-300 flex items-center justify-center text-gold-600 mx-auto">
@@ -184,7 +184,7 @@ export const ConsultationSection: React.FC = () => {
                     </h3>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#F7F9F5] border border-[#E1E8E4] max-w-md mx-auto space-y-2 text-xs">
+                  <div className="p-5 rounded-xl bg-paper-100 border border-charcoal-200 max-w-md mx-auto space-y-2 text-xs">
                     <div className="text-charcoal-500">Your Confidential File Reference:</div>
                     <div className="font-mono text-xl font-bold text-navy-950 tracking-wider">
                       {referenceNumber}
@@ -204,7 +204,7 @@ export const ConsultationSection: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="flex items-center justify-between pb-3 border-b border-[#E7EDE7]">
+                  <div className="flex items-center justify-between pb-3 border-b border-charcoal-200">
                     <span className="text-xs font-bold uppercase tracking-wider text-navy-950">
                       Confidential Case Docket Intake
                     </span>
