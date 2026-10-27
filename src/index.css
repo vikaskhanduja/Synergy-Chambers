@@ -12,62 +12,45 @@
   }
   
   body {
-    color: #1E293B;
-    background-color: #F8FAFC;
+    color: #1F2937;
+    background-color: #FFFFFF;
     overflow-x: hidden;
     font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   h1, h2, h3, h4, .font-serif {
-    letter-spacing: -0.018em;
+    letter-spacing: -0.015em;
   }
 }
 
-/* Custom refined scrollbar in Executive Midnight Navy & Warm Gold */
+/* Custom understated legal scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #F3F4F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
+  background: #D1D5DB;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B6954F;
+  background: #B89665;
 }
 
-/* Authentic legal seal, double-hairlines & parchment accents */
-.crest-border {
-  border: 1px solid rgba(182, 149, 79, 0.35);
+/* Classical double rule borders for authentic legal stationery feel */
+.legal-border {
+  border: 1px solid #E5E7EB;
 }
 
-.crest-double-border {
-  border: 1px solid rgba(182, 149, 79, 0.45);
-  outline: 1px solid rgba(182, 149, 79, 0.2);
-  outline-offset: 3px;
-}
-
-.chambers-card {
+.legal-card {
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #E5E7EB;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.chambers-card:hover {
-  border-color: #CBAE6F;
-  box-shadow: 0 16px 36px -10px rgba(7, 12, 20, 0.08), 0 0 0 1px rgba(182, 149, 79, 0.28);
+.legal-card:hover {
+  border-color: #CFB58E;
+  box-shadow: 0 10px 28px -6px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(184, 150, 101, 0.2);
   transform: translateY(-2px);
-}
-
-/* Legal docket paper watermark line */
-.docket-pattern {
-  background-image: radial-gradient(rgba(182, 149, 79, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Subtle gold glow for interactive buttons */
-.btn-gold-glow:hover {
-  box-shadow: 0 4px 20px -2px rgba(182, 149, 79, 0.35);
 }

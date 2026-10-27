@@ -36,9 +36,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Bar: Chambers location, statutory compliance & contact */}
-      <div className="bg-navy-950 text-charcoal-400 text-[11px] py-1.5 border-b border-navy-850/80 px-4 sm:px-6 lg:px-8 hidden md:block">
+      <div className="bg-navy-950 text-charcoal-400 text-[11px] py-1.5 border-b border-navy-850 px-4 sm:px-6 lg:px-8 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-6">
             <span className="flex items-center gap-1.5 text-charcoal-300 whitespace-nowrap">
               <MapPin className="w-3.5 h-3.5 text-gold-400 shrink-0" />
               <span>Chamber 238, Patiala House Courts, New Delhi</span>
@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               Bar Council Rule 36 Compliant
             </span>
             <span className="text-charcoal-400 text-[10.5px] tracking-wide whitespace-nowrap hidden lg:inline">
-              Delhi • Chandigarh • Haryana
+              Principal Seat: Delhi • Benches: Chandigarh &amp; Haryana
             </span>
           </div>
         </div>
@@ -68,8 +68,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Navigation Bar */}
       <nav className={`transition-all duration-300 ${
         isScrolled 
-          ? 'bg-navy-950/98 backdrop-blur-md shadow-elevated border-b border-navy-850/90 py-2.5 sm:py-3' 
-          : 'bg-navy-950/95 backdrop-blur-sm border-b border-navy-850/60 py-3 sm:py-3.5'
+          ? 'bg-navy-950/98 backdrop-blur-md shadow-elevated border-b border-navy-850 py-2.5 sm:py-3' 
+          : 'bg-navy-950/95 backdrop-blur-sm border-b border-navy-850/70 py-3 sm:py-3.5'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
@@ -121,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isPracticesOpen && (
                 <div className="absolute top-full -left-20 w-[480px] bg-navy-950 border border-gold-500/30 rounded-2xl shadow-elevated p-3.5 grid grid-cols-2 gap-1.5 animate-in fade-in slide-in-from-top-2 duration-150 z-50">
                   <div className="col-span-2 pb-2 mb-1 border-b border-navy-850 flex items-center justify-between text-[11px] text-charcoal-400">
-                    <span className="font-semibold uppercase tracking-wider text-gold-400">9 Practice Areas</span>
+                    <span className="font-semibold uppercase tracking-wider text-gold-400">9 Legal Domains</span>
                     <a href="#practices" className="hover:text-gold-300 flex items-center gap-1 font-medium">
                       <span>View All</span>
                       <ArrowRight className="w-3 h-3" />
@@ -192,7 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-navy-900 text-charcoal-200 hover:text-white border border-navy-800 transition-colors"
+              className="p-2 rounded-lg bg-navy-900 text-charcoal-200 hover:text-white border border-navy-800 transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
