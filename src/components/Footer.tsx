@@ -7,7 +7,9 @@ import {
   ChevronRight, 
   ArrowUp,
   Building,
-  Clock
+  Clock,
+  ExternalLink,
+  ShieldAlert
 } from 'lucide-react';
 import { FIRM_DETAILS, PRACTICE_AREAS } from '../data/firmData';
 
@@ -27,45 +29,49 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-navy-950 text-charcoal-300 pt-16 pb-12 border-t border-navy-850">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <footer 
+      role="contentinfo"
+      aria-label="Firm Footer & Compliance Directory"
+      className="bg-chambers-navy-950 text-chambers-stone-300 pt-16 pb-12 border-t border-chambers-navy-850"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-navy-850">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-chambers-navy-850">
           
-          {/* Brand & Address Column */}
+          {/* Brand & Registered Chambers Column */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-navy-900 border border-gold-500/30 flex items-center justify-center text-gold-400">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-chambers-navy-900 border border-chambers-gold-500/30 flex items-center justify-center text-chambers-gold-400">
                 <Scale className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-display text-base font-bold tracking-wider text-white block">
+                <span className="font-serif text-lg font-bold tracking-wider text-white block">
                   SYNERGY CHAMBERS
                 </span>
-                <span className="text-[10px] tracking-[0.24em] uppercase text-gold-400 font-semibold block mt-0.5">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-chambers-gold-400 font-semibold block">
                   Advocates &amp; Solicitors
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-charcoal-400 leading-relaxed font-light">
+            <p className="text-xs text-chambers-stone-400 leading-relaxed font-light">
               {FIRM_DETAILS.mission}
             </p>
 
-            <div className="space-y-2.5 text-xs text-charcoal-400 pt-2">
+            <div className="space-y-2.5 text-xs text-chambers-stone-400 pt-2">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-chambers-gold-400 shrink-0 mt-0.5" />
                 <span>{FIRM_DETAILS.establishedLocation}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-gold-400 shrink-0" />
-                <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-gold-300 transition-colors">
+                <Mail className="w-4 h-4 text-chambers-gold-400 shrink-0" />
+                <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-chambers-gold-300 transition-colors">
                   {FIRM_DETAILS.email}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Building className="w-4 h-4 text-gold-400 shrink-0" />
+                <Building className="w-4 h-4 text-chambers-gold-400 shrink-0" />
                 <span>Regional Benches: Chandigarh • Haryana District Courts</span>
               </div>
             </div>
@@ -81,9 +87,9 @@ export const Footer: React.FC<FooterProps> = ({
                 <li key={practice.id}>
                   <a 
                     href="#practices" 
-                    className="hover:text-gold-300 transition-colors flex items-center gap-1.5"
+                    className="hover:text-chambers-gold-300 transition-colors flex items-center gap-1.5"
                   >
-                    <ChevronRight className="w-3 h-3 text-gold-500" />
+                    <ChevronRight className="w-3 h-3 text-chambers-gold-500" />
                     <span>{practice.title}</span>
                   </a>
                 </li>
@@ -91,109 +97,98 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Regional Network Links */}
+          {/* Regional Benches & Navigation */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
-              Chambers
+              Chambers Directory
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-gold-300 transition-colors">
-                  The Firm &amp; History
+                <a href="#about" className="hover:text-chambers-gold-300 transition-colors">
+                  About Chambers
                 </a>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-gold-300 transition-colors">
-                  Four Pillars of Advocacy
+                <a href="#why-us" className="hover:text-chambers-gold-300 transition-colors">
+                  Chambers Pillars
                 </a>
               </li>
               <li>
-                <a href="#founders" className="hover:text-gold-300 transition-colors">
-                  Founding Advocates
+                <a href="#advocates" className="hover:text-chambers-gold-300 transition-colors">
+                  Founders &amp; Leadership
                 </a>
               </li>
               <li>
-                <a href="#regional-team" className="hover:text-gold-300 transition-colors">
-                  Chandigarh Chambers
+                <a href="#advocates" className="hover:text-chambers-gold-300 transition-colors">
+                  Regional Benches
                 </a>
               </li>
               <li>
-                <a href="#regional-team" className="hover:text-gold-300 transition-colors">
-                  Haryana District Network
-                </a>
-              </li>
-              <li>
-                <a href="#jurisdictions" className="hover:text-gold-300 transition-colors">
+                <a href="#jurisdictions" className="hover:text-chambers-gold-300 transition-colors">
                   Judicial Jurisdictions
                 </a>
               </li>
               <li>
-                <a href="#location" className="hover:text-gold-300 transition-colors">
+                <a href="#location" className="hover:text-chambers-gold-300 transition-colors">
                   Patiala House Location
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-chambers-gold-300 transition-colors">
+                  Schedule Consultation
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Consultation & Office Hours */}
+          {/* Regulatory & Accessibility Column */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
-              Chamber Conferences
+              Statutory Governance
             </h4>
-            <p className="text-xs text-charcoal-400 leading-relaxed font-light">
-              Prior appointment recommended for preliminary case conferences and document vetting.
+            <p className="text-xs text-chambers-stone-400 leading-relaxed font-light">
+              Synergy Chambers complies strictly with Rule 36 of the Bar Council of India Rules. The firm does not solicit legal representation or advertise legal services.
             </p>
-            <div className="p-3.5 rounded-xl bg-navy-900 border border-navy-850 space-y-2">
-              <div className="flex items-center gap-2 text-xs text-gold-400 font-semibold">
-                <Clock className="w-3.5 h-3.5" />
-                <span>Working Hours:</span>
-              </div>
-              <p className="text-xs text-charcoal-300">
-                {FIRM_DETAILS.hours}
-              </p>
+            <div className="pt-2 space-y-2 text-xs">
+              <button
+                onClick={onOpenDisclaimer}
+                className="text-chambers-gold-400 hover:text-chambers-gold-300 transition-colors flex items-center gap-1.5 cursor-pointer"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Bar Council Disclaimer</span>
+              </button>
+              <button
+                onClick={onOpenPrivacy}
+                className="text-chambers-gold-400 hover:text-chambers-gold-300 transition-colors flex items-center gap-1.5 cursor-pointer"
+              >
+                <ShieldAlert className="w-3.5 h-3.5" />
+                <span>Client Privilege &amp; Privacy Policy</span>
+              </button>
             </div>
-            <button
-              onClick={onOpenConsultation}
-              className="w-full py-2.5 px-4 rounded-lg bg-gold-500 hover:bg-gold-600 text-navy-950 text-xs font-bold uppercase tracking-wider transition-all shadow-subtle cursor-pointer"
-            >
-              Request Consultation
-            </button>
           </div>
 
         </div>
 
-        {/* Statutory Compliance & Disclaimer */}
-        <div className="pt-8 pb-6 border-b border-navy-850 text-[11px] text-charcoal-400 leading-relaxed">
-          <p>
-            <strong className="text-charcoal-300">Bar Council of India Disclaimer:</strong> As per the rules of the Bar Council of India, advocates and law firms are prohibited from soliciting work or advertising. The contents of this website are intended solely for informational purposes and should not be construed as legal advice. Visiting this website or submitting an inquiry does not establish an advocate-client relationship.
-          </p>
-        </div>
-
-        {/* Bottom Bar: Copyright & Policies */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-charcoal-400">
+        {/* Bottom Bar: Copyright & Back to Top */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-chambers-stone-500">
           <div>
-            &copy; {new Date().getFullYear()} Synergy Chambers. Advocates &amp; Solicitors. All rights reserved.
+            &copy; {new Date().getFullYear()} Synergy Chambers. All rights reserved. Registered Patiala House Courts, New Delhi.
           </div>
 
-          <div className="flex items-center space-x-6">
-            <button 
-              onClick={onOpenDisclaimer} 
-              className="hover:text-gold-400 transition-colors cursor-pointer"
+          <div className="flex items-center gap-6">
+            <a 
+              href="#main-content" 
+              className="text-chambers-stone-400 hover:text-white transition-colors"
             >
-              BCI Disclaimer
-            </button>
-            <button 
-              onClick={onOpenPrivacy} 
-              className="hover:text-gold-400 transition-colors cursor-pointer"
-            >
-              Confidentiality Policy
-            </button>
+              Skip to Content
+            </a>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-navy-900 hover:bg-navy-850 text-gold-400 transition-colors flex items-center gap-1 cursor-pointer"
-              aria-label="Back to top"
+              className="flex items-center gap-1.5 text-chambers-gold-400 hover:text-chambers-gold-300 transition-colors cursor-pointer"
+              aria-label="Scroll back to top of page"
             >
-              <ArrowUp className="w-4 h-4" />
+              <span>Back to Top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

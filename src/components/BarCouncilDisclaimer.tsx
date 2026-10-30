@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Check } from 'lucide-react';
+import { Shield, Check, Scale } from 'lucide-react';
 
 export const BarCouncilDisclaimer: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,35 +31,37 @@ export const BarCouncilDisclaimer: React.FC = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-navy-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
+    <div 
+      className="fixed inset-0 z-50 bg-chambers-navy-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300"
+      role="dialog"
+      aria-labelledby="disclaimer-title"
+      aria-modal="true"
+    >
       <div 
-        className="bg-white rounded-2xl max-w-xl w-full shadow-elevated border border-charcoal-200 overflow-hidden text-navy-950 p-6 sm:p-8 space-y-5"
-        role="dialog"
-        aria-labelledby="disclaimer-title"
-        aria-modal="true"
+        className="bg-white rounded-2xl max-w-xl w-full shadow-chambers-elevated border border-chambers-stone-200 overflow-hidden text-chambers-navy-950 p-6 sm:p-8 space-y-5"
       >
-        <div className="flex items-center gap-3 pb-4 border-b border-charcoal-200">
-          <div className="w-10 h-10 rounded-xl bg-navy-950 text-gold-400 flex items-center justify-center shrink-0">
-            <Shield className="w-5 h-5" />
+        <div className="flex items-center gap-3.5 pb-4 border-b border-chambers-stone-200">
+          <div className="w-11 h-11 rounded-xl bg-chambers-navy-950 text-chambers-gold-400 flex items-center justify-center shrink-0">
+            <Scale className="w-5 h-5" />
           </div>
           <div>
-            <h3 id="disclaimer-title" className="font-serif text-xl sm:text-2xl font-bold text-navy-950">
+            <h3 id="disclaimer-title" className="font-serif text-xl sm:text-2xl font-bold text-chambers-navy-950">
               Bar Council of India Disclaimer
             </h3>
-            <p className="text-[10px] text-charcoal-500 uppercase tracking-wider font-bold">
-              Statutory Compliance &amp; Professional Conduct
+            <p className="text-[10px] text-chambers-gold-800 uppercase tracking-wider font-bold">
+              Statutory Compliance • BCI Rule 36
             </p>
           </div>
         </div>
 
-        <div className="space-y-3 text-xs sm:text-sm text-charcoal-700 leading-relaxed max-h-[50vh] overflow-y-auto pr-1">
+        <div className="space-y-3.5 text-xs sm:text-sm text-chambers-stone-700 leading-relaxed max-h-[50vh] overflow-y-auto pr-2">
           <p>
-            As per the statutory rules framed by the <strong>Bar Council of India</strong>, advocates and law firms are strictly prohibited from soliciting work or advertising in any form or manner.
+            Under the statutory rules framed by the <strong>Bar Council of India</strong>, advocates and law firms are strictly prohibited from soliciting work or advertising in any form or manner.
           </p>
           <p>
-            By proceeding and accessing this website (<span className="text-gold-700 font-semibold">synergychambers.com</span>), the user acknowledges and confirms that:
+            By proceeding and accessing this website (<strong className="text-chambers-navy-950 font-semibold">synergychambers.com</strong>), the user acknowledges and confirms that:
           </p>
-          <ul className="list-disc pl-5 space-y-1.5 text-xs text-charcoal-600">
+          <ul className="list-disc pl-5 space-y-2 text-xs text-chambers-stone-600">
             <li>
               You are seeking information relating to Synergy Chambers of your own accord and there has been no advertisement, personal communication, solicitation, or inducement by the firm or its advocates.
             </li>
@@ -75,15 +77,15 @@ export const BarCouncilDisclaimer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="pt-4 border-t border-charcoal-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-[11px] text-charcoal-400 text-center sm:text-left">
+        <div className="pt-4 border-t border-chambers-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-[11px] text-chambers-stone-500 text-center sm:text-left">
             Rule 36, Bar Council of India Rules
           </span>
           <button
             onClick={handleAccept}
-            className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-navy-950 font-bold text-xs uppercase tracking-wider transition-all shadow-subtle flex items-center justify-center gap-1.5 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-chambers-navy-950 hover:bg-chambers-navy-900 text-chambers-gold-300 font-bold text-xs uppercase tracking-wider shadow-chambers-subtle transition-all cursor-pointer"
           >
-            <Check className="w-4 h-4" />
+            <Check className="w-4 h-4 text-chambers-gold-400" />
             <span>I Acknowledge &amp; Proceed</span>
           </button>
         </div>
