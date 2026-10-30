@@ -5,12 +5,11 @@ import {
   ShieldCheck, 
   MapPin, 
   CheckCircle2, 
-  Clock,
-  Landmark,
-  Building,
-  Gavel,
-  BookOpen,
-  Award
+  Landmark, 
+  Gavel, 
+  BookOpen, 
+  Building2,
+  FileCheck
 } from 'lucide-react';
 import { FIRM_DETAILS } from '../data/firmData';
 
@@ -19,186 +18,202 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
-  const quickSpecializations = [
-    "PMLA & Financial Crimes",
-    "NDPS Act Special Defence",
-    "Serious Fraud Office (SFIO)",
-    "Supreme Court Writs & Appeals",
-    "Commercial Arbitration & DIAC",
-    "Administrative & CAT Tribunals"
+  const statutes = [
+    { code: "PMLA", label: "Money Laundering & Enforcement Directorate" },
+    { code: "NDPS", label: "Narcotic Drugs & Special Court Trials" },
+    { code: "SFIO", label: "Serious Fraud & Corporate Investigations" },
+    { code: "POCSO", label: "Special Protection Enactments" },
+    { code: "IBC", label: "Insolvency & Corporate Debtor Resolution" },
+    { code: "BNS / IPC", label: "Criminal Defence & High Court Writs" }
   ];
 
   return (
     <section 
-      className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-chambers-navy-950 text-white overflow-hidden border-b border-chambers-navy-850"
-      aria-label="Welcome and Chambers Overview"
+      aria-label="Chambers Overview & Primary Seat"
+      className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-[#09111E] text-white border-b border-[#142135] overflow-hidden"
     >
-      {/* Subtle Architectural Grid Pattern */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(179,142,84,0.15),transparent_50%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-chambers-navy-950 to-transparent" />
+      {/* Subtle broadsheet background texture */}
+      <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(#B8934E_1px,transparent_1px)] [background-size:32px_32px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Top Court Chambers Seat Masthead */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-[#1A2840] text-xs">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-[#B8934E]" aria-hidden="true" />
+            <span className="tracking-[0.2em] uppercase font-semibold text-[#CBD5E1] text-[11px]">
+              Chambers Registry:
+            </span>
+            <span className="text-white font-medium">
+              Chamber 238, Patiala House Courts, New Delhi 110001
+            </span>
+          </div>
           
-          {/* Main Hero Editorial Narrative */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left">
+          <div className="hidden sm:flex items-center gap-6 text-[11px] text-[#8A95A5]">
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#B8934E]" />
+              <span>Privilege Protected: Sec. 126 Evidence Act</span>
+            </span>
+            <span className="text-[#1C2C44]">|</span>
+            <span className="flex items-center gap-1.5">
+              <Landmark className="w-3.5 h-3.5 text-[#B8934E]" />
+              <span>Rule 36 BCI Compliant</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Asymmetrical Editorial Composition */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Editorial Narrative */}
+          <div className="lg:col-span-7 space-y-7">
             
-            {/* Chambers Registration & Seat Bar */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-chambers-navy-900 border border-chambers-gold-500/30 text-chambers-gold-300 text-xs tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-chambers-gold-400 animate-pulse" aria-hidden="true" />
-              <MapPin className="w-3.5 h-3.5 text-chambers-gold-400 shrink-0" aria-hidden="true" />
-              <span>{FIRM_DETAILS.establishedLocation}</span>
+            <div className="space-y-4">
+              <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-[#B8934E] font-bold">
+                Litigation • Appellate Advocacy • Special Enactments
+              </span>
+              
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]">
+                Trial Rigor. Appellate Precision.{' '}
+                <span className="block font-normal italic text-[#D6C298] font-serif mt-1">
+                  Uncompromised Courtroom Advocacy.
+                </span>
+              </h1>
             </div>
 
-            {/* Main Editorial Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
-              Trial Rigor. Appellate Precision.{' '}
-              <span className="block italic text-chambers-gold-400 font-normal">
-                Forensic Legal Synergy.
-              </span>
-            </h1>
-
-            {/* Narrative Subtitle */}
-            <p className="text-base sm:text-lg text-chambers-stone-300 leading-relaxed max-w-2xl font-light">
-              Synergy Chambers is a premier Delhi-headquartered litigation and advisory practice uniting trial lawyers, former regulatory prosecutors, and academic counsel to deliver formidable courtroom defence before the Supreme Court of India, High Courts, and Special Enforcement Tribunals.
+            <p className="text-base sm:text-lg text-[#CBD5E1] leading-relaxed font-normal max-w-2xl">
+              From our principal litigation chambers at Patiala House Courts in New Delhi, Synergy Chambers brings together seasoned trial advocates, former regulatory prosecutors, and academic counsel to prosecute and defend high-stakes legal briefs before the Supreme Court of India, High Courts, and Special Statutory Tribunals.
             </p>
 
-            {/* Special Statutory Pillars Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs sm:text-sm text-chambers-stone-300">
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-chambers-gold-400 shrink-0" aria-hidden="true" />
-                <span>Special Statute Defence (PMLA, NDPS, SFIO, ED)</span>
+            {/* Architectural Key Practice Capabilities */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 py-2 text-xs sm:text-[13px] text-[#E2E8F0] border-y border-[#1A2840]">
+              <div className="flex items-start gap-2.5 py-1">
+                <span className="text-[#B8934E] font-serif text-base leading-none">§</span>
+                <span>White-Collar &amp; Enforcement Defence (PMLA, SFIO, ED)</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-chambers-gold-400 shrink-0" aria-hidden="true" />
-                <span>Supreme Court of India &amp; High Courts Appellate Practice</span>
+              <div className="flex items-start gap-2.5 py-1">
+                <span className="text-[#B8934E] font-serif text-base leading-none">§</span>
+                <span>Supreme Court Writs &amp; High Court Appellate Division</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-chambers-gold-400 shrink-0" aria-hidden="true" />
-                <span>Direct Access to Arguing Counsel — Zero Dilution</span>
+              <div className="flex items-start gap-2.5 py-1">
+                <span className="text-[#B8934E] font-serif text-base leading-none">§</span>
+                <span>Special Penal Trials (NDPS Bail &amp; POCSO Defence)</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-chambers-gold-400 shrink-0" aria-hidden="true" />
-                <span>Integrated Benches: Delhi • Chandigarh • Haryana</span>
+              <div className="flex items-start gap-2.5 py-1">
+                <span className="text-[#B8934E] font-serif text-base leading-none">§</span>
+                <span>Coordinated Delhi, Chandigarh &amp; Haryana District Benches</span>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            {/* Direct Actions */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-chambers-gold-500 hover:bg-chambers-gold-600 text-chambers-navy-950 font-bold text-xs tracking-wider uppercase transition-all shadow-subtle hover:shadow-premium cursor-pointer active:scale-95 group"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded bg-[#B8934E] hover:bg-[#A38344] text-[#09111E] font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-md group"
               >
-                <span>Request Confidential Consultation</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                <span>Submit Privileged Docket Brief</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <a
                 href="#practices"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-chambers-navy-900/90 hover:bg-chambers-navy-850 text-chambers-stone-200 hover:text-white border border-chambers-navy-800 hover:border-chambers-gold-500/40 font-semibold text-xs tracking-wider uppercase transition-all"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded border border-[#1E2D44] hover:border-[#B8934E] text-[#CBD5E1] hover:text-white font-semibold text-xs uppercase tracking-wider transition-all duration-200"
               >
-                <span>Explore Practice Domains</span>
+                <span>View Practice Registry</span>
               </a>
-            </div>
-
-            {/* Quick Sector Tags */}
-            <div className="pt-2">
-              <span className="text-[10px] uppercase font-bold tracking-wider text-chambers-stone-400 block mb-2">
-                Core Special Statutory Coverage:
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {quickSpecializations.map((spec, sIdx) => (
-                  <span 
-                    key={sIdx}
-                    className="text-[11px] px-2.5 py-1 rounded bg-chambers-navy-900 text-chambers-stone-300 border border-chambers-navy-800"
-                  >
-                    {spec}
-                  </span>
-                ))}
-              </div>
             </div>
 
           </div>
 
-          {/* Right Visual Element - Authoritative Chambers Registry Warrant */}
+          {/* Right Visual Element: Authoritative Courtroom Composition */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-chambers-navy-900 border border-chambers-gold-500/30 p-7 sm:p-8 shadow-elevated relative overflow-hidden backdrop-blur-sm space-y-6">
+            <div className="relative border border-[#1A2840] bg-[#0C1626] p-2 shadow-2xl">
               
-              {/* Foil Accent Top Line */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-chambers-gold-600 via-chambers-gold-400 to-chambers-gold-600" />
-
-              {/* Warrant Header */}
-              <div className="flex items-center justify-between pb-5 border-b border-chambers-navy-850">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-xl bg-chambers-navy-950 border border-chambers-gold-500/35 flex items-center justify-center text-chambers-gold-400 shadow-subtle">
-                    <Scale className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h2 className="font-display font-bold text-white text-base tracking-wide leading-tight">
-                      SYNERGY CHAMBERS
-                    </h2>
-                    <p className="text-xs text-chambers-gold-400 font-medium">
-                      Patiala House Courts • Chamber 238
-                    </p>
-                  </div>
-                </div>
-                <span className="text-[10.5px] tracking-wider uppercase bg-chambers-gold-500/10 text-chambers-gold-300 border border-chambers-gold-500/25 px-2.5 py-1 rounded font-medium">
-                  Delhi Seat
-                </span>
-              </div>
-
-              {/* Judicial Quote Docket Inscription */}
-              <div className="py-2 space-y-2">
-                <blockquote className="border-l-2 border-chambers-gold-500 pl-4 py-1 font-serif text-lg sm:text-xl italic text-chambers-stone-100 leading-snug">
-                  &ldquo;{FIRM_DETAILS.quote.text}&rdquo;
-                </blockquote>
-                <p className="text-xs text-chambers-gold-400 text-right font-display tracking-wider uppercase font-semibold">
-                  — {FIRM_DETAILS.quote.author}
-                </p>
-              </div>
-
-              {/* Verified Registry Details */}
-              <div className="space-y-2.5 pt-3 border-t border-chambers-navy-850 text-xs">
-                <div className="flex items-center justify-between text-chambers-stone-300 bg-chambers-navy-950/70 p-3 rounded-xl border border-chambers-navy-850">
-                  <span className="text-chambers-stone-400 font-medium">Headquarters Seat</span>
-                  <span className="text-white font-semibold">Chamber 238, Patiala House Courts</span>
-                </div>
-                <div className="flex items-center justify-between text-chambers-stone-300 bg-chambers-navy-950/70 p-3 rounded-xl border border-chambers-navy-850">
-                  <span className="text-chambers-stone-400 font-medium">Regional Benches</span>
-                  <span className="text-white font-semibold">Chandigarh High Court &amp; Haryana</span>
-                </div>
-                <div className="flex items-center justify-between text-chambers-stone-300 bg-chambers-navy-950/70 p-3 rounded-xl border border-chambers-navy-850">
-                  <span className="text-chambers-stone-400 font-medium">Advocate Privilege</span>
-                  <span className="text-chambers-gold-300 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-chambers-gold-400" aria-hidden="true" />
-                    Sec. 126 Evidence Act Protected
+              {/* Classical Architectural Image */}
+              <div className="relative h-64 sm:h-72 w-full overflow-hidden border border-[#142135]">
+                <img 
+                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200" 
+                  alt="Neoclassical high court columns and law library volumes representing judicial authority" 
+                  className="w-full h-full object-cover grayscale-[35%] contrast-[110%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C1626] via-transparent to-transparent" />
+                
+                {/* Gold Seal Inset */}
+                <div className="absolute top-4 right-4 bg-[#09111E]/90 backdrop-blur-md border border-[#B8934E]/60 p-2.5 shadow-lg flex items-center gap-2">
+                  <Scale className="w-4 h-4 text-[#B8934E]" />
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#E6E1D6]">
+                    Est. Patiala House
                   </span>
                 </div>
               </div>
 
-              {/* Key Verification Metrics */}
-              <div className="grid grid-cols-3 gap-2.5 pt-4 mt-2 border-t border-chambers-navy-850 text-center">
-                <div className="bg-chambers-navy-950/80 p-2.5 rounded-xl border border-chambers-navy-850">
-                  <span className="block font-serif text-lg sm:text-xl font-bold text-chambers-gold-400">150+</span>
-                  <span className="block text-[10px] text-chambers-stone-400 uppercase tracking-wider mt-0.5">Special Trials</span>
+              {/* Editorial Legal Plaque Below Image */}
+              <div className="p-6 sm:p-7 space-y-5 bg-[#0C1626]">
+                
+                {/* Oliver Wendell Holmes Inscription */}
+                <blockquote className="border-l-2 border-[#B8934E] pl-4 py-0.5 text-sm sm:text-base font-serif italic text-[#F3EFE6] leading-relaxed">
+                  &ldquo;{FIRM_DETAILS.quote.text}&rdquo;
+                </blockquote>
+                <div className="text-right">
+                  <span className="text-[10.5px] uppercase tracking-wider text-[#B8934E] font-semibold">
+                    — {FIRM_DETAILS.quote.author}
+                  </span>
                 </div>
-                <div className="bg-chambers-navy-950/80 p-2.5 rounded-xl border border-chambers-navy-850">
-                  <span className="block font-serif text-lg sm:text-xl font-bold text-chambers-gold-400">3</span>
-                  <span className="block text-[10px] text-chambers-stone-400 uppercase tracking-wider mt-0.5">Court Benches</span>
+
+                {/* Registry Ledger Matrix */}
+                <div className="pt-4 border-t border-[#142135] space-y-2.5 text-xs text-[#CBD5E1]">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#142135]/60">
+                    <span className="text-[#8A95A5]">Delhi Chambers:</span>
+                    <span className="text-white font-medium">Chamber 238, Patiala House Courts</span>
+                  </div>
+                  <div className="flex items-center justify-between pb-2 border-b border-[#142135]/60">
+                    <span className="text-[#8A95A5]">High Court Division:</span>
+                    <span className="text-white font-medium">Punjab &amp; Haryana High Court, Chandigarh</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#8A95A5]">District Practice:</span>
+                    <span className="text-white font-medium">Gurugram • Rewari • Karnal • Panipat</span>
+                  </div>
                 </div>
-                <div className="bg-chambers-navy-950/80 p-2.5 rounded-xl border border-chambers-navy-850">
-                  <span className="block font-serif text-lg sm:text-xl font-bold text-chambers-gold-400">100%</span>
-                  <span className="block text-[10px] text-chambers-stone-400 uppercase tracking-wider mt-0.5">Direct Counsel</span>
-                </div>
+
               </div>
 
             </div>
           </div>
 
         </div>
+
+        {/* Bottom Full-Width Statutory Rosters Strip */}
+        <div className="mt-16 pt-8 border-t border-[#142135]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+            <span className="text-[10.5px] uppercase tracking-[0.2em] font-bold text-[#8A95A5]">
+              Core Statutory Practice Rosters
+            </span>
+            <span className="text-[11px] text-[#B8934E]">
+              Regular appearances before trial courts, High Courts &amp; specialized tribunals
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {statutes.map((item, idx) => (
+              <div 
+                key={idx}
+                className="p-3 bg-[#0C1626] border border-[#142135] hover:border-[#B8934E]/50 transition-colors"
+              >
+                <span className="block font-serif text-base font-bold text-[#B8934E]">
+                  {item.code}
+                </span>
+                <span className="block text-[11px] text-[#CBD5E1] mt-1 leading-snug">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

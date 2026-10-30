@@ -32,36 +32,36 @@ export const BarCouncilDisclaimer: React.FC = () => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-chambers-navy-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300"
+      className="fixed inset-0 z-50 bg-[#09111E]/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300"
       role="dialog"
       aria-labelledby="disclaimer-title"
       aria-modal="true"
     >
       <div 
-        className="bg-white rounded-2xl max-w-xl w-full shadow-chambers-elevated border border-chambers-stone-200 overflow-hidden text-chambers-navy-950 p-6 sm:p-8 space-y-5"
+        className="bg-white border border-[#DCD6C8] max-w-xl w-full shadow-2xl text-[#1E2530] p-6 sm:p-8 space-y-5"
       >
-        <div className="flex items-center gap-3.5 pb-4 border-b border-chambers-stone-200">
-          <div className="w-11 h-11 rounded-xl bg-chambers-navy-950 text-chambers-gold-400 flex items-center justify-center shrink-0">
+        <div className="flex items-center gap-3.5 pb-4 border-b border-[#E5E0D8]">
+          <div className="w-10 h-10 bg-[#09111E] text-[#B8934E] flex items-center justify-center shrink-0">
             <Scale className="w-5 h-5" />
           </div>
           <div>
-            <h3 id="disclaimer-title" className="font-serif text-xl sm:text-2xl font-bold text-chambers-navy-950">
+            <h3 id="disclaimer-title" className="font-serif text-xl sm:text-2xl font-bold text-[#09111E]">
               Bar Council of India Disclaimer
             </h3>
-            <p className="text-[10px] text-chambers-gold-800 uppercase tracking-wider font-bold">
+            <p className="text-[10px] text-[#8C6D33] uppercase tracking-wider font-bold">
               Statutory Compliance • BCI Rule 36
             </p>
           </div>
         </div>
 
-        <div className="space-y-3.5 text-xs sm:text-sm text-chambers-stone-700 leading-relaxed max-h-[50vh] overflow-y-auto pr-2">
+        <div className="space-y-3.5 text-xs sm:text-sm text-[#364152] leading-relaxed max-h-[50vh] overflow-y-auto pr-2">
           <p>
             Under the statutory rules framed by the <strong>Bar Council of India</strong>, advocates and law firms are strictly prohibited from soliciting work or advertising in any form or manner.
           </p>
           <p>
-            By proceeding and accessing this website (<strong className="text-chambers-navy-950 font-semibold">synergychambers.com</strong>), the user acknowledges and confirms that:
+            By proceeding and accessing this website (<strong className="text-[#09111E]">synergychambers.com</strong>), the user acknowledges and confirms that:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-xs text-chambers-stone-600">
+          <ul className="list-disc pl-5 space-y-2 text-xs text-[#5B6778]">
             <li>
               You are seeking information relating to Synergy Chambers of your own accord and there has been no advertisement, personal communication, solicitation, or inducement by the firm or its advocates.
             </li>
@@ -77,15 +77,15 @@ export const BarCouncilDisclaimer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="pt-4 border-t border-chambers-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-[11px] text-chambers-stone-500 text-center sm:text-left">
+        <div className="pt-4 border-t border-[#E5E0D8] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-[11px] text-[#8A95A5] text-center sm:text-left">
             Rule 36, Bar Council of India Rules
           </span>
           <button
             onClick={handleAccept}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-chambers-navy-950 hover:bg-chambers-navy-900 text-chambers-gold-300 font-bold text-xs uppercase tracking-wider shadow-chambers-subtle transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#09111E] hover:bg-[#142135] text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
           >
-            <Check className="w-4 h-4 text-chambers-gold-400" />
+            <Check className="w-4 h-4 text-[#B8934E]" />
             <span>I Acknowledge &amp; Proceed</span>
           </button>
         </div>

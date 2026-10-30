@@ -11,11 +11,11 @@ import {
   FileCheck,
   ArrowRight,
   Search,
-  X,
-  ChevronRight,
   CheckCircle2,
-  LayoutGrid,
-  Columns3
+  Landmark,
+  FileText,
+  SlidersHorizontal,
+  ChevronRight
 } from 'lucide-react';
 import { PRACTICE_AREAS, PracticeArea } from '../data/firmData';
 
@@ -30,29 +30,14 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activePracticeId, setActivePracticeId] = useState<string>('white-collar-crimes');
-  const [viewMode, setViewMode] = useState<'explorer' | 'grid'>('explorer');
-
-  const getIcon = (name: string, className = "w-5 h-5") => {
-    switch (name) {
-      case 'Scale': return <Scale className={className} aria-hidden="true" />;
-      case 'ShieldAlert': return <ShieldAlert className={className} aria-hidden="true" />;
-      case 'Gavel': return <Gavel className={className} aria-hidden="true" />;
-      case 'Handshake': return <Handshake className={className} aria-hidden="true" />;
-      case 'Building2': return <Building2 className={className} aria-hidden="true" />;
-      case 'Home': return <Home className={className} aria-hidden="true" />;
-      case 'HeartHandshake': return <HeartHandshake className={className} aria-hidden="true" />;
-      case 'Briefcase': return <Briefcase className={className} aria-hidden="true" />;
-      case 'FileCheck': return <FileCheck className={className} aria-hidden="true" />;
-      default: return <Scale className={className} aria-hidden="true" />;
-    }
-  };
+  const [viewMode, setViewMode] = useState<'dossier' | 'table'>('dossier');
 
   const categories = [
-    { id: 'all', label: 'All Practice Areas', count: 9 },
-    { id: 'criminal', label: 'Criminal & Trial Advocacy', count: 2 },
-    { id: 'regulatory', label: 'White-Collar & Regulatory', count: 2 },
-    { id: 'civil-adr', label: 'Civil, ADR & Property', count: 3 },
-    { id: 'corporate', label: 'Corporate & Employment', count: 2 },
+    { id: 'all', label: 'All Practice Domains', count: 9 },
+    { id: 'criminal-special', label: 'Criminal & Special Statutes', count: 2 },
+    { id: 'corporate-regulatory', label: 'Corporate, White-Collar & NCLT', count: 3 },
+    { id: 'civil-adr', label: 'Civil, Property & Arbitration', count: 2 },
+    { id: 'service-family', label: 'Administrative, Service & Family', count: 2 },
   ];
 
   const filteredPractices = PRACTICE_AREAS.filter((practice) => {
@@ -64,17 +49,17 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
       practice.courtRepresentation.some(c => c.toLowerCase().includes(searchQuery.toLowerCase()));
 
     if (selectedCategory === 'all') return matchesSearch;
-    if (selectedCategory === 'criminal') {
+    if (selectedCategory === 'criminal-special') {
       return matchesSearch && (practice.id === 'criminal-litigation' || practice.id === 'white-collar-crimes');
     }
-    if (selectedCategory === 'regulatory') {
-      return matchesSearch && (practice.id === 'white-collar-crimes' || practice.id === 'service-matters');
+    if (selectedCategory === 'corporate-regulatory') {
+      return matchesSearch && (practice.id === 'corporate-commercial' || practice.id === 'white-collar-crimes' || practice.id === 'labour-employment');
     }
     if (selectedCategory === 'civil-adr') {
       return matchesSearch && (practice.id === 'civil-litigation' || practice.id === 'arbitration-adr' || practice.id === 'property-disputes');
     }
-    if (selectedCategory === 'corporate') {
-      return matchesSearch && (practice.id === 'corporate-commercial' || practice.id === 'labour-employment' || practice.id === 'matrimonial');
+    if (selectedCategory === 'service-family') {
+      return matchesSearch && (practice.id === 'service-matters' || practice.id === 'matrimonial');
     }
     return matchesSearch;
   });
@@ -84,228 +69,202 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
   return (
     <section 
       id="practices" 
-      className="py-20 lg:py-28 bg-white text-chambers-navy-950 relative border-b border-chambers-stone-200"
       aria-labelledby="practices-heading"
+      className="py-20 lg:py-28 bg-[#FDFCF9] text-[#1E2530] border-b border-[#E5E0D8]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-chambers-gold-700 mb-3">
-              <span className="w-6 h-[1.5px] bg-chambers-gold-500" aria-hidden="true" />
-              <span>Comprehensive Legal Practice</span>
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-8 h-px bg-[#B8934E]" aria-hidden="true" />
+              <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#8C6D33]">
+                Practice Areas &amp; Special Statutes
+              </span>
             </div>
             <h2 
               id="practices-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-chambers-navy-950 leading-tight"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#09111E] leading-tight"
             >
-              Practice Areas &amp; Special Statutes
+              Legal Practice Registry
             </h2>
-            <p className="text-base sm:text-lg text-chambers-stone-600 mt-4 leading-relaxed font-normal">
-              Our trial advocates represent private clients, corporations, and statutory entities across verified legal domains in trial courts, High Courts, and specialized tribunals.
+            <p className="mt-4 text-base sm:text-lg text-[#5B6778] leading-relaxed font-normal">
+              An institutional portfolio of specialized courtroom advocacy, regulatory defence, commercial dispute resolution, and high court appellate representation.
             </p>
           </div>
 
-          {/* View Mode Toggle (Explorer vs Grid) */}
-          <div className="hidden sm:flex items-center p-1 rounded-xl bg-chambers-parchment-100 border border-chambers-stone-200 self-start md:self-auto">
+          {/* View Mode Toggle */}
+          <div className="flex items-center border border-[#DCD6C8] bg-white p-1 self-start md:self-auto">
             <button
-              type="button"
-              onClick={() => setViewMode('explorer')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
-                viewMode === 'explorer' 
-                  ? 'bg-chambers-navy-950 text-chambers-gold-400 shadow-subtle' 
-                  : 'text-chambers-stone-600 hover:text-chambers-navy-950'
+              onClick={() => setViewMode('dossier')}
+              className={`px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+                viewMode === 'dossier' 
+                  ? 'bg-[#09111E] text-white' 
+                  : 'text-[#5B6778] hover:text-[#09111E]'
               }`}
-              aria-label="Explorer View"
             >
-              <Columns3 className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Interactive Explorer</span>
+              Dossier Explorer
             </button>
             <button
-              type="button"
-              onClick={() => setViewMode('grid')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
-                viewMode === 'grid' 
-                  ? 'bg-chambers-navy-950 text-chambers-gold-400 shadow-subtle' 
-                  : 'text-chambers-stone-600 hover:text-chambers-navy-950'
+              onClick={() => setViewMode('table')}
+              className={`px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+                viewMode === 'table' 
+                  ? 'bg-[#09111E] text-white' 
+                  : 'text-[#5B6778] hover:text-[#09111E]'
               }`}
-              aria-label="Grid View"
             >
-              <LayoutGrid className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Full Portfolio Grid</span>
+              Index Directory
             </button>
           </div>
         </div>
 
-        {/* Filter & Live Search Bar */}
-        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-10 pb-6 border-b border-chambers-stone-200">
+        {/* Practice Category Tabs & Search Bar */}
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#E5E0D8]">
           
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Practice Area Categories">
+          {/* Categories */}
+          <div className="flex flex-wrap items-center gap-2">
             {categories.map((cat) => (
               <button
-                type="button"
                 key={cat.id}
-                onClick={() => {
-                  setSelectedCategory(cat.id);
-                  const firstMatch = PRACTICE_AREAS.find(p => {
-                    if (cat.id === 'all') return true;
-                    if (cat.id === 'criminal') return p.id === 'criminal-litigation' || p.id === 'white-collar-crimes';
-                    if (cat.id === 'regulatory') return p.id === 'white-collar-crimes' || p.id === 'service-matters';
-                    if (cat.id === 'civil-adr') return p.id === 'civil-litigation' || p.id === 'arbitration-adr' || p.id === 'property-disputes';
-                    if (cat.id === 'corporate') return p.id === 'corporate-commercial' || p.id === 'labour-employment' || p.id === 'matrimonial';
-                    return true;
-                  });
-                  if (firstMatch) setActivePracticeId(firstMatch.id);
-                }}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer ${
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-3.5 py-1.5 text-xs font-medium border transition-colors cursor-pointer ${
                   selectedCategory === cat.id
-                    ? 'bg-chambers-navy-950 text-chambers-gold-300 shadow-subtle border border-chambers-gold-500/30'
-                    : 'bg-chambers-parchment-100 text-chambers-stone-700 hover:text-chambers-navy-950 border border-chambers-stone-200 hover:border-chambers-gold-300'
+                    ? 'bg-[#09111E] text-white border-[#09111E]'
+                    : 'bg-white text-[#5B6778] border-[#DCD6C8] hover:border-[#09111E] hover:text-[#09111E]'
                 }`}
-                role="tab"
-                aria-selected={selectedCategory === cat.id}
               >
                 <span>{cat.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
-                  selectedCategory === cat.id ? 'bg-chambers-gold-500/20 text-chambers-gold-300' : 'bg-chambers-stone-200 text-chambers-stone-600'
-                }`}>
-                  {cat.count}
-                </span>
+                <span className="ml-1.5 opacity-60 text-[10px]">({cat.count})</span>
               </button>
             ))}
           </div>
 
           {/* Search Box */}
-          <div className="relative w-full lg:w-72 shrink-0">
-            <Search className="w-4 h-4 text-chambers-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
+          <div className="relative min-w-[280px]">
+            <Search className="w-4 h-4 text-[#8C6D33] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by statute, court, crime..."
-              className="w-full pl-9 pr-8 py-2 rounded-xl bg-chambers-parchment-100 border border-chambers-stone-200 focus:border-chambers-gold-500 focus:outline-none text-xs text-chambers-stone-900 placeholder:text-chambers-stone-400 shadow-subtle transition-all"
+              placeholder="Search by statute or remedy..."
               aria-label="Search practice areas"
+              className="w-full pl-9 pr-8 py-2 text-xs bg-white border border-[#DCD6C8] text-[#1E2530] placeholder:text-[#8A95A5] focus:outline-none focus:border-[#8C6D33] transition-colors"
             />
             {searchQuery && (
               <button
-                type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-chambers-stone-400 hover:text-chambers-navy-950 p-1"
-                aria-label="Clear search query"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#8A95A5] hover:text-[#1E2530]"
               >
-                <X className="w-3.5 h-3.5" aria-hidden="true" />
+                ✕
               </button>
             )}
           </div>
+
         </div>
 
-        {/* INTERACTIVE EXPLORER VIEW (Trilegal / JSA Style) */}
-        {viewMode === 'explorer' && (
+        {/* View Mode: Interactive Master-Detail Dossier */}
+        {viewMode === 'dossier' ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Column: Practice Selector List */}
-            <div className="lg:col-span-5 space-y-2.5">
-              {filteredPractices.map((practice) => {
+            {/* Left Master List */}
+            <div className="lg:col-span-5 space-y-2 max-h-[720px] overflow-y-auto pr-1">
+              {filteredPractices.map((practice, pIdx) => {
                 const isActive = practice.id === activePractice.id;
                 return (
                   <button
-                    type="button"
                     key={practice.id}
                     onClick={() => setActivePracticeId(practice.id)}
-                    className={`w-full text-left p-4 rounded-xl transition-all border flex items-center justify-between cursor-pointer group ${
+                    className={`w-full text-left p-4 sm:p-5 border transition-all cursor-pointer block ${
                       isActive 
-                        ? 'bg-chambers-navy-950 text-white border-chambers-gold-500 shadow-card' 
-                        : 'bg-white hover:bg-chambers-parchment-100 text-chambers-stone-800 border-chambers-stone-200 hover:border-chambers-gold-300'
+                        ? 'bg-[#09111E] text-white border-[#09111E] shadow-sm' 
+                        : 'bg-white text-[#1E2530] border-[#E5E0D8] hover:border-[#B8934E]/60 hover:bg-[#FBF9F5]'
                     }`}
                   >
-                    <div className="flex items-center gap-3.5 min-w-0 pr-3">
-                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                        isActive 
-                          ? 'bg-chambers-navy-900 text-chambers-gold-400 border border-chambers-gold-500/30' 
-                          : 'bg-chambers-parchment-100 text-chambers-stone-600 group-hover:text-chambers-gold-600'
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className={`text-[10px] font-bold uppercase tracking-wider ${
+                        isActive ? 'text-[#B8934E]' : 'text-[#8C6D33]'
                       }`}>
-                        {getIcon(practice.iconName, "w-4 h-4")}
-                      </div>
-                      <div className="truncate">
-                        <span className={`block text-xs font-bold tracking-wide truncate ${isActive ? 'text-white' : 'text-chambers-navy-950'}`}>
-                          {practice.title}
-                        </span>
-                        <span className={`block text-[11px] truncate mt-0.5 ${isActive ? 'text-chambers-gold-300' : 'text-chambers-stone-500'}`}>
-                          {practice.subtitle}
-                        </span>
-                      </div>
+                        Section {pIdx + 1 < 10 ? `0${pIdx + 1}` : pIdx + 1}
+                      </span>
+                      <span className={`text-[11px] ${isActive ? 'text-[#CBD5E1]' : 'text-[#5B6778]'}`}>
+                        {practice.courtRepresentation[0]?.split('(')[0]?.trim()}
+                      </span>
                     </div>
-                    <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isActive ? 'text-chambers-gold-400 translate-x-1' : 'text-chambers-stone-400 group-hover:translate-x-0.5'}`} aria-hidden="true" />
+
+                    <h3 className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                      {practice.title}
+                    </h3>
+
+                    <p className={`text-xs mt-1 line-clamp-1 ${
+                      isActive ? 'text-[#CBD5E1]' : 'text-[#5B6778]'
+                    }`}>
+                      {practice.subtitle}
+                    </p>
                   </button>
                 );
               })}
             </div>
 
-            {/* Right Column: Expansive Master Practice Dossier */}
+            {/* Right Expansive Active Dossier */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-2xl p-7 sm:p-9 border border-chambers-stone-200 shadow-card space-y-6 relative overflow-hidden">
+              <div className="border border-[#DCD6C8] bg-white p-7 sm:p-9 space-y-6 shadow-sm sticky top-28">
                 
-                {/* Top Accent Bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-chambers-gold-600 via-chambers-gold-400 to-chambers-gold-600" />
-
-                {/* Header */}
-                <div className="flex items-start justify-between gap-4 pb-5 border-b border-chambers-stone-200">
-                  <div className="space-y-1">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-chambers-gold-700 block">
-                      Practice Dossier
+                {/* Dossier Header */}
+                <div className="pb-6 border-b border-[#E5E0D8]">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-[10.5px] uppercase font-bold tracking-[0.2em] text-[#8C6D33]">
+                      Practice Mandate
                     </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-chambers-navy-950">
-                      {activePractice.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-chambers-gold-600">
-                      {activePractice.subtitle}
-                    </p>
+                    <span className="text-[11px] px-2.5 py-0.5 bg-[#F5F2EB] text-[#09111E] border border-[#DCD6C8] font-semibold">
+                      Chambers Docket
+                    </span>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-chambers-navy-950 text-chambers-gold-400 flex items-center justify-center shrink-0 shadow-subtle">
-                    {getIcon(activePractice.iconName, "w-6 h-6")}
-                  </div>
+
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#09111E] leading-tight">
+                    {activePractice.title}
+                  </h3>
+                  
+                  <p className="text-sm font-medium text-[#8C6D33] mt-1.5">
+                    {activePractice.subtitle}
+                  </p>
                 </div>
 
-                {/* Detailed Scope Description */}
-                <div>
-                  <h4 className="text-[11px] uppercase tracking-wider font-bold text-chambers-stone-400 block mb-2">
-                    Scope of Courtroom Representation
+                {/* Jurisprudential Scope */}
+                <div className="space-y-2">
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#09111E]">
+                    Jurisprudential Mandate &amp; Scope
                   </h4>
-                  <p className="text-chambers-stone-700 text-sm leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#364152] leading-relaxed">
                     {activePractice.fullDesc}
                   </p>
                 </div>
 
-                {/* Core Legal Services */}
-                <div>
-                  <h4 className="text-[11px] uppercase tracking-wider font-bold text-chambers-stone-400 block mb-3">
-                    Key Legal Services &amp; Filings
+                {/* Scope of Legal Services */}
+                <div className="space-y-2.5 pt-4 border-t border-[#E5E0D8]">
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#09111E]">
+                    Services &amp; Courtroom Capabilities
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#364152]">
                     {activePractice.keyServices.map((service, sIdx) => (
-                      <div 
-                        key={sIdx}
-                        className="flex items-start gap-2.5 p-3 rounded-xl bg-chambers-parchment-100 border border-chambers-stone-200 text-xs text-chambers-stone-800"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-chambers-gold-600 shrink-0 mt-0.5" aria-hidden="true" />
-                        <span>{service}</span>
+                      <div key={sIdx} className="flex items-start gap-2 bg-[#FDFCF9] p-2.5 border border-[#E5E0D8]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#8C6D33] shrink-0 mt-0.5" />
+                        <span className="leading-snug">{service}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Appearance Forums */}
-                <div>
-                  <h4 className="text-[11px] uppercase tracking-wider font-bold text-chambers-stone-400 block mb-2.5">
-                    Regular Appearance Forums &amp; Courts
+                <div className="space-y-2 pt-4 border-t border-[#E5E0D8]">
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#09111E]">
+                    Courts &amp; Appearance Forums
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {activePractice.courtRepresentation.map((court, cIdx) => (
                       <span 
                         key={cIdx}
-                        className="text-xs px-3 py-1.5 rounded-lg bg-chambers-parchment-100 text-chambers-stone-800 font-medium border border-chambers-stone-200"
+                        className="text-[11px] px-2.5 py-1 bg-[#F5F2EB] text-[#1E2530] border border-[#DCD6C8]"
                       >
                         {court}
                       </span>
@@ -313,22 +272,21 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                   </div>
                 </div>
 
-                {/* CTAs */}
-                <div className="pt-6 border-t border-chambers-stone-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                {/* Actions */}
+                <div className="pt-6 border-t border-[#E5E0D8] flex flex-col sm:flex-row items-center justify-between gap-4">
                   <button
-                    type="button"
                     onClick={() => onSelectPractice(activePractice.id)}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-chambers-navy-950 hover:bg-chambers-navy-900 text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-subtle"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#09111E] hover:bg-[#142135] text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                   >
-                    <span>Examine Full Case Mandate</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-chambers-gold-400" aria-hidden="true" />
+                    <span>Full Statutory Dossier</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#B8934E]" />
                   </button>
 
                   <a
                     href="#contact"
-                    className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-chambers-gold-700 hover:text-chambers-gold-800 transition-colors"
+                    className="text-xs font-semibold text-[#8C6D33] hover:text-[#09111E] transition-colors"
                   >
-                    <span>Inquire About {activePractice.title} &rarr;</span>
+                    Submit Case Particulars on this Area →
                   </a>
                 </div>
 
@@ -336,85 +294,49 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
             </div>
 
           </div>
-        )}
-
-        {/* FULL GRID VIEW */}
-        {viewMode === 'grid' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPractices.map((practice) => (
-              <div
-                key={practice.id}
-                className="bg-white rounded-2xl p-7 sm:p-8 border border-chambers-stone-200 shadow-subtle hover:border-chambers-gold-400 hover:shadow-card-hover transition-all flex flex-col justify-between group relative overflow-hidden"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-chambers-parchment-100 border border-chambers-gold-200 flex items-center justify-center text-chambers-gold-700 group-hover:bg-chambers-navy-950 group-hover:text-chambers-gold-400 group-hover:border-chambers-navy-800 transition-colors">
-                      {getIcon(practice.iconName)}
-                    </div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-chambers-stone-400 group-hover:text-chambers-gold-700 transition-colors">
-                      Chambers Brief
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif text-2xl font-bold text-chambers-navy-950 mb-1.5 group-hover:text-chambers-gold-700 transition-colors">
-                    {practice.title}
-                  </h3>
-                  <p className="text-xs font-semibold text-chambers-gold-600 mb-4">
-                    {practice.subtitle}
-                  </p>
-
-                  <p className="text-chambers-stone-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                    {practice.shortDesc}
-                  </p>
-
-                  <div className="space-y-1.5 pt-4 border-t border-chambers-stone-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-chambers-stone-400 block mb-2">
-                      Key Appearance Forums
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {practice.courtRepresentation.slice(0, 3).map((court, cIdx) => (
-                        <span 
-                          key={cIdx}
-                          className="text-[11px] px-2.5 py-1 rounded bg-chambers-parchment-100 text-chambers-stone-700 border border-chambers-stone-200"
-                        >
-                          {court}
+        ) : (
+          /* View Mode: Index Table Directory */
+          <div className="border border-[#DCD6C8] bg-white overflow-hidden shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-[#09111E] text-white uppercase text-[10px] tracking-wider">
+                  <tr>
+                    <th className="py-3.5 px-5">Domain &amp; Title</th>
+                    <th className="py-3.5 px-5">Substantive Scope</th>
+                    <th className="py-3.5 px-5">Appearance Benches</th>
+                    <th className="py-3.5 px-5 text-right">Dossier</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#E5E0D8]">
+                  {filteredPractices.map((p) => (
+                    <tr key={p.id} className="hover:bg-[#FDFCF9] transition-colors">
+                      <td className="py-4 px-5">
+                        <span className="font-serif text-base font-bold text-[#09111E] block">
+                          {p.title}
                         </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-chambers-stone-200">
-                  <button
-                    type="button"
-                    onClick={() => onSelectPractice(practice.id)}
-                    className="w-full py-2.5 px-4 rounded-xl bg-chambers-navy-950 hover:bg-chambers-gold-500 text-chambers-gold-300 hover:text-chambers-navy-950 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-subtle"
-                  >
-                    <span>Review Case Mandate</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Empty Search Result State */}
-        {filteredPractices.length === 0 && (
-          <div className="text-center py-16 bg-chambers-parchment-100 rounded-2xl border border-chambers-stone-200 p-8">
-            <p className="text-chambers-stone-600 text-sm">
-              No practice areas matched &quot;{searchQuery}&quot;. Please contact our chambers directly for bespoke legal matters.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('all');
-              }}
-              className="mt-4 px-5 py-2 rounded-lg bg-chambers-navy-950 text-chambers-gold-300 text-xs font-semibold cursor-pointer"
-            >
-              Reset Filters
-            </button>
+                        <span className="text-[11px] text-[#8C6D33] block mt-0.5">
+                          {p.subtitle}
+                        </span>
+                      </td>
+                      <td className="py-4 px-5 max-w-md text-[#5B6778] leading-relaxed">
+                        {p.shortDesc}
+                      </td>
+                      <td className="py-4 px-5 text-[#364152]">
+                        {p.courtRepresentation.slice(0, 2).join(' • ')}
+                      </td>
+                      <td className="py-4 px-5 text-right">
+                        <button
+                          onClick={() => onSelectPractice(p.id)}
+                          className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#09111E] hover:text-[#8C6D33] border border-[#DCD6C8] hover:border-[#8C6D33] bg-white transition-colors cursor-pointer"
+                        >
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
 
