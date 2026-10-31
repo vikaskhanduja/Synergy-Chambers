@@ -1,138 +1,96 @@
 import React from 'react';
-import { Landmark, MapPin, Check, Scale, ShieldCheck, Building2, Gavel, Compass } from 'lucide-react';
+import { Landmark, MapPin, Check, Scale, ShieldCheck, Building2, Gavel } from 'lucide-react';
 import { JURISDICTIONS } from '../data/firmData';
 
 export const Jurisdictions: React.FC = () => {
   return (
-    <section 
-      id="jurisdictions" 
-      aria-labelledby="jurisdictions-heading"
-      className="py-24 lg:py-32 bg-atelier-bone border-b border-atelier-sand text-atelier-black relative"
-    >
+    <section id="jurisdictions" className="py-24 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Archival Eyebrow */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-16 border-b border-atelier-sand/80 text-[10.5px] uppercase tracking-loose-editorial font-bold text-atelier-taupe">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 bg-atelier-bronze rounded-full" aria-hidden="true" />
-            <span className="text-atelier-carbon">Judicial Standing &amp; Forum Schedule</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <span>Supreme Court • High Courts • Special Tribunals</span>
-            <span className="hidden md:inline text-atelier-sand">|</span>
-            <span className="hidden md:inline">Delhi • Punjab • Haryana</span>
-          </div>
-        </div>
-
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <h2 
-            id="jurisdictions-heading"
-            className="font-serif text-3xl sm:text-4xl lg:text-5xl lg:leading-[1.15] font-medium tracking-tight text-atelier-black"
-          >
-            Courts &amp; Tribunals of Regular Standing.<br />
-            <span className="italic font-normal text-atelier-slate">
-              Active physical and hybrid trial presence across India’s premier judicial forums.
-            </span>
+        <div className="max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#088395] mb-2">
+            <Landmark className="w-4 h-4" />
+            <span>Courts &amp; Jurisdictions</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Forums &amp; Tribunals of Regular Standing
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-atelier-slate leading-relaxed font-normal">
-            Synergy Chambers maintains an uninterrupted litigation corridor connecting the Supreme Court of India and High Courts with specialized economic tribunals and district trial courtrooms.
+          <p className="mt-3 text-base text-slate-600 leading-relaxed">
+            From the Supreme Court of India and High Courts to specialized economic tribunals and district sessions benches across North India.
           </p>
         </div>
 
-        {/* Official Registry Schedule Table */}
-        <div className="border border-atelier-sand bg-atelier-fog shadow-sm mb-14 divide-y divide-atelier-sand">
+        {/* 3 Regional Corridor Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
           {JURISDICTIONS.map((item, idx) => (
             <div 
               key={idx}
-              className="p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start hover:bg-atelier-bone/60 transition-colors"
+              className="bg-white border border-slate-200 hover:border-[#088395]/40 rounded-xl p-7 shadow-sm hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Region & Seat */}
-              <div className="lg:col-span-4 space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase font-bold tracking-loose-editorial text-atelier-bronze">
-                    ZONE {String(idx + 1).padStart(2, '0')} // {item.hub}
+              <div>
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#088395] bg-teal-50 px-2.5 py-1 rounded">
+                    {item.hub}
                   </span>
+                  <Landmark className="w-5 h-5 text-slate-400" />
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-atelier-black">
+
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   {item.region}
                 </h3>
-                <div className="flex items-start gap-1.5 text-xs text-atelier-slate pt-1">
-                  <MapPin className="w-3.5 h-3.5 text-atelier-bronze shrink-0 mt-0.5" />
-                  <span>{item.address}</span>
-                </div>
-              </div>
 
-              {/* Court List & Representation Scope */}
-              <div className="lg:col-span-5 space-y-3">
-                <span className="text-[10.5px] uppercase font-bold tracking-wider text-atelier-taupe block">
-                  Benches &amp; Courtrooms of Record
-                </span>
-                <div className="space-y-2">
+                <p className="text-xs text-slate-500 mb-5 flex items-start gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#088395] shrink-0 mt-0.5" />
+                  <span>{item.address}</span>
+                </p>
+
+                <div className="space-y-2.5 pt-2 border-t border-slate-100">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                    Benches of Record:
+                  </span>
                   {item.courts.map((court, cIdx) => (
-                    <div key={cIdx} className="text-xs text-atelier-carbon flex items-start gap-2.5">
-                      <Check className="w-3.5 h-3.5 text-atelier-bronze shrink-0 mt-0.5" />
-                      <span className="leading-relaxed font-medium">{court}</span>
+                    <div key={cIdx} className="text-xs text-slate-700 flex items-start gap-2">
+                      <Check className="w-3.5 h-3.5 text-[#088395] shrink-0 mt-0.5" />
+                      <span className="leading-snug">{court}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Operational Remit */}
-              <div className="lg:col-span-3 p-4 bg-atelier-bone border border-atelier-sand/80 space-y-2">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-atelier-bronze block">
-                  Chambers Standing
-                </span>
-                <p className="text-xs text-atelier-slate leading-relaxed">
-                  Regular trial bail hearings, remand appearances, evidence record examination, and emergency writ petition filings.
-                </p>
-                <span className="text-[10.5px] text-atelier-taupe block pt-1 border-t border-atelier-sand/60 font-semibold">
-                  Daily Physical &amp; Virtual Docket
-                </span>
+              <div className="pt-5 mt-6 border-t border-slate-100 text-xs text-slate-600">
+                <strong className="text-slate-900 block mb-0.5">Courtroom Practice:</strong>
+                Remand appearances, bail hearings, trial examination, and writ filings.
               </div>
             </div>
           ))}
         </div>
 
-        {/* Specialized Tribunals Broad-Sheet Annexure */}
-        <div className="border border-atelier-sand bg-atelier-carbon text-atelier-bone p-8 sm:p-12 shadow-md">
+        {/* Specialized Tribunals Banner */}
+        <div className="bg-[#088395] text-white rounded-2xl p-8 sm:p-10 shadow-lg">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex items-center gap-2 text-atelier-gold text-[10px] uppercase tracking-loose-editorial font-bold">
-                <Gavel className="w-4 h-4" />
-                <span>Specialized Economic &amp; Statutory Tribunals</span>
-              </div>
-              
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-atelier-bone">
+            <div className="lg:col-span-8 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-200">
+                Specialized Economic &amp; Statutory Tribunals
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">
                 NCLT, NCLAT, CAT, AFT, PMLA &amp; SAFEMA Appellate Tribunals
               </h3>
-
-              <p className="text-xs sm:text-sm text-atelier-sand/90 leading-relaxed font-light">
-                Our advocates regularly appear before specialized statutory tribunals under the Insolvency and Bankruptcy Code (IBC), Company Law, Prevention of Money Laundering Act (PMLA), Smugglers and Foreign Exchange Manipulators Act (SAFEMA), Central Administrative Tribunal (CAT), and Armed Forces Tribunal (AFT).
+              <p className="text-xs sm:text-sm text-teal-50/90 leading-relaxed font-light">
+                Our advocates regularly represent clients before specialized tribunals under the Insolvency and Bankruptcy Code (IBC), Prevention of Money Laundering Act (PMLA), Central Administrative Tribunal (CAT), and Armed Forces Tribunal (AFT).
               </p>
             </div>
 
-            <div className="lg:col-span-4 space-y-3">
-              <div className="p-4 bg-atelier-slate/40 border border-atelier-sand/20 space-y-1">
-                <span className="text-[10px] uppercase tracking-wider font-bold text-atelier-gold block">
-                  PMLA &amp; NDPS Special Rosters
-                </span>
-                <span className="text-xs text-atelier-sand block">
-                  Emergency bail listings, property attachment appeals, and trial cross-examination.
-                </span>
+            <div className="lg:col-span-4 flex flex-col gap-3">
+              <div className="bg-white/10 backdrop-blur-xs border border-white/20 p-4 rounded-xl">
+                <span className="text-xs font-bold text-white block">PMLA &amp; NDPS Special Rosters</span>
+                <span className="text-[11px] text-teal-100 mt-0.5 block">Emergency bail listings &amp; trial cross-examination</span>
               </div>
-
-              <div className="p-4 bg-atelier-slate/40 border border-atelier-sand/20 space-y-1">
-                <span className="text-[10px] uppercase tracking-wider font-bold text-atelier-gold block">
-                  Insolvency &amp; Corporate Tribunal
-                </span>
-                <span className="text-xs text-atelier-sand block">
-                  Section 7, 9 &amp; 10 IBC corporate debtor &amp; creditor representation before NCLT benches.
-                </span>
+              <div className="bg-white/10 backdrop-blur-xs border border-white/20 p-4 rounded-xl">
+                <span className="text-xs font-bold text-white block">Corporate Insolvency (NCLT)</span>
+                <span className="text-[11px] text-teal-100 mt-0.5 block">Section 7, 9 &amp; 10 IBC corporate debtor &amp; creditor petitions</span>
               </div>
             </div>
-
           </div>
         </div>
 

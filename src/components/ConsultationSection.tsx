@@ -91,110 +91,84 @@ export const ConsultationSection: React.FC = () => {
   };
 
   return (
-    <section 
-      id="contact" 
-      aria-labelledby="consultation-heading"
-      className="py-24 lg:py-32 bg-atelier-bone text-atelier-black border-b border-atelier-sand relative"
-    >
+    <section id="contact" className="py-24 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Archival Eyebrow */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-16 border-b border-atelier-sand/80 text-[10.5px] uppercase tracking-loose-editorial font-bold text-atelier-taupe">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 bg-atelier-bronze rounded-full" aria-hidden="true" />
-            <span className="text-atelier-carbon">Official Case Intake Registry</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <span>Privileged Communication • IEA Sections 126–129</span>
-            <span className="hidden md:inline text-atelier-sand">|</span>
-            <span className="hidden md:inline">Confidential Case Docket</span>
-          </div>
-        </div>
-
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <h2 
-            id="consultation-heading"
-            className="font-serif text-3xl sm:text-4xl lg:text-5xl lg:leading-[1.15] font-medium tracking-tight text-atelier-black"
-          >
-            Initiate a Case Docket &amp; Legal Briefing.<br />
-            <span className="italic font-normal text-atelier-slate">
-              Direct communication with chambers counsel. Every disclosure strictly privileged.
-            </span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#088395] mb-2">
+            <Mail className="w-4 h-4" />
+            <span>Case Intake Registry</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Initiate a Case Docket &amp; Legal Briefing
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-atelier-slate leading-relaxed font-normal">
-            Pursuant to Bar Council of India guidelines, consultations and matter reviews are conducted strictly upon prior appointment. Please complete the confidential intake docket below to schedule an initial consultation.
+          <p className="mt-3 text-base text-slate-600 leading-relaxed font-normal">
+            Pursuant to Bar Council of India guidelines, consultations and matter reviews are conducted strictly upon prior appointment. Please complete the confidential intake docket below.
           </p>
         </div>
 
-        {/* Asymmetrical Broadsheet Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start border-t border-atelier-sand pt-12">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Column: Official Chambers Dispatch Ledger */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="text-[11px] uppercase tracking-loose-editorial font-bold text-atelier-bronze pb-3 border-b border-atelier-sand">
-              Institutional Dispatch Records
-            </div>
-
-            <div className="bg-atelier-fog border border-atelier-sand p-7 sm:p-8 space-y-6 shadow-sm">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-7 sm:p-8 space-y-6 shadow-sm">
               <div className="space-y-1">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-atelier-taupe block">
+                <span className="text-[11px] uppercase font-bold tracking-wider text-[#088395] block">
                   Primary Chambers Seat
                 </span>
-                <span className="font-serif text-xl font-medium text-atelier-black block">
+                <span className="text-xl font-bold text-slate-900 block">
                   {FIRM_DETAILS.establishedLocation}
                 </span>
-                <p className="text-xs text-atelier-slate pt-1">
+                <p className="text-xs text-slate-500 pt-1">
                   Opposite National Gallery of Modern Art, New Delhi – 110001
                 </p>
               </div>
 
-              <div className="space-y-4 text-xs pt-4 border-t border-atelier-sand">
+              <div className="space-y-4 text-xs pt-4 border-t border-slate-200">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-atelier-taupe block mb-1">
-                    Direct Chambers Registry Email
+                  <span className="text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1">
+                    Direct Registry Email
                   </span>
                   <a 
                     href={`mailto:${FIRM_DETAILS.email}`}
-                    className="font-semibold text-atelier-black text-sm hover:text-atelier-bronze transition-colors"
+                    className="font-bold text-slate-900 text-sm hover:text-[#088395] transition-colors"
                   >
                     {FIRM_DETAILS.email}
                   </a>
-                  <span className="text-[11px] text-atelier-slate block mt-0.5">
-                    Formal briefs &amp; court documents may be served here.
-                  </span>
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-atelier-taupe block mb-1">
+                  <span className="text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1">
                     Chambers Operating Hours
                   </span>
-                  <span className="font-semibold text-atelier-black block">
+                  <span className="font-semibold text-slate-900 block">
                     {FIRM_DETAILS.hours}
                   </span>
-                  <span className="text-[11px] text-atelier-slate block mt-0.5">
+                  <span className="text-[11px] text-slate-500 block mt-0.5">
                     Emergency remand and bail representations available round-the-clock upon verification.
                   </span>
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-atelier-taupe block mb-1">
+                  <span className="text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1">
                     Regional Litigation Benches
                   </span>
-                  <span className="text-atelier-carbon block leading-relaxed">
-                    High Court of Punjab &amp; Haryana, Chandigarh • District &amp; Sessions Courts across Gurugram, Rewari, Karnal &amp; Panipat.
+                  <span className="text-slate-700 block leading-relaxed">
+                    Punjab &amp; Haryana High Court at Chandigarh • District Sessions across Gurugram, Rewari, Karnal &amp; Panipat.
                   </span>
                 </div>
               </div>
 
               {/* Statutory Privilege Box */}
-              <div className="p-4 bg-atelier-bone border-l-2 border-atelier-bronze border-y border-r border-atelier-sand/80 space-y-1.5">
-                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-atelier-black">
-                  <Lock className="w-3.5 h-3.5 text-atelier-bronze" />
+              <div className="p-4 bg-teal-50 border border-teal-200 rounded-xl space-y-1.5">
+                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#088395]">
+                  <Lock className="w-3.5 h-3.5" />
                   <span>Statutory Attorney-Client Privilege</span>
                 </div>
-                <p className="text-xs text-atelier-slate leading-relaxed">
-                  All factual particulars, digital files, and case notes submitted via this docket are privileged communications protected under Sections 126–129 of the Indian Evidence Act, 1872.
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  All factual particulars, files, and case notes submitted via this docket are privileged communications protected under Sections 126–129 of the Indian Evidence Act, 1872.
                 </p>
               </div>
             </div>
@@ -202,49 +176,46 @@ export const ConsultationSection: React.FC = () => {
 
           {/* Right Column: Confidential Case Submission Form */}
           <div className="lg:col-span-7">
-            <div className="border border-atelier-sand bg-atelier-fog p-8 sm:p-10 shadow-sm relative">
+            <div className="border border-slate-200 bg-white rounded-2xl p-8 sm:p-10 shadow-sm relative">
               
               {isSubmitted ? (
-                <div className="text-center py-10 space-y-6 animate-in fade-in duration-300">
-                  <div className="w-14 h-14 bg-atelier-carbon text-atelier-gold flex items-center justify-center mx-auto border border-atelier-sand">
-                    <Check className="w-7 h-7" />
+                <div className="text-center py-10 space-y-6">
+                  <div className="w-16 h-16 bg-teal-50 text-[#088395] border border-teal-200 rounded-full flex items-center justify-center mx-auto">
+                    <Check className="w-8 h-8" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-loose-editorial text-atelier-bronze block mb-1">
-                      DOCKET REGISTRATION CONFIRMED
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#088395] block mb-1">
+                      Docket Registration Confirmed
                     </span>
-                    <h3 className="font-serif text-3xl font-medium text-atelier-black">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
                       Briefing Received &amp; Docketed
                     </h3>
-                    <p className="text-sm text-atelier-slate max-w-md mx-auto mt-2 leading-relaxed">
-                      Your legal matter summary has been encrypted and assigned to the relevant arguing counsel for preliminary conflict check and review.
+                    <p className="text-sm text-slate-600 max-w-md mx-auto mt-2 leading-relaxed">
+                      Your legal matter summary has been assigned to the relevant arguing counsel for preliminary conflict check and review.
                     </p>
                   </div>
 
-                  <div className="p-5 bg-atelier-bone border border-atelier-sand max-w-sm mx-auto text-center space-y-1">
-                    <span className="text-[10.5px] uppercase font-bold tracking-wider text-atelier-taupe block">
+                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl max-w-sm mx-auto text-center space-y-1">
+                    <span className="text-[11px] uppercase font-bold tracking-wider text-slate-500 block">
                       Assigned Case Reference:
                     </span>
-                    <span className="font-mono text-xl font-bold text-atelier-bronze tracking-wider block">
+                    <span className="font-mono text-xl font-bold text-[#088395] tracking-wider block">
                       {referenceNumber}
-                    </span>
-                    <span className="text-[11px] text-atelier-slate block">
-                      Please quote this reference in all communications.
                     </span>
                   </div>
 
-                  <div className="pt-4">
+                  <div className="pt-2">
                     <button
                       onClick={resetForm}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-atelier-carbon hover:bg-atelier-black text-atelier-bone text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#088395] hover:bg-[#05626e] text-white text-xs font-bold uppercase tracking-wider transition-all"
                     >
-                      <RotateCcw className="w-3.5 h-3.5 text-atelier-gold" />
-                      <span>Submit Another Case Docket</span>
+                      <RotateCcw className="w-3.5 h-3.5" />
+                      <span>Submit Another Docket</span>
                     </button>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   
                   {/* Honeypot Spam Trap */}
                   <input
@@ -258,19 +229,9 @@ export const ConsultationSection: React.FC = () => {
                     aria-hidden="true"
                   />
 
-                  <div className="flex items-center justify-between pb-4 border-b border-atelier-sand">
-                    <span className="text-[10px] uppercase font-bold tracking-loose-editorial text-atelier-bronze">
-                      Case Filing Intake Docket
-                    </span>
-                    <span className="text-[10px] text-atelier-taupe uppercase font-semibold">
-                      * Mandatory Fields
-                    </span>
-                  </div>
-
-                  {/* Name Fields */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="firstName" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                      <label htmlFor="firstName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         First Name *
                       </label>
                       <input
@@ -279,10 +240,10 @@ export const ConsultationSection: React.FC = () => {
                         required
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-atelier-bone border text-atelier-black focus:outline-none transition-colors ${
-                          errors.firstName ? 'border-red-600 bg-red-50/20' : 'border-atelier-sand focus:border-atelier-bronze'
+                        className={`w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border text-slate-900 focus:outline-none transition-colors ${
+                          errors.firstName ? 'border-red-500 bg-red-50/30' : 'border-slate-300 focus:border-[#088395] focus:bg-white'
                         }`}
-                        placeholder="e.g., Vikram"
+                        placeholder="e.g. Vikram"
                       />
                       {errors.firstName && (
                         <p className="mt-1 text-[11px] text-red-600 flex items-center gap-1">
@@ -293,7 +254,7 @@ export const ConsultationSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="lastName" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                      <label htmlFor="lastName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Last Name *
                       </label>
                       <input
@@ -302,10 +263,10 @@ export const ConsultationSection: React.FC = () => {
                         required
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-atelier-bone border text-atelier-black focus:outline-none transition-colors ${
-                          errors.lastName ? 'border-red-600 bg-red-50/20' : 'border-atelier-sand focus:border-atelier-bronze'
+                        className={`w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border text-slate-900 focus:outline-none transition-colors ${
+                          errors.lastName ? 'border-red-500 bg-red-50/30' : 'border-slate-300 focus:border-[#088395] focus:bg-white'
                         }`}
-                        placeholder="e.g., Sharma"
+                        placeholder="e.g. Sharma"
                       />
                       {errors.lastName && (
                         <p className="mt-1 text-[11px] text-red-600 flex items-center gap-1">
@@ -316,10 +277,9 @@ export const ConsultationSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Contact Fields */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                      <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Email Address *
                       </label>
                       <input
@@ -328,8 +288,8 @@ export const ConsultationSection: React.FC = () => {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-atelier-bone border text-atelier-black focus:outline-none transition-colors ${
-                          errors.email ? 'border-red-600 bg-red-50/20' : 'border-atelier-sand focus:border-atelier-bronze'
+                        className={`w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border text-slate-900 focus:outline-none transition-colors ${
+                          errors.email ? 'border-red-500 bg-red-50/30' : 'border-slate-300 focus:border-[#088395] focus:bg-white'
                         }`}
                         placeholder="client@domain.com"
                       />
@@ -342,7 +302,7 @@ export const ConsultationSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                      <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Phone / Mobile *
                       </label>
                       <input
@@ -351,8 +311,8 @@ export const ConsultationSection: React.FC = () => {
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-atelier-bone border text-atelier-black focus:outline-none transition-colors ${
-                          errors.phone ? 'border-red-600 bg-red-50/20' : 'border-atelier-sand focus:border-atelier-bronze'
+                        className={`w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border text-slate-900 focus:outline-none transition-colors ${
+                          errors.phone ? 'border-red-500 bg-red-50/30' : 'border-slate-300 focus:border-[#088395] focus:bg-white'
                         }`}
                         placeholder="+91 98XXX XXXXX"
                       />
@@ -365,17 +325,16 @@ export const ConsultationSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Practice Domain & Jurisdiction */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="practiceArea" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                      <label htmlFor="practiceArea" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Relevant Practice Area
                       </label>
                       <select
                         id="practiceArea"
                         value={formData.practiceArea}
                         onChange={(e) => setFormData({ ...formData, practiceArea: e.target.value })}
-                        className="w-full px-3.5 py-2.5 text-xs bg-atelier-bone border border-atelier-sand text-atelier-black focus:outline-none focus:border-atelier-bronze"
+                        className="w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-[#088395]"
                       >
                         {PRACTICE_AREAS.map((practice) => (
                           <option key={practice.id} value={practice.id}>
@@ -386,41 +345,41 @@ export const ConsultationSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="jurisdiction" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                      <label htmlFor="jurisdiction" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Primary Forum / Bench
                       </label>
                       <select
                         id="jurisdiction"
                         value={formData.jurisdiction}
                         onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
-                        className="w-full px-3.5 py-2.5 text-xs bg-atelier-bone border border-atelier-sand text-atelier-black focus:outline-none focus:border-atelier-bronze"
+                        className="w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-[#088395]"
                       >
-                        <option value="delhi">Delhi NCR (Patiala House / Delhi HC / Special Courts)</option>
+                        <option value="delhi">Delhi NCR (Patiala House / Delhi HC)</option>
                         <option value="chandigarh">Chandigarh (High Court / CAT / AFT)</option>
-                        <option value="haryana">Haryana District Courts (Gurugram / Rewari / Karnal / Panipat)</option>
-                        <option value="supreme_court">Supreme Court of India (Appellate Jurisdiction)</option>
-                        <option value="tribunals">Special Statutory Tribunal (NCLT / NCLAT / PMLA / SAFEMA)</option>
+                        <option value="haryana">Haryana District Courts (Gurugram / Rewari / Karnal)</option>
+                        <option value="supreme_court">Supreme Court of India</option>
+                        <option value="tribunals">Special Statutory Tribunal (NCLT / PMLA)</option>
                       </select>
                     </div>
                   </div>
 
-                  {/* Urgent Relief Checkbox */}
-                  <div className="p-3.5 bg-atelier-bone border border-atelier-sand/80 flex items-start gap-3">
+                  {/* Urgent Listing Checkbox */}
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-start gap-3">
                     <input
                       id="isUrgent"
                       type="checkbox"
                       checked={formData.isUrgent}
                       onChange={(e) => setFormData({ ...formData, isUrgent: e.target.checked })}
-                      className="mt-0.5 h-4 w-4 border-atelier-sand text-atelier-carbon focus:ring-atelier-bronze cursor-pointer"
+                      className="mt-0.5 h-4 w-4 text-[#088395] rounded border-slate-300 focus:ring-[#088395] cursor-pointer"
                     />
-                    <label htmlFor="isUrgent" className="text-xs text-atelier-carbon cursor-pointer">
-                      <strong className="text-atelier-black">Urgent Courtroom Listing / Remand Matter:</strong> Check if this matter requires emergency anticipatory bail, remand defense, or urgent stay relief within 24–48 hours.
+                    <label htmlFor="isUrgent" className="text-xs text-slate-700 cursor-pointer">
+                      <strong className="text-slate-900">Urgent Remand / Bail Listing:</strong> Check if this matter requires emergency listing within 24–48 hours.
                     </label>
                   </div>
 
                   {/* Matter Summary */}
                   <div>
-                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-atelier-carbon mb-1.5">
+                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Factual Summary of the Legal Matter *
                     </label>
                     <textarea
@@ -429,8 +388,8 @@ export const ConsultationSection: React.FC = () => {
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 text-xs bg-atelier-bone border text-atelier-black focus:outline-none transition-colors ${
-                        errors.message ? 'border-red-600 bg-red-50/20' : 'border-atelier-sand focus:border-atelier-bronze'
+                      className={`w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border text-slate-900 focus:outline-none transition-colors ${
+                        errors.message ? 'border-red-500 bg-red-50/30' : 'border-slate-300 focus:border-[#088395] focus:bg-white'
                       }`}
                       placeholder="Please summarize the essential facts, ongoing FIR/complaint details, current stage of proceedings, and specific legal relief sought..."
                     />
@@ -442,22 +401,21 @@ export const ConsultationSection: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Submit Button */}
                   <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <span className="text-[11px] text-atelier-taupe font-serif italic">
-                      Strictly confidential pursuant to Rule 36, Bar Council of India Rules.
+                    <span className="text-[11px] text-slate-500 italic">
+                      Strictly confidential under Rule 36, Bar Council of India Rules.
                     </span>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-atelier-carbon hover:bg-atelier-black disabled:opacity-50 text-atelier-bone text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#088395] hover:bg-[#05626e] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Encrypting &amp; Filing...</span>
                       ) : (
                         <>
-                          <Send className="w-3.5 h-3.5 text-atelier-gold" />
+                          <Send className="w-3.5 h-3.5" />
                           <span>Submit Legal Docket</span>
                         </>
                       )}

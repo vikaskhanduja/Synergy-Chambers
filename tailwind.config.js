@@ -8,33 +8,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        atelier: {
-          fog: '#FDFCFA',     // Pristine Broadsheet White
-          bone: '#F7F4EE',    // Gallery Archival Bone Canvas
-          chalk: '#ECE7DD',   // Warm Legal Linen
-          sand: '#DAD3C3',    // Hairline Border Rule
-          taupe: '#7D7368',   // Editorial Sepia Metadata
-          slate: '#363D44',   // Reading Body Charcoal
-          carbon: '#14171A',  // Deep Mineral Carbon
-          black: '#0A0C0E',   // Absolute Obsidian
-          bronze: '#996C37',  // Burnished Architectural Ochre
-          gold: '#C99E56',    // Luminous Antique Gilt
-          ochre: '#855A28',   // Deep Legal Seal Ochre
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
+        },
+        brand: {
+          teal: '#088395',
+          darkTeal: '#05626e',
+          deep: '#034752',
+          lightTeal: '#0aa1b7',
+          ice: '#f0f9fa',
+          softBlue: '#e0f2fe',
+          accent: '#0284c7',
         }
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        display: ['Cinzel', '"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-      },
-      letterSpacing: {
-        'monumental': '0.28em',
-        'loose-editorial': '0.18em',
+        serif: ['"Plus Jakarta Sans"', 'Inter', 'Georgia', 'sans-serif'],
       },
       boxShadow: {
-        'atelier-subtle': '0 2px 8px rgba(18, 20, 22, 0.04)',
-        'atelier-card': '0 8px 30px rgba(18, 20, 22, 0.06)',
-        'atelier-elevated': '0 24px 60px rgba(10, 12, 14, 0.22)',
+        'card': '0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
+        'card-hover': '0 12px 30px -4px rgba(8, 131, 149, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.05)',
       }
     },
   },

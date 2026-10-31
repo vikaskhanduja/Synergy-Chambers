@@ -3,12 +3,14 @@ import {
   Scale, 
   MapPin, 
   Mail, 
-  ShieldCheck, 
+  Phone, 
+  Clock, 
   ChevronRight, 
   ArrowUp,
-  Building,
-  ShieldAlert,
-  Landmark
+  Linkedin,
+  Twitter,
+  Facebook,
+  ShieldAlert
 } from 'lucide-react';
 import { FIRM_DETAILS, PRACTICE_AREAS } from '../data/firmData';
 
@@ -28,67 +30,71 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer 
-      role="contentinfo"
-      aria-label="Firm Footer & Compliance Directory"
-      className="bg-atelier-carbon text-atelier-sand pt-20 pb-12 border-t border-atelier-sand/20"
-    >
+    <footer className="bg-[#05626e] text-white pt-16 pb-10 border-t border-[#044e58]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Broadsheet Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-atelier-sand/20">
+        {/* Main Footer Columns (Directly Matches Screenshot) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/15">
           
-          {/* Brand & Registered Chambers Column */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 border border-atelier-sand/30 bg-atelier-slate/40 flex items-center justify-center text-atelier-gold">
-                <span className="font-serif text-lg font-bold">SC</span>
+          {/* Brand & Description */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-teal-200">
+                <Scale className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-serif text-xl font-normal tracking-wide text-atelier-bone block">
-                  SYNERGY CHAMBERS
+                <span className="font-sans text-xl font-extrabold tracking-tight text-white block">
+                  SYNERGY <span className="text-teal-300">CHAMBERS</span>
                 </span>
-                <span className="text-[10px] tracking-loose-editorial uppercase text-atelier-gold font-bold block">
-                  Advocates &amp; Legal Counselors
+                <span className="text-[10px] tracking-widest uppercase text-teal-100 font-semibold block">
+                  Advocates &amp; Solicitors
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-atelier-sand/80 leading-relaxed font-light">
+            <p className="text-xs text-teal-50/80 leading-relaxed font-normal">
               {FIRM_DETAILS.mission}
             </p>
 
-            <div className="space-y-3 text-xs text-atelier-sand/80 pt-2">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-atelier-gold shrink-0 mt-0.5" />
-                <span>{FIRM_DETAILS.establishedLocation}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-atelier-gold shrink-0" />
-                <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-atelier-gold transition-colors">
-                  {FIRM_DETAILS.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Landmark className="w-4 h-4 text-atelier-gold shrink-0" />
-                <span>Regional Divisions: Chandigarh High Court • Haryana District Courts</span>
-              </div>
+            {/* Social Icons (Matches Screenshot) */}
+            <div className="flex items-center gap-3 pt-2">
+              <a 
+                href="#" 
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#05626e] flex items-center justify-center text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a 
+                href="#" 
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#05626e] flex items-center justify-center text-white transition-colors"
+                aria-label="Twitter / X"
+              >
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a 
+                href="#" 
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#05626e] flex items-center justify-center text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
-          {/* Practice Areas Links */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-[11px] font-bold text-atelier-bone uppercase tracking-loose-editorial border-b border-atelier-sand/20 pb-2">
+          {/* Practice Areas */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-teal-200 pb-1 border-b border-white/10">
               Practice Domains
             </h4>
             <ul className="space-y-2 text-xs">
-              {PRACTICE_AREAS.map((practice) => (
+              {PRACTICE_AREAS.slice(0, 6).map((practice) => (
                 <li key={practice.id}>
                   <a 
                     href="#practices" 
-                    className="text-atelier-sand/80 hover:text-atelier-gold transition-colors flex items-center gap-1.5"
+                    className="text-teal-50/80 hover:text-white transition-colors flex items-center gap-1.5"
                   >
-                    <ChevronRight className="w-3 h-3 text-atelier-gold" />
+                    <ChevronRight className="w-3 h-3 text-teal-300" />
                     <span>{practice.title}</span>
                   </a>
                 </li>
@@ -96,95 +102,94 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Regional Benches & Navigation */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-[11px] font-bold text-atelier-bone uppercase tracking-loose-editorial border-b border-atelier-sand/20 pb-2">
-              Bench Corridors
+          {/* Quick Links & Benches */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-teal-200 pb-1 border-b border-white/10">
+              Courts &amp; Seat
             </h4>
-            <ul className="space-y-2 text-xs text-atelier-sand/80">
+            <ul className="space-y-2 text-xs text-teal-50/80">
               <li>
-                <a href="#about" className="hover:text-atelier-gold transition-colors">
+                <a href="#about" className="hover:text-white transition-colors">
                   Patiala House Chamber 238
                 </a>
               </li>
               <li>
-                <a href="#jurisdictions" className="hover:text-atelier-gold transition-colors">
-                  Delhi High Court &amp; Sessions
+                <a href="#advocates" className="hover:text-white transition-colors">
+                  Advocates Roster
                 </a>
               </li>
               <li>
-                <a href="#advocates" className="hover:text-atelier-gold transition-colors">
+                <a href="#jurisdictions" className="hover:text-white transition-colors">
+                  Delhi High Court
+                </a>
+              </li>
+              <li>
+                <a href="#jurisdictions" className="hover:text-white transition-colors">
                   Punjab &amp; Haryana High Court
                 </a>
               </li>
               <li>
-                <a href="#jurisdictions" className="hover:text-atelier-gold transition-colors">
-                  Haryana District Benches
-                </a>
-              </li>
-              <li>
-                <a href="#jurisdictions" className="hover:text-atelier-gold transition-colors">
-                  Special Economic Tribunals
-                </a>
-              </li>
-              <li>
-                <a href="#location" className="hover:text-atelier-gold transition-colors">
-                  Spatial Access &amp; Maps
+                <a href="#jurisdictions" className="hover:text-white transition-colors">
+                  Special CBI / ED Courts
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* BCI Regulatory Compliance & Mandate */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-[11px] font-bold text-atelier-bone uppercase tracking-loose-editorial border-b border-atelier-sand/20 pb-2">
-              Statutory Governance
+          {/* Chambers Contact & BCI Disclaimer */}
+          <div className="lg:col-span-3 space-y-3 text-xs text-teal-50/80">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-teal-200 pb-1 border-b border-white/10">
+              Chambers Registry
             </h4>
-            <div className="p-4 bg-atelier-slate/30 border border-atelier-sand/20 space-y-2.5 text-xs text-atelier-sand/80">
-              <div className="flex items-center gap-2 text-atelier-gold text-[10.5px] font-bold uppercase tracking-wider">
-                <ShieldAlert className="w-4 h-4" />
-                <span>BCI Rule 36 Compliance</span>
-              </div>
-              <p className="leading-relaxed text-[11.5px]">
-                Pursuant to the Bar Council of India regulations, this platform is maintained exclusively for informational purposes upon independent visitor request.
-              </p>
-              <div className="pt-2 flex flex-col gap-1.5 text-[11px]">
-                <button
-                  onClick={onOpenDisclaimer}
-                  className="text-left text-atelier-gold hover:underline font-semibold cursor-pointer"
-                >
-                  Statutory Disclaimer Document →
-                </button>
-                <button
-                  onClick={onOpenPrivacy}
-                  className="text-left text-atelier-gold hover:underline font-semibold cursor-pointer"
-                >
-                  Attorney-Client Privilege Notice →
-                </button>
-              </div>
+            
+            <div className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 text-teal-300 shrink-0 mt-0.5" />
+              <span>{FIRM_DETAILS.establishedLocation}</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-teal-300 shrink-0" />
+              <a href={`mailto:${FIRM_DETAILS.email}`} className="hover:text-white transition-colors">
+                {FIRM_DETAILS.email}
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-teal-300 shrink-0" />
+              <span>{FIRM_DETAILS.hours}</span>
+            </div>
+
+            <div className="pt-2">
+              <button
+                onClick={onOpenDisclaimer}
+                className="text-[11px] underline text-teal-200 hover:text-white block cursor-pointer"
+              >
+                BCI Rule 36 Statutory Disclaimer
+              </button>
+              <button
+                onClick={onOpenPrivacy}
+                className="text-[11px] underline text-teal-200 hover:text-white block cursor-pointer mt-1"
+              >
+                Sec. 126 Evidence Act Confidentiality Policy
+              </button>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Accessibility */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-atelier-sand/60">
-          <div className="flex flex-wrap items-center gap-4 text-[11px]">
-            <span>© {new Date().getFullYear()} Synergy Chambers. All rights reserved.</span>
-            <span className="hidden sm:inline">•</span>
-            <span>Chamber No. 238, Patiala House Courts, New Delhi</span>
-            <span className="hidden sm:inline">•</span>
-            <span>Advocates Act, 1961 Compliance</span>
+        {/* Bottom Sub-Footer (Matches Screenshot) */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-teal-100/70">
+          <div>
+            © {new Date().getFullYear()} Synergy Chambers (Advocates &amp; Solicitors). All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-atelier-slate/40 hover:bg-atelier-slate/70 border border-atelier-sand/20 text-atelier-bone text-[11px] uppercase tracking-wider transition-colors cursor-pointer"
-              aria-label="Scroll to top of document"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white hover:text-[#05626e] text-white text-[11px] font-semibold transition-all cursor-pointer"
             >
               <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-atelier-gold" />
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

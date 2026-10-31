@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { AboutFirm } from './components/AboutFirm';
-import { WhyUs } from './components/WhyUs';
+import { PracticeOverview } from './components/PracticeOverview';
 import { PracticeAreas } from './components/PracticeAreas';
-import { PracticeModal } from './components/PracticeModal';
+import { AboutFirm } from './components/AboutFirm';
 import { AdvocatesDirectory } from './components/AdvocatesDirectory';
-import { LawyerModal } from './components/LawyerModal';
+import { WhyUs } from './components/WhyUs';
 import { Jurisdictions } from './components/Jurisdictions';
 import { LocationMap } from './components/LocationMap';
+import { Accreditations } from './components/Accreditations';
+import { CaseStudy } from './components/CaseStudy';
+import { CTASection } from './components/CTASection';
 import { ConsultationSection } from './components/ConsultationSection';
 import { Footer } from './components/Footer';
 import { BarCouncilDisclaimer } from './components/BarCouncilDisclaimer';
+import { PracticeModal } from './components/PracticeModal';
+import { LawyerModal } from './components/LawyerModal';
 import { LegalModals } from './components/LegalModals';
 import { 
   PRACTICE_AREAS, 
@@ -74,11 +78,11 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-atelier-bone flex flex-col font-sans text-atelier-black antialiased selection:bg-atelier-gold selection:text-atelier-black">
+    <div className="min-h-screen bg-white flex flex-col font-sans text-slate-900 antialiased selection:bg-[#088395] selection:text-white">
       {/* Statutory Bar Council of India initial acceptance modal */}
       <BarCouncilDisclaimer />
 
-      {/* Main Navigation with GIGW Toolbar */}
+      {/* Main Navigation with Top Bar (Matches Screenshot) */}
       <Navbar 
         onOpenConsultation={handleOpenConsultation}
         onSelectPractice={(id) => setSelectedPracticeId(id)}
@@ -89,39 +93,51 @@ export function App() {
         onToggleHighContrast={() => setIsHighContrast(prev => !prev)}
       />
 
-      {/* Page Sections with GIGW Main Content Target */}
+      {/* Page Content Arranged in Screenshot Order */}
       <main id="main-content" tabIndex={-1} className="flex-grow focus:outline-none">
-        {/* Architectural Hero Section */}
+        
+        {/* 1. Hero with Dark Overlay & Floating Consultation Form Card */}
         <Hero onOpenConsultation={handleOpenConsultation} />
 
-        {/* About Firm & Historic Chambers Narrative */}
+        {/* 2. 8-Card Grid 'Practice Domains We Serve' + Teal Stats Bar */}
+        <PracticeOverview onSelectPractice={(id) => setSelectedPracticeId(id)} />
+
+        {/* 3. 6-Card Services Section */}
+        <PracticeAreas onSelectPractice={(id) => setSelectedPracticeId(id)} />
+
+        {/* 4. Split About Section with Team Collaboration Photo */}
         <AboutFirm />
 
-        {/* Why Synergy Chambers (4 Principles of Advocacy) */}
-        <WhyUs />
-
-        {/* Interactive Master-Detail Practice Explorer */}
-        <PracticeAreas 
-          onSelectPractice={(id) => setSelectedPracticeId(id)} 
-        />
-
-        {/* Unified Advocates & Leadership Directory (Founders, Chandigarh, Haryana) */}
+        {/* 5. 3 Stacked Large Teal Advocate Spotlight Cards + Regional Roster */}
         <AdvocatesDirectory 
           onSelectLawyer={(id) => setSelectedLawyerId(id)}
           onOpenConsultation={handleOpenConsultation}
         />
 
-        {/* Court Jurisdictions & Regular Appearance Matrix */}
+        {/* 6. Tabbed Feature Section: Special Courts, High Court, NCLT, Sessions */}
+        <WhyUs />
+
+        {/* 7. Courts & Appearance Jurisdictions + Tribunals Banner */}
         <Jurisdictions />
 
-        {/* Patiala House Courts Chambers Location & Access Map */}
+        {/* 8. Chamber 238 Patiala House Location & Transit Map */}
         <LocationMap />
 
-        {/* Privileged & Confidential Consultation Intake Portal */}
+        {/* 9. Bar Council & Bar Association Accreditations Shield Badges */}
+        <Accreditations />
+
+        {/* 10. Featured Jurisprudential Analysis / Case Study */}
+        <CaseStudy />
+
+        {/* 11. Bottom Centered CTA Banner with Inline Pill Form */}
+        <CTASection onOpenConsultation={handleOpenConsultation} />
+
+        {/* 12. Full Case Intake Briefing Registry */}
         <ConsultationSection />
+
       </main>
 
-      {/* Firm Footer & Regulatory Compliance Sitemap */}
+      {/* Vibrant Deep Teal Footer */}
       <Footer 
         onOpenConsultation={handleOpenConsultation}
         onOpenDisclaimer={() => setLegalModalType('disclaimer')}
