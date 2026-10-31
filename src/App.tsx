@@ -74,7 +74,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-chalk-50 flex flex-col font-sans text-ink-900 antialiased selection:bg-aurum-500 selection:text-forest-950">
+    <div className="min-h-screen bg-atelier-bone flex flex-col font-sans text-atelier-black antialiased selection:bg-atelier-gold selection:text-atelier-black">
       {/* Statutory Bar Council of India initial acceptance modal */}
       <BarCouncilDisclaimer />
 
