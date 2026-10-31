@@ -41,65 +41,65 @@ export const WhyUs: React.FC = () => {
     <section 
       id="why-us" 
       aria-labelledby="why-us-heading"
-      className="py-20 lg:py-28 bg-[#F4F1EA] border-b border-[#E5E0D8] text-[#1E2530]"
+      className="py-20 lg:py-28 bg-chalk-100 border-b border-chalk-200 text-ink-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#DCD6C8]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-chalk-300">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-px bg-[#B8934E]" aria-hidden="true" />
-              <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#8C6D33]">
+              <span className="w-8 h-px bg-aurum-600" aria-hidden="true" />
+              <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-aurum-700">
                 The Chambers Distinction
               </span>
             </div>
             <h2 
               id="why-us-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#09111E] leading-tight"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-forest-950 leading-tight"
             >
-              Four Pillars of Advocacy
+              Four Principles of Advocacy
             </h2>
           </div>
-          <p className="max-w-md text-sm sm:text-base text-[#5B6778] leading-relaxed">
+          <p className="max-w-md text-sm sm:text-base text-ink-600 leading-relaxed">
             Formidable legal advocacy begins with forensic evidentiary analysis, strategic procedural mastery, and fearless trial presence.
           </p>
         </div>
 
         {/* 4-Pillar Architectural Ledger */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#DCD6C8] border border-[#DCD6C8]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-chalk-300 border border-chalk-300">
           {pillars.map((pillar, idx) => (
             <div 
               key={idx}
-              className="bg-white p-8 sm:p-9 flex flex-col justify-between hover:bg-[#FDFCF9] transition-colors"
+              className="bg-white p-8 sm:p-9 flex flex-col justify-between hover:bg-chalk-50 transition-colors"
             >
               <div>
                 {/* Roman Numeral & Subtitle */}
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#E5E0D8]">
-                  <span className="font-serif text-3xl font-bold text-[#B8934E]">
+                <div className="flex items-center justify-between pb-4 mb-6 border-b border-chalk-200">
+                  <span className="font-serif text-3xl font-bold text-aurum-600">
                     {pillar.numeral}
                   </span>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#8C6D33] bg-[#F5F2EB] px-2 py-0.5 border border-[#E5E0D8]">
-                    Pillar
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-aurum-700 bg-chalk-100 px-2 py-0.5 border border-chalk-200">
+                    Standard
                   </span>
                 </div>
 
-                <span className="text-[10.5px] uppercase font-bold tracking-wider text-[#8C6D33] block mb-1.5">
+                <span className="text-[10.5px] uppercase font-bold tracking-wider text-aurum-700 block mb-1.5">
                   {pillar.subtitle}
                 </span>
 
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#09111E] mb-3 leading-snug">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-forest-950 mb-3 leading-snug">
                   {pillar.title}
                 </h3>
 
-                <p className="text-xs sm:text-[13px] text-[#5B6778] leading-relaxed font-normal">
+                <p className="text-xs sm:text-[13px] text-ink-600 leading-relaxed font-normal">
                   {pillar.desc}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#E5E0D8] text-[11px] text-[#8C6D33] flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#B8934E]" />
-                <span>Chambers Standard</span>
+              <div className="pt-6 mt-6 border-t border-chalk-200 text-[11px] text-aurum-700 flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5 text-aurum-600" />
+                <span>Chambers Benchmark</span>
               </div>
             </div>
           ))}

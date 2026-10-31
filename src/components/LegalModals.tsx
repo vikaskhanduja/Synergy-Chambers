@@ -26,38 +26,38 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#09111E]/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-forest-950/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="legal-modal-title"
     >
       <div 
-        className="bg-white border border-[#DCD6C8] max-w-2xl w-full shadow-2xl relative overflow-hidden"
+        className="bg-white border border-chalk-300 max-w-2xl w-full shadow-2xl relative overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-[#09111E] text-white p-6 sm:p-7 flex items-center justify-between border-b border-[#142135]">
+        <div className="bg-forest-950 text-white p-6 sm:p-7 flex items-center justify-between border-b border-forest-850">
           <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 border border-[#B8934E]/50 bg-[#0C1626] text-[#B8934E] flex items-center justify-center">
+            <div className="w-10 h-10 border border-aurum-500/50 bg-forest-900 text-aurum-400 flex items-center justify-center">
               {type === 'disclaimer' ? <Shield className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
             </div>
             <div>
               <h3 id="legal-modal-title" className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {type === 'disclaimer' ? 'Legal Disclaimer & Statutory Compliance' : 'Client Privilege & Confidentiality Policy'}
               </h3>
-              <p className="text-xs text-[#B8934E] font-medium">Synergy Chambers (Advocates &amp; Solicitors)</p>
+              <p className="text-xs text-aurum-400 font-medium">Synergy Chambers (Advocates &amp; Solicitors)</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 bg-[#0F1C30] hover:bg-[#1A2840] text-[#CBD5E1] hover:text-white transition-colors cursor-pointer"
+            className="p-1.5 bg-forest-900 hover:bg-forest-800 text-ink-300 hover:text-white transition-colors cursor-pointer"
             aria-label="Close statutory dialog"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-[#364152] leading-relaxed max-h-[65vh] overflow-y-auto font-normal">
+        <div className="p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-ink-700 leading-relaxed max-h-[65vh] overflow-y-auto font-normal">
           {type === 'disclaimer' ? (
             <>
               <p>
@@ -91,10 +91,10 @@ export const LegalModals: React.FC<LegalModalsProps> = ({ type, onClose }) => {
           )}
         </div>
 
-        <div className="p-4 sm:p-5 bg-[#F9F7F2] border-t border-[#E5E0D8] flex justify-end">
+        <div className="p-4 sm:p-5 bg-chalk-100 border-t border-chalk-200 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-[#09111E] text-white text-xs font-semibold hover:bg-[#142135] transition-colors cursor-pointer"
+            className="px-5 py-2 bg-forest-950 text-white text-xs font-semibold hover:bg-forest-900 transition-colors cursor-pointer"
           >
             Acknowledge &amp; Close
           </button>

@@ -74,7 +74,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFCF9] flex flex-col font-sans text-[#1E2530] antialiased selection:bg-[#B8934E] selection:text-[#09111E]">
+    <div className="min-h-screen bg-chalk-50 flex flex-col font-sans text-ink-900 antialiased selection:bg-aurum-500 selection:text-forest-950">
       {/* Statutory Bar Council of India initial acceptance modal */}
       <BarCouncilDisclaimer />
 
@@ -97,7 +97,7 @@ export function App() {
         {/* About Firm & Historic Chambers Narrative */}
         <AboutFirm />
 
-        {/* Why Synergy Chambers (4 Chambers Pillars) */}
+        {/* Why Synergy Chambers (4 Principles of Advocacy) */}
         <WhyUs />
 
         {/* Interactive Master-Detail Practice Explorer */}

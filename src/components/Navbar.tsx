@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Eye,
   Type,
-  Phone,
   Clock,
   Landmark,
   FileText
@@ -47,12 +46,14 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Categorize practice areas for the mega-menu
-  const criminalSpecial = PRACTICE_AREAS.filter(p => 
-    ['white-collar-crime', 'ndps-act-defence', 'pocso-act-trials', 'criminal-appeals-writs'].includes(p.id)
+  const criminalStatutes = PRACTICE_AREAS.filter(p => 
+    ['white-collar-crimes', 'criminal-litigation'].includes(p.id)
   );
-  const civilCommercial = PRACTICE_AREAS.filter(p => 
-    ['civil-litigation', 'commercial-arbitration', 'matrimonial-family', 'service-employment', 'customs-pmla-regulatory'].includes(p.id)
+  const commercialCivil = PRACTICE_AREAS.filter(p => 
+    ['civil-litigation', 'arbitration-adr', 'property-disputes', 'corporate-commercial'].includes(p.id)
+  );
+  const administrativeTribunal = PRACTICE_AREAS.filter(p => 
+    ['service-matters', 'matrimonial', 'labour-employment'].includes(p.id)
   );
 
   return (
@@ -63,40 +64,38 @@ export const Navbar: React.FC<NavbarProps> = ({
       </a>
 
       <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
-        {/* Top Institutional Compliance & Accessibility Bar */}
-        <div className="bg-[#09111E] text-[#B8C2CC] text-[11px] py-1.5 border-b border-[#142135] px-4 sm:px-6 lg:px-8 hidden md:block">
+        {/* Top Institutional Compliance & Registry Bar */}
+        <div className="bg-forest-950 text-ink-300 text-[11px] py-1.5 border-b border-forest-850 px-4 sm:px-6 lg:px-8 hidden md:block">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             
-            {/* Left: Court Chambers Seat */}
-            <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1.5 text-[#E6E1D6]">
-                <MapPin className="w-3.5 h-3.5 text-[#B8934E]" aria-hidden="true" />
-                <span className="font-semibold text-white">Chamber 238, Patiala House Courts</span>
-                <span className="text-[#8A95A5]">| New Delhi 110001</span>
+            {/* Left: Official Chambers Seat */}
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1.5 text-chalk-50 font-medium">
+                <MapPin className="w-3.5 h-3.5 text-aurum-400" aria-hidden="true" />
+                <span>Chamber 238, Patiala House Courts</span>
+                <span className="text-ink-500 font-normal">| New Delhi 110001</span>
               </span>
-              <span className="text-[#36475E]">/</span>
-              <span className="text-[#8A95A5]">
-                Regional Benches: <strong className="text-[#D6D0C4] font-medium">Chandigarh • Haryana</strong>
+              <span className="text-forest-750">/</span>
+              <span className="text-ink-400">
+                Regional Division: <strong className="text-chalk-100 font-medium">Chandigarh • Haryana</strong>
               </span>
             </div>
 
-            {/* Right: GIGW Accessibility Controls */}
+            {/* Right: GIGW Accessibility & Court Hours */}
             <div className="flex items-center gap-5">
-              {/* Text Size Switcher */}
+              {/* Text Sizing Controls */}
               <div className="flex items-center gap-1" role="group" aria-label="Text Size Controls">
-                <span className="text-[10px] uppercase tracking-wider text-[#8A95A5] mr-1 flex items-center gap-1">
-                  <Type className="w-3 h-3 text-[#B8934E]" aria-hidden="true" />
-                  <span>Text:</span>
+                <span className="text-[10px] uppercase tracking-wider text-ink-500 mr-1 flex items-center gap-1">
+                  <Type className="w-3 h-3 text-aurum-400" aria-hidden="true" />
+                  <span>Size:</span>
                 </span>
                 <button
                   type="button"
                   onClick={() => onChangeTextSize('sm')}
-                  className={`px-1.5 py-0.5 rounded text-[11px] font-semibold transition-colors cursor-pointer ${
-                    textSize === 'sm' 
-                      ? 'bg-[#B8934E] text-[#09111E] font-bold' 
-                      : 'text-[#B8C2CC] hover:text-white'
+                  className={`px-1.5 py-0.5 text-[11px] font-semibold transition-colors cursor-pointer ${
+                    textSize === 'sm' ? 'bg-aurum-500 text-forest-950 font-bold' : 'text-ink-300 hover:text-white'
                   }`}
-                  aria-label="Small font size"
+                  aria-label="Small text"
                   aria-pressed={textSize === 'sm'}
                 >
                   A-
@@ -104,12 +103,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   type="button"
                   onClick={() => onChangeTextSize('md')}
-                  className={`px-1.5 py-0.5 rounded text-[11px] font-semibold transition-colors cursor-pointer ${
-                    textSize === 'md' 
-                      ? 'bg-[#B8934E] text-[#09111E] font-bold' 
-                      : 'text-[#B8C2CC] hover:text-white'
+                  className={`px-1.5 py-0.5 text-[11px] font-semibold transition-colors cursor-pointer ${
+                    textSize === 'md' ? 'bg-aurum-500 text-forest-950 font-bold' : 'text-ink-300 hover:text-white'
                   }`}
-                  aria-label="Standard font size"
+                  aria-label="Standard text"
                   aria-pressed={textSize === 'md'}
                 >
                   A
@@ -117,75 +114,71 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   type="button"
                   onClick={() => onChangeTextSize('lg')}
-                  className={`px-1.5 py-0.5 rounded text-[11px] font-semibold transition-colors cursor-pointer ${
-                    textSize === 'lg' 
-                      ? 'bg-[#B8934E] text-[#09111E] font-bold' 
-                      : 'text-[#B8C2CC] hover:text-white'
+                  className={`px-1.5 py-0.5 text-[11px] font-semibold transition-colors cursor-pointer ${
+                    textSize === 'lg' ? 'bg-aurum-500 text-forest-950 font-bold' : 'text-ink-300 hover:text-white'
                   }`}
-                  aria-label="Large font size"
+                  aria-label="Large text"
                   aria-pressed={textSize === 'lg'}
                 >
                   A+
                 </button>
               </div>
 
-              <span className="w-px h-3 bg-[#1C2C44]" />
+              <span className="w-px h-3 bg-forest-800" />
 
               {/* High Contrast Toggle */}
               <button
                 type="button"
                 onClick={onToggleHighContrast}
-                className={`flex items-center gap-1 text-[11px] px-2 py-0.5 rounded transition-colors cursor-pointer ${
-                  isHighContrast 
-                    ? 'bg-[#B8934E] text-[#09111E] font-bold' 
-                    : 'text-[#B8C2CC] hover:text-white'
+                className={`flex items-center gap-1 text-[11px] px-2 py-0.5 transition-colors cursor-pointer ${
+                  isHighContrast ? 'bg-aurum-500 text-forest-950 font-bold' : 'text-ink-300 hover:text-white'
                 }`}
-                aria-label="Toggle High Contrast Mode"
+                aria-label="Toggle High Contrast"
                 aria-pressed={isHighContrast}
               >
-                <Eye className="w-3 h-3 text-[#B8934E]" aria-hidden="true" />
+                <Eye className="w-3 h-3 text-aurum-400" aria-hidden="true" />
                 <span>Contrast</span>
               </button>
 
-              <span className="w-px h-3 bg-[#1C2C44]" />
+              <span className="w-px h-3 bg-forest-800" />
 
               {/* Court Hours */}
-              <span className="flex items-center gap-1 text-[10.5px] text-[#8A95A5]">
-                <Clock className="w-3 h-3 text-[#B8934E]" aria-hidden="true" />
-                <span>10:00 AM – 7:00 PM</span>
+              <span className="flex items-center gap-1 text-[10.5px] text-ink-400">
+                <Clock className="w-3 h-3 text-aurum-400" aria-hidden="true" />
+                <span>10:00 AM – 7:00 PM (Court Days)</span>
               </span>
             </div>
 
           </div>
         </div>
 
-        {/* Main Navigation Bar */}
+        {/* Main Editorial Header Bar */}
         <nav 
           role="navigation"
-          aria-label="Main Navigation"
+          aria-label="Primary Navigation"
           className={`transition-all duration-300 border-b ${
             isScrolled 
-              ? 'bg-[#09111E]/95 backdrop-blur-md border-[#142135] shadow-lg py-3' 
-              : 'bg-[#09111E] border-[#142135] py-4'
+              ? 'bg-forest-900/95 backdrop-blur-md border-forest-800 shadow-md py-3.5' 
+              : 'bg-forest-900 border-forest-850 py-4'
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             
-            {/* Chambers Insignia & Brand Name */}
+            {/* Chambers Seal & Wordmark */}
             <a 
               href="#" 
               className="flex items-center gap-3.5 group text-decoration-none"
               aria-label="Synergy Chambers - Home"
             >
-              <div className="w-10 h-10 rounded border border-[#B8934E]/50 bg-[#0F1C30] flex items-center justify-center text-[#B8934E] group-hover:border-[#B8934E] transition-colors shadow-sm">
+              <div className="w-10 h-10 border border-aurum-500/50 bg-forest-950 flex items-center justify-center text-aurum-400 group-hover:border-aurum-400 transition-colors shadow-sm">
                 <Scale className="w-5 h-5 transition-transform duration-300 group-hover:scale-105" aria-hidden="true" />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-[#F3EFE6] transition-colors leading-tight">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-aurum-200 transition-colors leading-tight">
                   SYNERGY CHAMBERS
                 </span>
-                <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#B8934E] font-semibold mt-0.5">
-                  Advocates &amp; Solicitors • New Delhi
+                <span className="text-[9.5px] tracking-[0.24em] uppercase text-aurum-400 font-semibold mt-0.5">
+                  Advocates &amp; Solicitors • Patiala House Courts
                 </span>
               </div>
             </a>
@@ -194,16 +187,16 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="hidden lg:flex items-center gap-8">
               <a 
                 href="#about" 
-                className="text-xs uppercase tracking-widest font-semibold text-[#CBD5E1] hover:text-[#B8934E] transition-colors"
+                className="text-xs uppercase tracking-widest font-semibold text-ink-200 hover:text-aurum-400 transition-colors"
               >
-                The Firm
+                The Chambers
               </a>
 
               <a 
                 href="#why-us" 
-                className="text-xs uppercase tracking-widest font-semibold text-[#CBD5E1] hover:text-[#B8934E] transition-colors"
+                className="text-xs uppercase tracking-widest font-semibold text-ink-200 hover:text-aurum-400 transition-colors"
               >
-                Chambers Pillars
+                Principles
               </a>
 
               {/* Practice Areas Dropdown Trigger */}
@@ -214,39 +207,39 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 <a 
                   href="#practices"
-                  className="flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-[#CBD5E1] hover:text-[#B8934E] transition-colors py-2"
+                  className="flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-ink-200 hover:text-aurum-400 transition-colors py-2"
                   aria-expanded={isPracticesOpen}
                   aria-haspopup="true"
                 >
                   <span>Practice Areas</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isPracticesOpen ? 'rotate-180 text-[#B8934E]' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isPracticesOpen ? 'rotate-180 text-aurum-400' : ''}`} />
                 </a>
 
-                {/* Mega-menu Panel */}
+                {/* Practice Areas Mega Drawer */}
                 {isPracticesOpen && (
-                  <div className="absolute top-full -left-20 w-[640px] bg-[#0C1626] border border-[#1A2840] shadow-2xl p-6 grid grid-cols-2 gap-6 animate-in fade-in slide-in-from-top-2 duration-150 z-50">
+                  <div className="absolute top-full -left-24 w-[720px] bg-forest-950 border border-forest-800 shadow-2xl p-7 grid grid-cols-3 gap-6 animate-in fade-in slide-in-from-top-2 duration-150 z-50">
                     <div>
-                      <div className="flex items-center gap-2 pb-2.5 mb-3 border-b border-[#1A2840]">
-                        <Landmark className="w-3.5 h-3.5 text-[#B8934E]" />
-                        <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#B8934E]">
-                          Criminal &amp; Statutory Defence
+                      <div className="flex items-center gap-2 pb-2 mb-3 border-b border-forest-800 text-aurum-400">
+                        <Landmark className="w-3.5 h-3.5" />
+                        <h4 className="text-[10.5px] font-bold uppercase tracking-wider">
+                          Criminal &amp; Statutory
                         </h4>
                       </div>
-                      <ul className="space-y-2">
-                        {criminalSpecial.map(practice => (
-                          <li key={practice.id}>
+                      <ul className="space-y-2.5">
+                        {criminalStatutes.map(p => (
+                          <li key={p.id}>
                             <button
                               onClick={() => {
-                                onSelectPractice(practice.id);
+                                onSelectPractice(p.id);
                                 setIsPracticesOpen(false);
                               }}
-                              className="text-left w-full group py-1 block cursor-pointer"
+                              className="text-left w-full group block cursor-pointer"
                             >
-                              <span className="text-xs text-[#E2E8F0] group-hover:text-[#B8934E] font-medium transition-colors block">
-                                {practice.title}
+                              <span className="text-xs text-chalk-50 group-hover:text-aurum-400 font-medium transition-colors block">
+                                {p.title}
                               </span>
-                              <span className="text-[11px] text-[#8A95A5] group-hover:text-[#CBD5E1] transition-colors block line-clamp-1">
-                                {practice.subtitle}
+                              <span className="text-[11px] text-ink-500 group-hover:text-ink-300 transition-colors block line-clamp-1">
+                                {p.subtitle}
                               </span>
                             </button>
                           </li>
@@ -255,27 +248,27 @@ export const Navbar: React.FC<NavbarProps> = ({
                     </div>
 
                     <div>
-                      <div className="flex items-center gap-2 pb-2.5 mb-3 border-b border-[#1A2840]">
-                        <FileText className="w-3.5 h-3.5 text-[#B8934E]" />
-                        <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#B8934E]">
-                          Civil, Commercial &amp; Writs
+                      <div className="flex items-center gap-2 pb-2 mb-3 border-b border-forest-800 text-aurum-400">
+                        <Scale className="w-3.5 h-3.5" />
+                        <h4 className="text-[10.5px] font-bold uppercase tracking-wider">
+                          Commercial &amp; ADR
                         </h4>
                       </div>
-                      <ul className="space-y-2">
-                        {civilCommercial.map(practice => (
-                          <li key={practice.id}>
+                      <ul className="space-y-2.5">
+                        {commercialCivil.map(p => (
+                          <li key={p.id}>
                             <button
                               onClick={() => {
-                                onSelectPractice(practice.id);
+                                onSelectPractice(p.id);
                                 setIsPracticesOpen(false);
                               }}
-                              className="text-left w-full group py-1 block cursor-pointer"
+                              className="text-left w-full group block cursor-pointer"
                             >
-                              <span className="text-xs text-[#E2E8F0] group-hover:text-[#B8934E] font-medium transition-colors block">
-                                {practice.title}
+                              <span className="text-xs text-chalk-50 group-hover:text-aurum-400 font-medium transition-colors block">
+                                {p.title}
                               </span>
-                              <span className="text-[11px] text-[#8A95A5] group-hover:text-[#CBD5E1] transition-colors block line-clamp-1">
-                                {practice.subtitle}
+                              <span className="text-[11px] text-ink-500 group-hover:text-ink-300 transition-colors block line-clamp-1">
+                                {p.subtitle}
                               </span>
                             </button>
                           </li>
@@ -283,14 +276,43 @@ export const Navbar: React.FC<NavbarProps> = ({
                       </ul>
                     </div>
 
-                    <div className="col-span-2 pt-3 border-t border-[#1A2840] flex items-center justify-between text-[11px] text-[#8A95A5]">
-                      <span>Trial preparation, bail hearings &amp; appellate briefs</span>
+                    <div>
+                      <div className="flex items-center gap-2 pb-2 mb-3 border-b border-forest-800 text-aurum-400">
+                        <FileText className="w-3.5 h-3.5" />
+                        <h4 className="text-[10.5px] font-bold uppercase tracking-wider">
+                          Tribunals &amp; Family
+                        </h4>
+                      </div>
+                      <ul className="space-y-2.5">
+                        {administrativeTribunal.map(p => (
+                          <li key={p.id}>
+                            <button
+                              onClick={() => {
+                                onSelectPractice(p.id);
+                                setIsPracticesOpen(false);
+                              }}
+                              className="text-left w-full group block cursor-pointer"
+                            >
+                              <span className="text-xs text-chalk-50 group-hover:text-aurum-400 font-medium transition-colors block">
+                                {p.title}
+                              </span>
+                              <span className="text-[11px] text-ink-500 group-hover:text-ink-300 transition-colors block line-clamp-1">
+                                {p.subtitle}
+                              </span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="col-span-3 pt-3 border-t border-forest-800 flex items-center justify-between text-[11px] text-ink-400">
+                      <span>Full trial preparation, anticipatory bail &amp; appellate review</span>
                       <a 
                         href="#practices" 
                         onClick={() => setIsPracticesOpen(false)}
-                        className="text-[#B8934E] hover:text-white font-semibold flex items-center gap-1 transition-colors"
+                        className="text-aurum-400 hover:text-white font-semibold flex items-center gap-1 transition-colors"
                       >
-                        <span>Full Practice Index</span>
+                        <span>View Practice Registry</span>
                         <ArrowRight className="w-3 h-3" />
                       </a>
                     </div>
@@ -300,23 +322,23 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <a 
                 href="#advocates" 
-                className="text-xs uppercase tracking-widest font-semibold text-[#CBD5E1] hover:text-[#B8934E] transition-colors"
+                className="text-xs uppercase tracking-widest font-semibold text-ink-200 hover:text-aurum-400 transition-colors"
               >
                 Advocates &amp; Counsel
               </a>
 
               <a 
                 href="#jurisdictions" 
-                className="text-xs uppercase tracking-widest font-semibold text-[#CBD5E1] hover:text-[#B8934E] transition-colors"
+                className="text-xs uppercase tracking-widest font-semibold text-ink-200 hover:text-aurum-400 transition-colors"
               >
-                Jurisdictions
+                Courts
               </a>
 
               <a 
                 href="#location" 
-                className="text-xs uppercase tracking-widest font-semibold text-[#CBD5E1] hover:text-[#B8934E] transition-colors"
+                className="text-xs uppercase tracking-widest font-semibold text-ink-200 hover:text-aurum-400 transition-colors"
               >
-                Patiala House Seat
+                Chamber 238
               </a>
             </div>
 
@@ -325,7 +347,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded border border-[#B8934E] text-[#B8934E] hover:bg-[#B8934E] hover:text-[#09111E] font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-sm group"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-aurum-500 text-aurum-400 hover:bg-aurum-500 hover:text-forest-950 font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-sm group"
               >
                 <span>Privileged Docket</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -337,7 +359,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded border border-[#1A2840] text-[#CBD5E1] hover:text-white hover:border-[#B8934E] transition-colors"
+                className="p-2 border border-forest-800 text-ink-200 hover:text-white hover:border-aurum-500 transition-colors"
                 aria-label="Toggle navigation menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -350,93 +372,93 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-[#09111E] border-b border-[#142135] px-5 py-6 space-y-5 animate-in slide-in-from-top-4 duration-200">
-            {/* Mobile Accessibility Strip */}
-            <div className="flex items-center justify-between pb-4 border-b border-[#142135] text-xs">
-              <span className="text-[#8A95A5]">Accessibility:</span>
+          <div className="lg:hidden bg-forest-950 border-b border-forest-850 px-5 py-6 space-y-5 animate-in slide-in-from-top-4 duration-200">
+            {/* Mobile Accessibility Controls */}
+            <div className="flex items-center justify-between pb-4 border-b border-forest-850 text-xs">
+              <span className="text-ink-400">Accessibility:</span>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => onChangeTextSize('sm')}
-                  className={`px-2 py-1 text-xs rounded border ${textSize === 'sm' ? 'bg-[#B8934E] text-[#09111E] font-bold border-[#B8934E]' : 'border-[#1C2C44] text-[#CBD5E1]'}`}
+                  className={`px-2 py-1 text-xs border ${textSize === 'sm' ? 'bg-aurum-500 text-forest-950 font-bold border-aurum-500' : 'border-forest-800 text-ink-200'}`}
                 >
                   A-
                 </button>
                 <button
                   onClick={() => onChangeTextSize('md')}
-                  className={`px-2 py-1 text-xs rounded border ${textSize === 'md' ? 'bg-[#B8934E] text-[#09111E] font-bold border-[#B8934E]' : 'border-[#1C2C44] text-[#CBD5E1]'}`}
+                  className={`px-2 py-1 text-xs border ${textSize === 'md' ? 'bg-aurum-500 text-forest-950 font-bold border-aurum-500' : 'border-forest-800 text-ink-200'}`}
                 >
                   A
                 </button>
                 <button
                   onClick={() => onChangeTextSize('lg')}
-                  className={`px-2 py-1 text-xs rounded border ${textSize === 'lg' ? 'bg-[#B8934E] text-[#09111E] font-bold border-[#B8934E]' : 'border-[#1C2C44] text-[#CBD5E1]'}`}
+                  className={`px-2 py-1 text-xs border ${textSize === 'lg' ? 'bg-aurum-500 text-forest-950 font-bold border-aurum-500' : 'border-forest-800 text-ink-200'}`}
                 >
                   A+
                 </button>
                 <button
                   onClick={onToggleHighContrast}
-                  className={`px-2.5 py-1 text-xs rounded border ml-1 ${isHighContrast ? 'bg-[#B8934E] text-[#09111E] font-bold border-[#B8934E]' : 'border-[#1C2C44] text-[#CBD5E1]'}`}
+                  className={`px-2.5 py-1 text-xs border ml-1 ${isHighContrast ? 'bg-aurum-500 text-forest-950 font-bold border-aurum-500' : 'border-forest-800 text-ink-200'}`}
                 >
                   Contrast
                 </button>
               </div>
             </div>
 
-            {/* Mobile Links List */}
+            {/* Mobile Links */}
             <div className="space-y-3 text-sm">
               <a
                 href="#about"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-[#CBD5E1] hover:text-[#B8934E] font-medium py-1 transition-colors"
+                className="block text-ink-200 hover:text-aurum-400 font-medium py-1 transition-colors"
               >
-                The Firm &amp; Patiala House Chambers
+                The Chambers &amp; Patiala House Seat
               </a>
               <a
                 href="#why-us"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-[#CBD5E1] hover:text-[#B8934E] font-medium py-1 transition-colors"
+                className="block text-ink-200 hover:text-aurum-400 font-medium py-1 transition-colors"
               >
-                Chambers Pillars &amp; Standards
+                Principles of Advocacy
               </a>
               <a
                 href="#practices"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-[#CBD5E1] hover:text-[#B8934E] font-medium py-1 transition-colors"
+                className="block text-ink-200 hover:text-aurum-400 font-medium py-1 transition-colors"
               >
                 Practice Domains &amp; Special Statutes
               </a>
               <a
                 href="#advocates"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-[#CBD5E1] hover:text-[#B8934E] font-medium py-1 transition-colors"
+                className="block text-ink-200 hover:text-aurum-400 font-medium py-1 transition-colors"
               >
-                Advocates &amp; Leadership Directory
+                Advocates &amp; Counsel Roster
               </a>
               <a
                 href="#jurisdictions"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-[#CBD5E1] hover:text-[#B8934E] font-medium py-1 transition-colors"
+                className="block text-ink-200 hover:text-aurum-400 font-medium py-1 transition-colors"
               >
                 Courts &amp; Judicial Jurisdictions
               </a>
               <a
                 href="#location"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-[#CBD5E1] hover:text-[#B8934E] font-medium py-1 transition-colors"
+                className="block text-ink-200 hover:text-aurum-400 font-medium py-1 transition-colors"
               >
                 Chamber 238 Location &amp; Access
               </a>
             </div>
 
-            {/* Mobile Contact Action */}
-            <div className="pt-3 border-t border-[#142135]">
+            {/* Mobile CTA */}
+            <div className="pt-3 border-t border-forest-850">
               <button
                 type="button"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full py-3 rounded bg-[#B8934E] text-[#09111E] font-bold text-xs uppercase tracking-wider text-center cursor-pointer"
+                className="w-full py-3 bg-aurum-500 text-forest-950 font-bold text-xs uppercase tracking-wider text-center cursor-pointer"
               >
                 Submit Privileged Docket Brief
               </button>
